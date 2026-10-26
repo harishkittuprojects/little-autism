@@ -21,7 +21,7 @@ export default function Footer({ onOpenInquiry }) {
               <BrandLogo showLocation={false} />
             </Link>
             <div className="text-xs text-gray-700 space-y-1 pt-1">
-              <p className="font-semibold text-gray-900">Little Plant Autism Educational Academy</p>
+              <p className="font-semibold text-gray-900">Little Plant Autism Residential Home</p>
               <p className="flex items-center gap-1.5 text-gray-500">
                 <MapPin className="w-3.5 h-3.5 text-brand-600 shrink-0" />
                 <span>Jinnaram, Telangana, India</span>

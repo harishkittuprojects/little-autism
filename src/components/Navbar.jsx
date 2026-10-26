@@ -69,7 +69,7 @@ export default function Navbar({ onOpenInquiry }) {
           <Link
             to="/"
             className="focus:outline-none focus:ring-2 focus:ring-brand-400 rounded-lg p-0.5"
-            aria-label="Little Plant Special Children Care Trust"
+            aria-label="Little Plant Autism Residential Home"
           >
             <BrandLogo />
           </Link>

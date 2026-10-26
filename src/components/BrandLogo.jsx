@@ -20,8 +20,8 @@ export default function BrandLogo({ className = "", showLocation = false, iconOn
             </span>
             <span className="inline-block w-2 h-2 rounded-full bg-brand-500 mb-1.5 shrink-0"></span>
           </div>
-          <span className="text-[9.5px] sm:text-[11px] font-medium text-gray-500 tracking-tight leading-tight mt-0.5 truncate max-w-[190px] xs:max-w-[230px] sm:max-w-none">
-            Little Plant Special Children Care Trust
+          <span className="text-[9.5px] sm:text-[11px] font-semibold text-brand-800 tracking-tight leading-tight mt-0.5 truncate max-w-[210px] xs:max-w-[260px] sm:max-w-none">
+            Little Plant Autism Residential Home
           </span>
           {showLocation && (
             <span className="text-[9px] text-gray-500 flex items-center gap-1 mt-0.5">
