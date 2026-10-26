@@ -17,14 +17,11 @@ export default function CampusProgressCard() {
             </div>
             <div>
               <h3 className="font-display font-bold text-lg sm:text-xl text-gray-900 leading-snug">
-                Building a Home for Hope, Learning,<br className="hidden sm:inline" /> Care & Independence
+                A Home for Hope, Learning,<br className="hidden sm:inline" /> Care & Independence
               </h3>
-              <p className="text-xs sm:text-sm text-gray-700 flex items-center gap-1.5 mt-1 font-medium">
+              <p className="text-xs sm:text-sm text-gray-600 flex items-center gap-1.5 mt-1 font-medium">
                 <MapPin className="w-3.5 h-3.5 text-brand-600" />
-                <span>Jinnaram, Telangana, India</span>
-              </p>
-              <p className="text-[11px] text-brand-800 font-semibold mt-1">
-                Bhoomi Puja performed: 22 August 2026 • Construction in progress
+                <span>Jinnaram, Telangana</span>
               </p>
             </div>
           </div>
@@ -37,26 +34,22 @@ export default function CampusProgressCard() {
             <div className="flex items-center justify-between text-xs sm:text-sm font-semibold text-gray-800">
               <span className="flex items-center gap-1.5">
                 <Sprout className="w-4 h-4 text-brand-600" />
-                <span>Campus Construction in Progress</span>
+                <span>Campus construction in progress</span>
               </span>
-              <span className="text-xs text-brand-700 font-bold">Phase 1</span>
             </div>
 
             {/* Progress Bar */}
             <div className="w-full h-3 rounded-full bg-[#d6e6d3] overflow-hidden p-0.5">
               <div
                 className="h-full rounded-full bg-brand-600 transition-all duration-1000 ease-out"
-                style={{ width: '70%' }}
+                style={{ width: '68%' }}
               />
             </div>
 
-            <div className="flex items-center justify-between text-xs text-gray-500 font-medium">
-              <span className="flex items-center gap-1">
+            <div className="flex items-center text-xs text-gray-600 font-medium">
+              <span className="flex items-center gap-1.5">
                 <Calendar className="w-3.5 h-3.5 text-brand-600" />
                 <span>Target completion: 31 May 2027</span>
-              </span>
-              <span className="text-brand-800 text-[11px] font-semibold">
-                Hostel: June 2027
               </span>
             </div>
           </div>

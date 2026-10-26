@@ -45,7 +45,7 @@ export default function CTASection({ onOpenInquiry }) {
               className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 sm:px-7 py-3 bg-brand-600 hover:bg-brand-700 text-white font-semibold rounded-full shadow-xs hover:shadow-soft transition-all duration-200 text-xs sm:text-sm"
             >
               <Sprout className="w-4 h-4 text-brand-200" />
-              <span>Donate to the Campus / Inquire</span>
+              <span>Donate to the Campus</span>
             </button>
           </div>
 

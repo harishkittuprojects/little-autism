@@ -55,19 +55,19 @@ export default function HeroSection({ onOpenInquiry }) {
             <div className="relative mx-auto max-w-md lg:max-w-none">
               
               {/* Floating Decorative Green Leaves matching reference */}
-              <div className="absolute -left-6 top-1/2 -translate-y-1/2 z-10 pointer-events-none hidden sm:block">
-                <svg width="48" height="64" viewBox="0 0 48 64" fill="none" className="text-brand-400 opacity-80 animate-pulse">
-                  <path d="M12 40 C 4 28, 14 10, 32 8 C 30 24, 22 36, 12 40 Z" fill="#7fa86b" />
-                  <path d="M22 56 C 14 46, 24 32, 42 30 C 38 44, 32 54, 22 56 Z" fill="#557b42" />
+              <div className="absolute -left-7 bottom-6 z-10 pointer-events-none hidden sm:block">
+                <svg width="48" height="56" viewBox="0 0 48 56" fill="none" className="opacity-90">
+                  <path d="M10 36 C 4 24, 14 8, 32 6 C 30 22, 20 34, 10 36 Z" fill="#7fa86b" />
+                  <path d="M18 50 C 12 40, 22 28, 40 26 C 36 38, 28 48, 18 50 Z" fill="#557b42" />
                 </svg>
               </div>
 
-              {/* The Curved Arch Frame from Reference UI */}
-              <div className="relative overflow-hidden rounded-t-[120px] sm:rounded-t-[180px] rounded-br-2xl rounded-bl-[120px] sm:rounded-bl-[180px] shadow-soft border-4 border-white bg-brand-50">
+              {/* The Semicircle Dome Arch Frame from Reference UI */}
+              <div className="relative overflow-hidden rounded-t-[190px] sm:rounded-t-[240px] rounded-b-sm shadow-soft bg-brand-50">
                 <img
                   src="/images/reference-hero.jpg"
                   alt="Caring teacher smiling warmly while helping a young student plant a green sapling in a pot"
-                  className="w-full h-[280px] sm:h-[360px] lg:h-[430px] object-cover transform hover:scale-105 transition-transform duration-700"
+                  className="w-full h-[320px] sm:h-[400px] lg:h-[440px] object-cover transform hover:scale-102 transition-transform duration-700"
                   loading="eager"
                 />
               </div>

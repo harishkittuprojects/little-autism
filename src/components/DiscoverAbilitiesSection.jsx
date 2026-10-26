@@ -89,78 +89,19 @@ export default function DiscoverAbilitiesSection({ onOpenInquiry }) {
               key={card.id}
               data-aos="fade-up"
               data-aos-delay={`${idx * 80}`}
-              className="group bg-[#f7faf6] hover:bg-white rounded-2xl p-6 sm:p-7 border border-brand-200/70 hover:border-brand-400 text-center transition-all duration-300 hover:shadow-soft hover:-translate-y-1 flex flex-col justify-between"
+              className="group bg-[#eff5eb] hover:bg-white rounded-2xl p-6 sm:p-7 border border-[#dce7da] hover:border-brand-400 text-center transition-all duration-300 hover:shadow-soft hover:-translate-y-1 flex flex-col justify-start"
             >
               <div>
                 {card.icon}
-                <h3 className="font-display font-bold text-base sm:text-lg text-gray-900 mb-2">
+                <h3 className="font-display font-bold text-base sm:text-lg text-gray-900 mb-2 leading-snug">
                   {card.title}
                 </h3>
                 <p className="text-xs sm:text-sm text-gray-600 leading-relaxed">
                   {card.desc}
                 </p>
               </div>
-
-              <div className="mt-5 pt-3">
-                <Link
-                  to={`/services#${card.id}`}
-                  className="inline-flex items-center gap-1.5 text-xs font-semibold text-brand-700 hover:text-brand-900 group-hover:underline"
-                >
-                  <span>Learn more</span>
-                  <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" />
-                </Link>
-              </div>
             </div>
           ))}
-        </div>
-
-        {/* Expandable Section for Remaining 4 Services */}
-        {showAllServices && (
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mt-6 animate-in fade-in duration-300">
-            {additionalCards.map((service, idx) => (
-              <div
-                key={service.id}
-                className="group bg-[#f7faf6] hover:bg-white rounded-2xl p-6 sm:p-7 border border-brand-200/70 hover:border-brand-400 text-center transition-all duration-300 hover:shadow-soft hover:-translate-y-1 flex flex-col justify-between"
-              >
-                <div>
-                  <div className="w-14 h-14 rounded-full border border-brand-300 text-brand-700 flex items-center justify-center mx-auto mb-4 group-hover:bg-brand-50 group-hover:scale-105 transition-all">
-                    {service.id === 'hostel-facilities' && <Home className="w-6 h-6" />}
-                    {service.id === 'physical-activities' && <Activity className="w-6 h-6" />}
-                    {service.id === 'music-therapy' && <Music className="w-6 h-6" />}
-                    {service.id === 'behaviour-therapy' && <Sparkles className="w-6 h-6" />}
-                  </div>
-                  <h3 className="font-display font-bold text-base sm:text-lg text-gray-900 mb-2">
-                    {service.name}
-                  </h3>
-                  <p className="text-xs sm:text-sm text-gray-600 leading-relaxed">
-                    {service.shortDescription}
-                  </p>
-                </div>
-
-                <div className="mt-5 pt-3">
-                  <Link
-                    to={`/services#${service.id}`}
-                    className="inline-flex items-center gap-1.5 text-xs font-semibold text-brand-700 hover:text-brand-900 group-hover:underline"
-                  >
-                    <span>Learn more</span>
-                    <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" />
-                  </Link>
-                </div>
-              </div>
-            ))}
-          </div>
-        )}
-
-        {/* Toggle / View All Button */}
-        <div className="mt-8 text-center">
-          <button
-            type="button"
-            onClick={() => setShowAllServices(!showAllServices)}
-            className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-white hover:bg-brand-50 text-brand-800 text-xs sm:text-sm font-semibold border border-brand-300 shadow-2xs hover:border-brand-500 transition"
-          >
-            <span>{showAllServices ? 'Show Less Programs' : 'View All 8 Core Programs (Hostel, Music & Sports)'}</span>
-            <ArrowRight className={`w-3.5 h-3.5 transform transition-transform ${showAllServices ? '-rotate-90' : 'rotate-90'}`} />
-          </button>
         </div>
 
       </div>

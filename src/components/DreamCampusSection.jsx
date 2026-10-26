@@ -18,16 +18,13 @@ export default function DreamCampusSection({ onOpenInquiry }) {
           
           {/* Left Column: Landscape Campus Courtyard Photo */}
           <div className="lg:col-span-6" data-aos="fade-right">
-            <div className="relative rounded-2xl sm:rounded-3xl overflow-hidden shadow-soft border-4 border-white bg-brand-50">
+            <div className="relative rounded-2xl overflow-hidden shadow-soft border border-brand-100 bg-brand-50">
               <img
                 src="/images/dream-campus.jpg"
-                alt="Our Dream Campus - landscaped green courtyard with single-story modern residential home and walkways"
-                className="w-full h-[280px] sm:h-[360px] lg:h-[390px] object-cover hover:scale-105 transition-transform duration-700"
+                alt="Our Dream Campus - landscaped green courtyard with modern residential home and walkways"
+                className="w-full h-[280px] sm:h-[350px] lg:h-[380px] object-cover hover:scale-103 transition-transform duration-700"
                 loading="lazy"
               />
-              <div className="absolute top-4 left-4 bg-white/95 backdrop-blur-md px-3.5 py-1 rounded-full text-xs font-bold text-brand-700 shadow-2xs border border-brand-200">
-                🌱 Jinnaram Campus, Telangana
-              </div>
             </div>
           </div>
 
@@ -43,32 +40,20 @@ export default function DreamCampusSection({ onOpenInquiry }) {
             </p>
 
             {/* 4 Feature Micro-Indicators matching reference UI */}
-            <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 pt-2">
+            <div className="grid grid-cols-4 gap-2 sm:gap-4 pt-3">
               {campusFeatures.map((feat, idx) => {
                 const Icon = feat.icon;
                 return (
-                  <div key={idx} className="text-center space-y-2 p-2 rounded-xl hover:bg-brand-50/50 transition">
-                    <div className="w-12 h-12 rounded-xl border border-brand-300 text-brand-700 flex items-center justify-center mx-auto shadow-2xs bg-white">
-                      <Icon className="w-5 h-5" strokeWidth={1.7} />
+                  <div key={idx} className="text-center space-y-2">
+                    <div className="w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center mx-auto text-brand-700">
+                      <Icon className="w-6 h-6 sm:w-7 sm:h-7" strokeWidth={1.7} />
                     </div>
-                    <span className="text-xs font-bold text-gray-800 block leading-tight">
+                    <span className="text-xs font-semibold text-gray-800 block leading-tight">
                       {feat.title}
                     </span>
                   </div>
                 );
               })}
-            </div>
-
-            {/* Actions */}
-            <div className="pt-2 flex flex-wrap items-center gap-3">
-              <button
-                type="button"
-                onClick={() => onOpenInquiry && onOpenInquiry("Campus Tour / Residential Inquiry")}
-                className="inline-flex items-center gap-2 px-6 py-2.5 bg-brand-600 hover:bg-brand-700 text-white font-semibold rounded-full text-sm shadow-xs transition"
-              >
-                <span>Schedule a Campus Walkthrough</span>
-                <ArrowRight className="w-4 h-4" />
-              </button>
             </div>
 
           </div>

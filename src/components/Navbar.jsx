@@ -23,15 +23,19 @@ export default function Navbar({ onOpenInquiry }) {
   const navLinks = [
     { name: 'Home', path: '/' },
     { name: 'Categories', path: '/categories' },
+    { name: 'About Us', path: '/#about', isHash: true },
     { name: 'Our Services', path: '/services' },
-    { name: 'Children We Support', path: '/#children-we-support', isHash: true },
     { name: 'Our Campus', path: '/#campus', isHash: true },
-    { name: 'Donate & CSR', path: '/#donate-csr', isHash: true },
-    { name: 'Portal Login', path: '/login' },
+    { name: 'Donate', isAction: true, action: 'Campus Donation / CSR' },
+    { name: 'Contact', isAction: true, action: 'Contact & Campus Enquiry' },
   ];
 
-  const handleLinkClick = (isHash, path) => {
+  const handleLinkClick = (isHash, path, isAction, action) => {
     setMobileMenuOpen(false);
+    if (isAction) {
+      if (onOpenInquiry) onOpenInquiry(action);
+      return;
+    }
     if (isHash) {
       if (location.pathname !== '/') {
         window.location.href = path;
@@ -55,30 +59,42 @@ export default function Navbar({ onOpenInquiry }) {
       className={`sticky top-0 z-50 w-full transition-all duration-200 bg-white ${
         isScrolled
           ? 'shadow-xs border-b border-brand-200/90 py-2 sm:py-2.5'
-          : 'border-b border-brand-100 py-2.5 sm:py-3'
+          : 'border-b border-brand-100 py-2.5 sm:py-3.5'
       }`}
     >
-      <div className="max-w-7xl mx-auto px-3.5 sm:px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between">
           
           {/* Logo on Left */}
           <Link
             to="/"
             className="focus:outline-none focus:ring-2 focus:ring-brand-400 rounded-lg p-0.5"
-            aria-label="Little Plant Autism Educational Academy"
+            aria-label="Little Plant Special Children Care Trust"
           >
             <BrandLogo />
           </Link>
 
-          {/* Desktop Navigation Links */}
-          <nav className="hidden lg:flex items-center space-x-0.5 xl:space-x-1">
+          {/* Desktop Navigation Links matching Reference UI */}
+          <nav className="hidden lg:flex items-center space-x-1 xl:space-x-2">
             {navLinks.map((link) => {
+              if (link.isAction) {
+                return (
+                  <button
+                    key={link.name}
+                    onClick={() => handleLinkClick(false, '', true, link.action)}
+                    className="px-2.5 xl:px-3 py-1.5 text-xs xl:text-[13px] font-medium text-gray-700 hover:text-brand-700 transition whitespace-nowrap"
+                  >
+                    {link.name}
+                  </button>
+                );
+              }
+
               if (link.isHash) {
                 return (
                   <button
                     key={link.name}
                     onClick={() => handleLinkClick(true, link.path)}
-                    className="px-2 xl:px-3 py-1.5 text-xs xl:text-[13px] font-medium text-gray-700 hover:text-brand-700 transition whitespace-nowrap"
+                    className="px-2.5 xl:px-3 py-1.5 text-xs xl:text-[13px] font-medium text-gray-700 hover:text-brand-700 transition whitespace-nowrap"
                   >
                     {link.name}
                   </button>
@@ -90,9 +106,9 @@ export default function Navbar({ onOpenInquiry }) {
                   key={link.name}
                   to={link.path}
                   className={({ isActive }) =>
-                    `px-2 xl:px-3 py-1.5 text-xs xl:text-[13px] font-medium transition relative whitespace-nowrap ${
+                    `px-2.5 xl:px-3 py-1.5 text-xs xl:text-[13px] font-medium transition relative whitespace-nowrap ${
                       isActive && !location.hash
-                        ? 'text-gray-950 font-bold after:content-[""] after:block after:w-4 after:h-0.5 after:bg-brand-600 after:rounded-full after:mx-auto after:mt-0.5'
+                        ? 'text-gray-950 font-bold after:content-[""] after:block after:w-5 after:h-0.5 after:bg-brand-600 after:rounded-full after:mx-auto after:mt-0.5'
                         : 'text-gray-700 hover:text-brand-700'
                     }`
                   }
@@ -103,25 +119,15 @@ export default function Navbar({ onOpenInquiry }) {
             })}
           </nav>
 
-          {/* Right Action Buttons */}
-          <div className="flex items-center space-x-2 sm:space-x-2.5">
+          {/* Right Action Button matching Reference UI */}
+          <div className="flex items-center space-x-2 sm:space-x-3">
             
-            {/* Donate pill button (Visible on mobile & desktop matching reference) */}
-            <button
-              onClick={() => onOpenInquiry("CSR Partnership / Campus Donation")}
-              className="px-3 sm:px-4 py-1.5 text-xs font-semibold text-brand-800 bg-[#edf5ec] hover:bg-[#e2efe1] border border-brand-200 rounded-full transition shadow-2xs flex items-center gap-1.5 whitespace-nowrap"
-              aria-label="Donate to Little Plant Academy"
-            >
-              <Building2 className="w-3.5 h-3.5 text-brand-600 shrink-0" />
-              <span>Donate</span>
-            </button>
-
-            {/* Support Our Mission button (Desktop xl+ only to prevent crowding) */}
+            {/* Support Our Mission Button */}
             <button
               onClick={() => onOpenInquiry("General Support & Inquiries")}
-              className="hidden xl:inline-flex items-center gap-1.5 px-3.5 py-1.5 xl:px-4 xl:py-2 bg-brand-600 hover:bg-brand-700 text-white text-xs font-semibold rounded-full shadow-xs hover:shadow-soft transition-all duration-200 transform active:scale-95 whitespace-nowrap"
+              className="inline-flex items-center gap-1.5 sm:gap-2 px-3.5 sm:px-5 py-2 sm:py-2.5 bg-brand-600 hover:bg-brand-700 text-white text-xs sm:text-[13px] font-semibold rounded-full shadow-xs hover:shadow-soft transition-all duration-200 transform active:scale-95 whitespace-nowrap"
             >
-              <Sprout className="w-3.5 h-3.5 text-brand-200" />
+              <Sprout className="w-3.5 sm:w-4 h-3.5 sm:h-4 text-brand-200" />
               <span>Support Our Mission</span>
             </button>
 
@@ -148,7 +154,9 @@ export default function Navbar({ onOpenInquiry }) {
                 key={link.name}
                 onClick={() => {
                   setMobileMenuOpen(false);
-                  if (link.isHash) {
+                  if (link.isAction) {
+                    handleLinkClick(false, '', true, link.action);
+                  } else if (link.isHash) {
                     handleLinkClick(true, link.path);
                   } else {
                     window.location.href = link.path;

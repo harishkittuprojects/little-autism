@@ -15,14 +15,18 @@ export default function Footer({ onOpenInquiry }) {
         {/* Main 3-Column Footer Grid matching reference UI */}
         <div className="grid grid-cols-1 md:grid-cols-12 gap-8 pb-10 border-b border-brand-100">
           
-          {/* Col 1: Logo & Address */}
-          <div className="md:col-span-5 space-y-4">
+          {/* Col 1: Logo & Address matching reference UI */}
+          <div className="md:col-span-5 space-y-3">
             <Link to="/" onClick={scrollToTop}>
-              <BrandLogo showLocation={true} />
+              <BrandLogo showLocation={false} />
             </Link>
-            <p className="text-xs text-gray-500 leading-relaxed max-w-sm">
-              Providing personalized education, communication, therapy, life skills and independence support for children with autism and developmental needs.
-            </p>
+            <div className="text-xs text-gray-700 space-y-1 pt-1">
+              <p className="font-semibold text-gray-900">Little Plant Autism Educational Academy</p>
+              <p className="flex items-center gap-1.5 text-gray-500">
+                <MapPin className="w-3.5 h-3.5 text-brand-600 shrink-0" />
+                <span>Jinnaram, Telangana, India</span>
+              </p>
+            </div>
           </div>
 
           {/* Col 2: Quick Links */}
@@ -57,9 +61,20 @@ export default function Footer({ onOpenInquiry }) {
                 </a>
               </li>
               <li>
-                <Link to="/login" onClick={scrollToTop} className="hover:text-brand-700 transition">
-                  Portal Login
-                </Link>
+                <button
+                  onClick={() => onOpenInquiry && onOpenInquiry("Campus Donation / CSR Support")}
+                  className="hover:text-brand-700 transition text-left"
+                >
+                  Donate
+                </button>
+              </li>
+              <li>
+                <button
+                  onClick={() => onOpenInquiry && onOpenInquiry("General Enquiry & Contact")}
+                  className="hover:text-brand-700 transition text-left"
+                >
+                  Contact
+                </button>
               </li>
             </ul>
           </div>
@@ -86,25 +101,17 @@ export default function Footer({ onOpenInquiry }) {
                   </button>.
                 </span>
               </p>
-              <p className="flex items-center gap-2 pt-1 text-gray-500">
-                <Phone className="w-3.5 h-3.5 text-brand-600" />
-                <span>Admissions Helpline: +1 (800) 555-PLANT</span>
-              </p>
             </div>
           </div>
 
         </div>
 
         {/* Bottom Tagline with Leaf Icons matching reference UI */}
-        <div className="pt-6 flex flex-col sm:flex-row items-center justify-between gap-3 text-[11px] text-gray-500 text-center sm:text-left">
-          <div className="flex items-center justify-center gap-2 text-brand-800 font-medium mx-auto sm:mx-0">
+        <div className="pt-6 flex items-center justify-center text-xs text-brand-800 font-medium text-center">
+          <div className="flex items-center justify-center gap-2">
             <Sprout className="w-3.5 h-3.5 text-brand-600" />
             <span>Together for Inclusion • Education • Care • Independence</span>
             <Sprout className="w-3.5 h-3.5 text-brand-600" />
-          </div>
-
-          <div>
-            <span>© {new Date().getFullYear()} Little Plant Special Children Care Trust. All rights reserved.</span>
           </div>
         </div>
 

@@ -7,8 +7,11 @@ export default function ThreePillarsBar() {
       title: "Individualized Learning",
       subtitle: "Each child. Their pace. Their potential.",
       icon: (
-        <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-full border border-brand-300 text-brand-700 flex items-center justify-center shrink-0 bg-brand-50/50">
-          <UserCheck className="w-5 h-5 text-brand-700" />
+        <div className="w-12 h-12 rounded-full border-2 border-brand-400 text-brand-700 flex items-center justify-center shrink-0 bg-white">
+          <svg viewBox="0 0 24 24" className="w-6 h-6 text-brand-700" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
+            <circle cx="12" cy="7" r="4" />
+          </svg>
         </div>
       )
     },
@@ -16,8 +19,14 @@ export default function ThreePillarsBar() {
       title: "Therapy & Life Skills",
       subtitle: "Build skills for everyday life.",
       icon: (
-        <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-full border border-brand-300 text-brand-700 flex items-center justify-center shrink-0 bg-brand-50/50">
-          <Sprout className="w-5 h-5 text-brand-600" />
+        <div className="w-12 h-12 flex items-center justify-center shrink-0 text-brand-700">
+          <svg viewBox="0 0 24 24" className="w-9 h-9 text-brand-700" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
+            {/* Two hands holding sprout */}
+            <path d="M12 2a4 4 0 0 1 4 4c0 3-4 6-4 6s-4-3-4-6a4 4 0 0 1 4-4z" />
+            <path d="M12 12v6" />
+            <path d="M6 18c0-3 3-5 6-5s6 2 6 5" />
+            <path d="M4 22h16" />
+          </svg>
         </div>
       )
     },
@@ -25,8 +34,13 @@ export default function ThreePillarsBar() {
       title: "Family Collaboration",
       subtitle: "Stronger together for lasting progress.",
       icon: (
-        <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-full border border-brand-300 text-brand-700 flex items-center justify-center shrink-0 bg-brand-50/50">
-          <Users className="w-5 h-5 text-brand-600" />
+        <div className="w-12 h-12 flex items-center justify-center shrink-0 text-brand-700">
+          <svg viewBox="0 0 24 24" className="w-9 h-9 text-brand-700" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
+            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
+            <circle cx="9" cy="7" r="4" />
+            <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
+            <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+          </svg>
         </div>
       )
     }
