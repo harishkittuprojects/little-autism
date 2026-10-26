@@ -37,6 +37,11 @@ export default function Footer({ onOpenInquiry }) {
                 </Link>
               </li>
               <li>
+                <Link to="/categories" onClick={scrollToTop} className="hover:text-brand-700 transition">
+                  Categories
+                </Link>
+              </li>
+              <li>
                 <a href="/#about" className="hover:text-brand-700 transition">
                   About Us
                 </a>
@@ -50,11 +55,6 @@ export default function Footer({ onOpenInquiry }) {
                 <a href="/#campus" className="hover:text-brand-700 transition">
                   Our Campus
                 </a>
-              </li>
-              <li>
-                <Link to="/categories" onClick={scrollToTop} className="hover:text-brand-700 transition">
-                  Our Categories
-                </Link>
               </li>
               <li>
                 <Link to="/login" onClick={scrollToTop} className="hover:text-brand-700 transition">

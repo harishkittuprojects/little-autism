@@ -56,7 +56,7 @@ export default function DiscoverAbilitiesSection({ onOpenInquiry }) {
   );
 
   return (
-    <section className="py-14 lg:py-20 bg-white relative overflow-hidden">
+    <section id="categories" className="py-14 lg:py-20 bg-white relative overflow-hidden scroll-mt-20 sm:scroll-mt-24">
       
       {/* Decorative leaf watermarks on left and right matching reference UI */}
       <div className="absolute left-4 top-12 pointer-events-none opacity-40 hidden md:block">

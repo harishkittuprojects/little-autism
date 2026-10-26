@@ -22,11 +22,11 @@ export default function Navbar({ onOpenInquiry }) {
 
   const navLinks = [
     { name: 'Home', path: '/' },
-    { name: 'Children We Support', path: '/#children-we-support', isHash: true },
+    { name: 'Categories', path: '/categories' },
     { name: 'Our Services', path: '/services' },
+    { name: 'Children We Support', path: '/#children-we-support', isHash: true },
     { name: 'Our Campus', path: '/#campus', isHash: true },
     { name: 'Donate & CSR', path: '/#donate-csr', isHash: true },
-    { name: 'Categories', path: '/categories' },
     { name: 'Portal Login', path: '/login' },
   ];
 
@@ -71,14 +71,14 @@ export default function Navbar({ onOpenInquiry }) {
           </Link>
 
           {/* Desktop Navigation Links */}
-          <nav className="hidden xl:flex items-center space-x-1">
+          <nav className="hidden lg:flex items-center space-x-0.5 xl:space-x-1">
             {navLinks.map((link) => {
               if (link.isHash) {
                 return (
                   <button
                     key={link.name}
                     onClick={() => handleLinkClick(true, link.path)}
-                    className="px-3 py-1.5 text-xs xl:text-[13px] font-medium text-gray-700 hover:text-brand-700 transition"
+                    className="px-2 xl:px-3 py-1.5 text-xs xl:text-[13px] font-medium text-gray-700 hover:text-brand-700 transition whitespace-nowrap"
                   >
                     {link.name}
                   </button>
@@ -90,7 +90,7 @@ export default function Navbar({ onOpenInquiry }) {
                   key={link.name}
                   to={link.path}
                   className={({ isActive }) =>
-                    `px-3 py-1.5 text-xs xl:text-[13px] font-medium transition relative ${
+                    `px-2 xl:px-3 py-1.5 text-xs xl:text-[13px] font-medium transition relative whitespace-nowrap ${
                       isActive && !location.hash
                         ? 'text-gray-950 font-bold after:content-[""] after:block after:w-4 after:h-0.5 after:bg-brand-600 after:rounded-full after:mx-auto after:mt-0.5'
                         : 'text-gray-700 hover:text-brand-700'
@@ -104,22 +104,22 @@ export default function Navbar({ onOpenInquiry }) {
           </nav>
 
           {/* Right Action Buttons */}
-          <div className="flex items-center space-x-2 sm:space-x-3">
+          <div className="flex items-center space-x-2 sm:space-x-2.5">
             
             {/* Donate pill button (Visible on mobile & desktop matching reference) */}
             <button
               onClick={() => onOpenInquiry("CSR Partnership / Campus Donation")}
-              className="px-3 sm:px-4 py-1.5 text-xs font-semibold text-brand-800 bg-[#edf5ec] hover:bg-[#e2efe1] border border-brand-200 rounded-full transition shadow-2xs flex items-center gap-1.5"
+              className="px-3 sm:px-4 py-1.5 text-xs font-semibold text-brand-800 bg-[#edf5ec] hover:bg-[#e2efe1] border border-brand-200 rounded-full transition shadow-2xs flex items-center gap-1.5 whitespace-nowrap"
               aria-label="Donate to Little Plant Academy"
             >
               <Building2 className="w-3.5 h-3.5 text-brand-600 shrink-0" />
               <span>Donate</span>
             </button>
 
-            {/* Support Our Mission button (Desktop only) */}
+            {/* Support Our Mission button (Desktop xl+ only to prevent crowding) */}
             <button
               onClick={() => onOpenInquiry("General Support & Inquiries")}
-              className="hidden sm:inline-flex items-center gap-1.5 px-4 py-2 bg-brand-600 hover:bg-brand-700 text-white text-xs font-semibold rounded-full shadow-xs hover:shadow-soft transition-all duration-200 transform active:scale-95"
+              className="hidden xl:inline-flex items-center gap-1.5 px-3.5 py-1.5 xl:px-4 xl:py-2 bg-brand-600 hover:bg-brand-700 text-white text-xs font-semibold rounded-full shadow-xs hover:shadow-soft transition-all duration-200 transform active:scale-95 whitespace-nowrap"
             >
               <Sprout className="w-3.5 h-3.5 text-brand-200" />
               <span>Support Our Mission</span>
@@ -128,7 +128,7 @@ export default function Navbar({ onOpenInquiry }) {
             {/* Mobile Hamburger Button */}
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="xl:hidden p-1.5 sm:p-2 rounded-xl text-gray-800 hover:text-brand-700 hover:bg-brand-50 focus:outline-none focus:ring-2 focus:ring-brand-400"
+              className="lg:hidden p-1.5 sm:p-2 rounded-xl text-gray-800 hover:text-brand-700 hover:bg-brand-50 focus:outline-none focus:ring-2 focus:ring-brand-400"
               aria-expanded={mobileMenuOpen}
               aria-label="Toggle navigation menu"
             >
@@ -141,7 +141,7 @@ export default function Navbar({ onOpenInquiry }) {
 
       {/* Mobile Drawer Menu */}
       {mobileMenuOpen && (
-        <div className="xl:hidden border-t border-brand-200/90 bg-white px-4 pt-3 pb-6 shadow-2xl animate-in slide-in-from-top-2 duration-150 max-h-[85vh] overflow-y-auto">
+        <div className="lg:hidden border-t border-brand-200/90 bg-white px-4 pt-3 pb-6 shadow-2xl animate-in slide-in-from-top-2 duration-150 max-h-[85vh] overflow-y-auto">
           <nav className="flex flex-col space-y-1">
             {navLinks.map((link) => (
               <button
