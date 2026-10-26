@@ -1,0 +1,44 @@
+@import 'aos/dist/aos.css';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  }
+
+  body {
+    background-color: #fafdfa;
+    color: #1f2937;
+    overflow-x: hidden;
+  }
+
+  ::selection {
+    background-color: #c5ecd1;
+    color: #1a482e;
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #f1f8f3;
+}
+::-webkit-scrollbar-thumb {
+  background: #a3d9b4;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #5fc387;
+}
+
+/* Accessible focus ring */
+:focus-visible {
+  outline: 2px solid #34a864;
+  outline-offset: 2px;
+}
