@@ -16,12 +16,12 @@ export default function BrandLogo({ className = "", showLocation = false, iconOn
         <div className="flex flex-col text-left min-w-0">
           <div className="flex items-center gap-1">
             <span className="font-display font-bold text-base sm:text-xl text-gray-900 tracking-tight leading-none">
-              little <span className="font-serif italic font-normal text-brand-700">Trust</span>
+              little <span className="font-serif italic font-normal text-brand-700">Plant</span>
             </span>
             <span className="inline-block w-2 h-2 rounded-full bg-brand-500 mb-1.5 shrink-0"></span>
           </div>
           <span className="text-[9.5px] sm:text-[11px] font-semibold text-brand-800 tracking-tight leading-tight mt-0.5 truncate max-w-[210px] xs:max-w-[260px] sm:max-w-none">
-            Little Plant Autism Residential Home
+            Autism Residential Home
           </span>
           {showLocation && (
             <span className="text-[9px] text-gray-500 flex items-center gap-1 mt-0.5">
