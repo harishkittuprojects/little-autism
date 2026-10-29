@@ -18,7 +18,7 @@ export default function DreamCampusSection({ onOpenInquiry }) {
           
           {/* Left Column: Landscape Campus Courtyard Photo */}
           <div className="lg:col-span-6" data-aos="fade-right">
-            <div className="relative rounded-2xl overflow-hidden shadow-soft border border-brand-100 bg-brand-50">
+            <div className="relative rounded-2xl overflow-hidden shadow-md border-2 border-brand-200 bg-brand-100/60">
               <img
                 src="/images/dream-campus.jpg"
                 alt="Our Dream Campus - landscaped green courtyard with modern residential home and walkways"
@@ -31,11 +31,11 @@ export default function DreamCampusSection({ onOpenInquiry }) {
           {/* Right Column: Text & 4 Micro-Icons */}
           <div className="lg:col-span-6 space-y-6" data-aos="fade-left">
             
-            <h2 className="font-display font-bold text-2xl sm:text-3xl lg:text-4xl text-brand-800 tracking-tight">
+            <h2 className="font-display font-bold text-2xl sm:text-3xl lg:text-4xl text-brand-900 tracking-tight">
               Our Dream Campus
             </h2>
 
-            <p className="text-sm sm:text-base text-gray-600 leading-relaxed">
+            <p className="text-sm sm:text-base text-gray-700 font-medium leading-relaxed">
               We are building a safe, inclusive and nurturing campus with modern learning spaces, therapy rooms, activity areas and residential facilities — designed to support every child's unique journey towards independence.
             </p>
 
@@ -45,10 +45,10 @@ export default function DreamCampusSection({ onOpenInquiry }) {
                 const Icon = feat.icon;
                 return (
                   <div key={idx} className="text-center space-y-2">
-                    <div className="w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center mx-auto text-brand-700">
-                      <Icon className="w-6 h-6 sm:w-7 sm:h-7" strokeWidth={1.7} />
+                    <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-2xl bg-brand-100 border-2 border-brand-300 text-brand-800 flex items-center justify-center mx-auto shadow-2xs">
+                      <Icon className="w-6 h-6 sm:w-7 sm:h-7" strokeWidth={2} />
                     </div>
-                    <span className="text-xs font-semibold text-gray-800 block leading-tight">
+                    <span className="text-xs font-bold text-gray-950 block leading-tight mt-1">
                       {feat.title}
                     </span>
                   </div>

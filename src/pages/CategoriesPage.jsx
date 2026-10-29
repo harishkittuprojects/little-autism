@@ -11,36 +11,36 @@ export default function CategoriesPage({ onOpenInquiry }) {
   }, []);
 
   return (
-    <div className="min-h-screen bg-[#fafdfa]">
+    <div className="min-h-screen bg-[#f8faf8]">
       {/* Page Header Banner */}
-      <section className="bg-gradient-to-b from-brand-50 via-brand-50/40 to-transparent py-14 lg:py-20 border-b border-brand-100/60">
+      <section className="bg-gradient-to-b from-brand-100/70 via-brand-50/50 to-transparent py-14 lg:py-20 border-b border-brand-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center" data-aos="fade-up">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white border border-brand-200 text-xs font-semibold text-brand-800 shadow-2xs mb-4">
-            <Layers className="w-4 h-4 text-brand-500" />
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white border-2 border-brand-300 text-xs font-bold text-brand-900 shadow-2xs mb-4">
+            <Layers className="w-4 h-4 text-brand-700" />
             <span>Comprehensive Care Spectrum</span>
           </div>
 
-          <h1 className="font-display font-bold text-3xl sm:text-4xl lg:text-5xl text-gray-900 tracking-tight">
+          <h1 className="font-display font-bold text-3xl sm:text-4xl lg:text-5xl text-gray-950 tracking-tight">
             Our Categories
           </h1>
 
-          <p className="mt-4 text-base sm:text-lg text-gray-600 max-w-2xl mx-auto leading-relaxed">
+          <p className="mt-4 text-base sm:text-lg text-gray-700 font-medium max-w-2xl mx-auto leading-relaxed">
             Discover our eight specialized developmental, therapeutic, educational, and residential categories designed to support every dimension of your child's well-being.
           </p>
 
-          <div className="mt-6 flex flex-wrap items-center justify-center gap-4 text-xs text-gray-600">
-            <span className="flex items-center gap-1.5 font-medium">
-              <ShieldCheck className="w-4 h-4 text-brand-600" />
+          <div className="mt-6 flex flex-wrap items-center justify-center gap-4 text-xs text-gray-800 font-semibold">
+            <span className="flex items-center gap-1.5">
+              <ShieldCheck className="w-4 h-4 text-brand-800" />
               Qualified Specialists & Educators
             </span>
-            <span className="text-gray-300 hidden sm:inline">•</span>
-            <span className="flex items-center gap-1.5 font-medium">
-              <HeartHandshake className="w-4 h-4 text-brand-600" />
+            <span className="text-brand-300 hidden sm:inline">•</span>
+            <span className="flex items-center gap-1.5">
+              <HeartHandshake className="w-4 h-4 text-brand-800" />
               Safe Residential Home
             </span>
-            <span className="text-gray-300 hidden sm:inline">•</span>
-            <span className="flex items-center gap-1.5 font-medium">
-              <Sprout className="w-4 h-4 text-brand-600" />
+            <span className="text-brand-300 hidden sm:inline">•</span>
+            <span className="flex items-center gap-1.5">
+              <Sprout className="w-4 h-4 text-brand-800" />
               Child-Centered Growth
             </span>
           </div>

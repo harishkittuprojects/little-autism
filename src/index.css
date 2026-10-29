@@ -11,14 +11,14 @@
   }
 
   body {
-    background-color: #fafdfa;
-    color: #1f2937;
+    background-color: #f6f9f6;
+    color: #111827;
     overflow-x: hidden;
   }
 
   ::selection {
-    background-color: #c5ecd1;
-    color: #1a482e;
+    background-color: #bee0c3;
+    color: #0c2b12;
   }
 }
 
@@ -27,18 +27,18 @@
   width: 8px;
 }
 ::-webkit-scrollbar-track {
-  background: #f1f8f3;
+  background: #e2ece0;
 }
 ::-webkit-scrollbar-thumb {
-  background: #a3d9b4;
+  background: #5dac68;
   border-radius: 4px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #5fc387;
+  background: #23692d;
 }
 
 /* Accessible focus ring */
 :focus-visible {
-  outline: 2px solid #34a864;
+  outline: 2px solid #23692d;
   outline-offset: 2px;
 }

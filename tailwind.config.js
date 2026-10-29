@@ -8,28 +8,29 @@ export default {
     extend: {
       colors: {
         olive: {
-          50: '#f6f9f5',
-          100: '#ebf2e8',
-          200: '#d6e4d0',
-          300: '#b5cfa9',
-          400: '#8fb67f',
-          500: '#6c9c5a',
-          600: '#557b42',
-          700: '#436134',
-          800: '#374e2c',
-          900: '#2f4227',
+          50: '#f2f6f1',
+          100: '#e2ece0',
+          200: '#c5dac1',
+          300: '#9fc099',
+          400: '#75a06c',
+          500: '#527f49',
+          600: '#3c6235',
+          700: '#2d4b27',
+          800: '#20371c',
+          900: '#142412',
         },
         brand: {
-          50: '#f5f9f4',
-          100: '#eaf3e8',
-          200: '#d4e6d1',
-          300: '#afd1ab',
-          400: '#83b67e',
-          500: '#5e9858',
-          600: '#557b42', // Reference UI primary olive-green
-          700: '#416333',
-          800: '#354f2a',
-          900: '#2c4123',
+          50: '#f0f7f1',
+          100: '#def0e1',
+          200: '#bee0c3',
+          300: '#91ca99',
+          400: '#5dac68',
+          500: '#388b43',
+          600: '#23692d', // Deep rich forest green - AAA contrast
+          700: '#1a5323', // Deeper shade for high contrast buttons & emphasis
+          800: '#133f1b', // Dark forest green
+          900: '#0c2b12', // Very dark forest green
+          950: '#06190a', // Ultra dark for headers / footers
         }
       },
       fontFamily: {

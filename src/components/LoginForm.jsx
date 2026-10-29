@@ -60,24 +60,24 @@ export default function LoginForm() {
   return (
     <div className="w-full max-w-md mx-auto">
       {/* Centered Login Card */}
-      <div className="bg-white rounded-3xl p-7 sm:p-9 border border-brand-100 shadow-soft relative overflow-hidden">
+      <div className="bg-white rounded-3xl p-7 sm:p-9 border-2 border-brand-200 shadow-xl relative overflow-hidden">
         
         {/* Subtle decorative top accent */}
-        <div className="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-brand-300 via-brand-500 to-brand-300" />
+        <div className="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-brand-600 via-brand-700 to-brand-800" />
 
         {/* Card Header */}
         <div className="text-center mb-6">
-          <div className="w-14 h-14 rounded-2xl bg-white border border-brand-200 flex items-center justify-center mx-auto mb-3 p-1.5 shadow-2xs">
+          <div className="w-14 h-14 rounded-2xl bg-white border-2 border-brand-300 flex items-center justify-center mx-auto mb-3 p-1.5 shadow-2xs">
             <img
               src="/images/logo.png"
               alt="Little Plant Autism Educational Academy Logo"
               className="w-full h-full object-contain"
             />
           </div>
-          <h2 className="font-display font-bold text-2xl text-gray-900">
+          <h2 className="font-display font-bold text-2xl text-gray-950">
             {isRegisterMode ? 'Create Parent Account' : 'Welcome to Care Portal'}
           </h2>
-          <p className="text-xs sm:text-sm text-gray-600 mt-1">
+          <p className="text-xs sm:text-sm text-gray-700 font-medium mt-1">
             {isRegisterMode
               ? 'Register to access child progress, schedules & communications'
               : 'Sign in to access your child’s therapy updates & hostel reports'}
@@ -85,7 +85,7 @@ export default function LoginForm() {
         </div>
 
         {/* Toggle Mode Tabs */}
-        <div className="flex bg-brand-50/70 p-1 rounded-xl mb-6 border border-brand-100">
+        <div className="flex bg-[#ecf4ec] p-1.5 rounded-xl mb-6 border-2 border-brand-200">
           <button
             type="button"
             onClick={() => {
@@ -95,8 +95,8 @@ export default function LoginForm() {
             }}
             className={`flex-1 py-2 text-xs font-bold rounded-lg transition-all ${
               !isRegisterMode
-                ? 'bg-white text-brand-800 shadow-xs'
-                : 'text-gray-600 hover:text-gray-900'
+                ? 'bg-brand-700 text-white shadow-xs'
+                : 'text-gray-800 hover:text-black'
             }`}
           >
             Sign In
@@ -110,8 +110,8 @@ export default function LoginForm() {
             }}
             className={`flex-1 py-2 text-xs font-bold rounded-lg transition-all ${
               isRegisterMode
-                ? 'bg-white text-brand-800 shadow-xs'
-                : 'text-gray-600 hover:text-gray-900'
+                ? 'bg-brand-700 text-white shadow-xs'
+                : 'text-gray-800 hover:text-black'
             }`}
           >
             Create Account

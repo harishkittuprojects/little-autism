@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { NavLink, Link, useLocation } from 'react-router-dom';
-import { Menu, X, Sprout, Heart, User, Phone, Building2 } from 'lucide-react';
-import BrandLogo from './BrandLogo';
+import { Menu, X, Sprout } from 'lucide-react';
 
 export default function Navbar({ onOpenInquiry }) {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -10,7 +9,7 @@ export default function Navbar({ onOpenInquiry }) {
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 10);
+      setIsScrolled(window.scrollY > 15);
     };
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
@@ -22,191 +21,99 @@ export default function Navbar({ onOpenInquiry }) {
 
   const navLinks = [
     { name: 'Home', path: '/' },
-    { name: 'Categories', path: '/categories' },
-    { name: 'About Us', path: '/#about', isHash: true },
-    { name: 'Our Services', path: '/services' },
-    { name: 'Our Campus', path: '/#campus', isHash: true },
-    { name: 'Donate', isAction: true, action: 'Campus Donation / CSR' },
-    { name: 'Contact', isAction: true, action: 'Contact & Campus Enquiry' },
+    { name: 'About Us', path: '/about' },
+    { name: 'Services', path: '/services' },
+    { name: 'Our Campus', path: '/campus' },
+    { name: 'Gallery', path: '/gallery' },
+    { name: 'Contact Us', path: '/contact' },
   ];
 
-  const handleLinkClick = (isHash, path, isAction, action) => {
-    setMobileMenuOpen(false);
-    if (isAction) {
-      if (onOpenInquiry) onOpenInquiry(action);
-      return;
-    }
-    if (isHash) {
-      if (location.pathname !== '/') {
-        window.location.href = path;
-      } else {
-        const hash = path.replace('/#', '');
-        const elem = document.getElementById(hash);
-        if (elem) {
-          const navOffset = 76;
-          const elemPos = elem.getBoundingClientRect().top + window.pageYOffset;
-          window.scrollTo({
-            top: elemPos - navOffset,
-            behavior: 'smooth'
-          });
-        }
-      }
-    }
-  };
-
   return (
-    <header
-      className={`sticky top-0 z-50 w-full transition-all duration-200 bg-white ${
-        isScrolled
-          ? 'shadow-xs border-b border-brand-200/90 py-2 sm:py-2.5'
-          : 'border-b border-brand-100 py-2.5 sm:py-3.5'
-      }`}
-    >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between">
-          
-          {/* Logo on Left */}
-          <Link
-            to="/"
-            className="focus:outline-none focus:ring-2 focus:ring-brand-400 rounded-lg p-0.5"
-            aria-label="Little Plant Autism Residential Home"
-          >
-            <BrandLogo />
-          </Link>
-
-          {/* Desktop Navigation Links matching Reference UI */}
-          <nav className="hidden lg:flex items-center space-x-1 xl:space-x-2">
-            {navLinks.map((link) => {
-              if (link.isAction) {
-                return (
-                  <button
-                    key={link.name}
-                    onClick={() => handleLinkClick(false, '', true, link.action)}
-                    className="px-2.5 xl:px-3 py-1.5 text-xs xl:text-[13px] font-medium text-gray-700 hover:text-brand-700 transition whitespace-nowrap"
-                  >
-                    {link.name}
-                  </button>
-                );
-              }
-
-              if (link.isHash) {
-                return (
-                  <button
-                    key={link.name}
-                    onClick={() => handleLinkClick(true, link.path)}
-                    className="px-2.5 xl:px-3 py-1.5 text-xs xl:text-[13px] font-medium text-gray-700 hover:text-brand-700 transition whitespace-nowrap"
-                  >
-                    {link.name}
-                  </button>
-                );
-              }
-
-              return (
-                <NavLink
-                  key={link.name}
-                  to={link.path}
-                  className={({ isActive }) =>
-                    `px-2.5 xl:px-3 py-1.5 text-xs xl:text-[13px] font-medium transition relative whitespace-nowrap ${
-                      isActive && !location.hash
-                        ? 'text-gray-950 font-bold after:content-[""] after:block after:w-5 after:h-0.5 after:bg-brand-600 after:rounded-full after:mx-auto after:mt-0.5'
-                        : 'text-gray-700 hover:text-brand-700'
-                    }`
-                  }
-                >
-                  {link.name}
-                </NavLink>
-              );
-            })}
-          </nav>
-
-          {/* Right Action Button matching Reference UI */}
-          <div className="flex items-center space-x-2 sm:space-x-3">
-            
-            {/* Support Our Mission Button */}
-            <button
-              onClick={() => onOpenInquiry("General Support & Inquiries")}
-              className="inline-flex items-center gap-1.5 sm:gap-2 px-3.5 sm:px-5 py-2 sm:py-2.5 bg-brand-600 hover:bg-brand-700 text-white text-xs sm:text-[13px] font-semibold rounded-full shadow-xs hover:shadow-soft transition-all duration-200 transform active:scale-95 whitespace-nowrap"
-            >
-              <Sprout className="w-3.5 sm:w-4 h-3.5 sm:h-4 text-brand-200" />
-              <span>Support Our Mission</span>
-            </button>
-
-            {/* Mobile Hamburger Button */}
-            <button
-              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="lg:hidden p-1.5 sm:p-2 rounded-xl text-gray-800 hover:text-brand-700 hover:bg-brand-50 focus:outline-none focus:ring-2 focus:ring-brand-400"
-              aria-expanded={mobileMenuOpen}
-              aria-label="Toggle navigation menu"
-            >
-              {mobileMenuOpen ? <X className="w-6 h-6 text-brand-700" /> : <Menu className="w-6 h-6" />}
-            </button>
+    <div className="sticky top-3 sm:top-5 z-50 w-full px-3.5 sm:px-6 pointer-events-none transition-all duration-300">
+      <header
+        className={`max-w-5xl mx-auto bg-white/95 backdrop-blur-md rounded-full shadow-lg border border-white/60 px-4 sm:px-6 py-2 sm:py-2.5 flex items-center justify-between pointer-events-auto transition-all duration-200 ${
+          isScrolled ? 'shadow-xl ring-1 ring-black/5' : 'shadow-md'
+        }`}
+      >
+        {/* Logo on Left matching reference Hopper style */}
+        <Link
+          to="/"
+          className="focus:outline-none rounded-full flex items-center gap-2 group shrink-0"
+          aria-label="Little Plant Autism Residential Home"
+        >
+          <div className="w-8 h-8 rounded-full bg-emerald-50 border border-emerald-200 flex items-center justify-center p-0.5 group-hover:scale-105 transition-transform">
+            <img
+              src="/images/logo.png"
+              alt="Little Plant Logo"
+              className="w-full h-full object-contain"
+            />
           </div>
+          <span className="font-display font-bold text-base sm:text-lg text-gray-950 tracking-tight flex items-center gap-1">
+            <span>Little</span>
+            <span className="text-[#2d7a4d]">Plant</span>
+          </span>
+        </Link>
 
+        {/* Desktop Navigation Links - Open Directly */}
+        <nav className="hidden md:flex items-center space-x-1 lg:space-x-5">
+          {navLinks.map((link) => (
+            <NavLink
+              key={link.name}
+              to={link.path}
+              className={({ isActive }) =>
+                `px-3.5 py-1.5 text-xs lg:text-[13px] font-semibold transition-colors duration-150 rounded-full whitespace-nowrap ${
+                  isActive
+                    ? 'text-[#2d7a4d] font-bold bg-emerald-50/70'
+                    : 'text-gray-700 hover:text-[#2d7a4d] hover:bg-gray-50'
+                }`
+              }
+            >
+              {link.name}
+            </NavLink>
+          ))}
+        </nav>
+
+        {/* Right Action Button matching Reference UI */}
+        <div className="flex items-center space-x-2 shrink-0">
+          {/* Donate Now Button with leading dot matching Reference */}
+          <button
+            onClick={() => onOpenInquiry && onOpenInquiry("General Support & Inquiries")}
+            className="inline-flex items-center gap-2 px-4 sm:px-5 py-2 bg-[#2d7a4d] hover:bg-[#24663e] text-white text-xs sm:text-[13px] font-semibold rounded-full shadow-xs hover:shadow-md transition-all duration-200 transform active:scale-95 whitespace-nowrap"
+          >
+            <span className="w-1.5 h-1.5 rounded-full bg-emerald-300"></span>
+            <span>Donate Now</span>
+          </button>
+
+          {/* Mobile Hamburger Button */}
+          <button
+            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            className="md:hidden p-1.5 rounded-full text-gray-800 hover:text-[#2d7a4d] hover:bg-gray-100 focus:outline-none"
+            aria-expanded={mobileMenuOpen}
+            aria-label="Toggle navigation menu"
+          >
+            {mobileMenuOpen ? <X className="w-5 h-5 text-[#2d7a4d]" /> : <Menu className="w-5 h-5" />}
+          </button>
         </div>
-      </div>
+      </header>
 
       {/* Mobile Drawer Menu */}
       {mobileMenuOpen && (
-        <div className="lg:hidden border-t border-brand-200/90 bg-white px-4 pt-3 pb-6 shadow-2xl animate-in slide-in-from-top-2 duration-150 max-h-[85vh] overflow-y-auto">
+        <div className="md:hidden max-w-5xl mx-auto mt-2 rounded-3xl border border-white/60 bg-white/95 backdrop-blur-md px-5 pt-4 pb-6 shadow-2xl animate-in slide-in-from-top-2 duration-150 pointer-events-auto">
           <nav className="flex flex-col space-y-1">
             {navLinks.map((link) => (
-              <button
+              <Link
                 key={link.name}
-                onClick={() => {
-                  setMobileMenuOpen(false);
-                  if (link.isAction) {
-                    handleLinkClick(false, '', true, link.action);
-                  } else if (link.isHash) {
-                    handleLinkClick(true, link.path);
-                  } else {
-                    window.location.href = link.path;
-                  }
-                }}
-                className="w-full text-left px-3.5 py-2.5 rounded-xl text-sm font-medium text-gray-800 hover:bg-brand-50 hover:text-brand-700 flex items-center justify-between transition"
+                to={link.path}
+                onClick={() => setMobileMenuOpen(false)}
+                className="w-full text-left px-3.5 py-2.5 rounded-xl text-sm font-semibold text-gray-800 hover:bg-brand-50 hover:text-[#2d7a4d] flex items-center justify-between transition"
               >
                 <span>{link.name}</span>
-                {link.name === 'Portal Login' ? (
-                  <User className="w-4 h-4 text-brand-600" />
-                ) : (
-                  <span className="text-gray-300 text-xs font-mono">›</span>
-                )}
-              </button>
+                <span className="text-gray-400">→</span>
+              </Link>
             ))}
           </nav>
-
-          <div className="mt-4 pt-4 border-t border-brand-100 space-y-2.5">
-            <button
-              onClick={() => {
-                setMobileMenuOpen(false);
-                onOpenInquiry("CSR Partnership / Campus Donation");
-              }}
-              className="w-full py-3 text-center text-xs sm:text-sm font-semibold text-white bg-brand-600 hover:bg-brand-700 rounded-full flex items-center justify-center gap-2 shadow-xs"
-            >
-              <Sprout className="w-4 h-4 text-brand-200" />
-              <span>Donate to Campus / CSR Partnerships</span>
-            </button>
-
-            <button
-              onClick={() => {
-                setMobileMenuOpen(false);
-                onOpenInquiry("Child Assessment & Admissions");
-              }}
-              className="w-full py-2.5 text-center text-xs font-semibold text-brand-800 bg-brand-50 hover:bg-brand-100 border border-brand-200 rounded-full flex items-center justify-center gap-2"
-            >
-              <Heart className="w-3.5 h-3.5 text-brand-600" />
-              <span>Request Child Assessment (Ages 3–18)</span>
-            </button>
-
-            <a
-              href="tel:+18005557526"
-              className="w-full py-2 text-center text-xs font-medium text-gray-600 flex items-center justify-center gap-1.5"
-            >
-              <Phone className="w-3.5 h-3.5 text-brand-600" />
-              <span>Campus Helpline: +1 (800) 555-PLANT</span>
-            </a>
-          </div>
         </div>
       )}
-    </header>
+    </div>
   );
 }

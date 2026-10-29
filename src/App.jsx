@@ -8,8 +8,12 @@ import Footer from './components/Footer';
 import InquiryModal from './components/InquiryModal';
 
 import HomePage from './pages/HomePage';
+import AboutPage from './pages/AboutPage';
+import CampusPage from './pages/CampusPage';
+import ContactPage from './pages/ContactPage';
 import CategoriesPage from './pages/CategoriesPage';
 import ServicesPage from './pages/ServicesPage';
+import GalleryPage from './pages/GalleryPage';
 import LoginPage from './pages/LoginPage';
 
 // Helper to scroll to top whenever the route changes
@@ -56,7 +60,7 @@ export default function App() {
   return (
     <Router>
       <ScrollToTop />
-      <div className="min-h-screen flex flex-col bg-[#fafdfa] text-gray-900 selection:bg-brand-100 selection:text-brand-900">
+      <div className="min-h-screen flex flex-col bg-[#f8faf8] text-gray-950 selection:bg-brand-200 selection:text-brand-950">
         {/* Sticky Navbar */}
         <Navbar onOpenInquiry={handleOpenInquiry} />
 
@@ -64,8 +68,12 @@ export default function App() {
         <main className="flex-grow">
           <Routes>
             <Route path="/" element={<HomePage onOpenInquiry={handleOpenInquiry} />} />
-            <Route path="/categories" element={<CategoriesPage onOpenInquiry={handleOpenInquiry} />} />
+            <Route path="/about" element={<AboutPage onOpenInquiry={handleOpenInquiry} />} />
             <Route path="/services" element={<ServicesPage onOpenInquiry={handleOpenInquiry} />} />
+            <Route path="/campus" element={<CampusPage onOpenInquiry={handleOpenInquiry} />} />
+            <Route path="/gallery" element={<GalleryPage onOpenInquiry={handleOpenInquiry} />} />
+            <Route path="/contact" element={<ContactPage onOpenInquiry={handleOpenInquiry} />} />
+            <Route path="/categories" element={<CategoriesPage onOpenInquiry={handleOpenInquiry} />} />
             <Route path="/login" element={<LoginPage />} />
             {/* Catch-all fallback */}
             <Route path="*" element={<HomePage onOpenInquiry={handleOpenInquiry} />} />

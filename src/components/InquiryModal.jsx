@@ -58,9 +58,9 @@ export default function InquiryModal({ isOpen, onClose, preselectedService = "" 
       <div className="relative w-full max-w-xl bg-white rounded-3xl shadow-2xl border border-brand-200 overflow-hidden transform transition-all animate-in fade-in zoom-in-95 duration-200">
         
         {/* Header */}
-        <div className="bg-[#edf5ec] p-6 border-b border-brand-200 flex items-center justify-between">
+        <div className="bg-[#e7f2e6] p-6 border-b-2 border-brand-300 flex items-center justify-between">
           <div className="flex items-center space-x-3">
-            <div className="w-11 h-11 rounded-2xl bg-white border border-brand-200 flex items-center justify-center p-1 shadow-2xs">
+            <div className="w-11 h-11 rounded-2xl bg-white border-2 border-brand-300 flex items-center justify-center p-1 shadow-2xs">
               <img
                 src="/images/logo.png"
                 alt="Little Plant Autism Educational Academy Logo"
@@ -68,17 +68,17 @@ export default function InquiryModal({ isOpen, onClose, preselectedService = "" 
               />
             </div>
             <div>
-              <h3 id="modal-title" className="text-lg sm:text-xl font-bold text-gray-900 font-display">
+              <h3 id="modal-title" className="text-lg sm:text-xl font-bold text-gray-950 font-display">
                 Little Plant Autism Educational Academy
               </h3>
-              <p className="text-xs text-brand-700 font-semibold">
+              <p className="text-xs text-brand-900 font-bold">
                 Admissions, Therapy Guidance & CSR Partnership Desk
               </p>
             </div>
           </div>
           <button
             onClick={onClose}
-            className="p-2 text-gray-400 hover:text-gray-700 hover:bg-white rounded-full transition-colors"
+            className="p-2 text-gray-600 hover:text-gray-950 hover:bg-white rounded-full transition-colors"
             aria-label="Close dialog"
           >
             <X className="w-5 h-5" />
@@ -120,20 +120,20 @@ export default function InquiryModal({ isOpen, onClose, preselectedService = "" 
             </div>
           ) : (
             <form onSubmit={handleSubmit} className="space-y-4">
-              <p className="text-xs sm:text-sm text-gray-600">
+              <p className="text-xs sm:text-sm text-gray-800 font-medium">
                 Please share your details below. We welcome parents, guardians, doctors, donors, and CSR representatives.
               </p>
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
-                  <label htmlFor="inquiryType" className="block text-xs font-semibold text-gray-700 uppercase tracking-wider mb-1">
+                  <label htmlFor="inquiryType" className="block text-xs font-bold text-gray-950 uppercase tracking-wider mb-1">
                     Inquiry Type *
                   </label>
                   <select
                     id="inquiryType"
                     value={formData.inquiryType}
                     onChange={(e) => setFormData({ ...formData, inquiryType: e.target.value })}
-                    className="w-full px-3.5 py-2.5 rounded-xl border border-gray-200 text-xs sm:text-sm bg-white outline-none focus:ring-2 focus:ring-brand-200 focus:border-brand-500"
+                    className="w-full px-3.5 py-2.5 rounded-xl border-2 border-gray-300 text-xs sm:text-sm bg-white text-gray-900 font-medium outline-none focus:ring-2 focus:ring-brand-200 focus:border-brand-600"
                   >
                     <option value="Child Assessment & Admissions">Child Assessment & Admissions (Age 3-18)</option>
                     <option value="CSR Partnership / Philanthropy">CSR Partnership / Philanthropic Donation</option>
@@ -144,7 +144,7 @@ export default function InquiryModal({ isOpen, onClose, preselectedService = "" 
                 </div>
 
                 <div>
-                  <label htmlFor="parentName" className="block text-xs font-semibold text-gray-700 uppercase tracking-wider mb-1">
+                  <label htmlFor="parentName" className="block text-xs font-bold text-gray-950 uppercase tracking-wider mb-1">
                     Contact Person / Name *
                   </label>
                   <input
@@ -154,22 +154,22 @@ export default function InquiryModal({ isOpen, onClose, preselectedService = "" 
                     value={formData.parentName}
                     onChange={(e) => setFormData({ ...formData, parentName: e.target.value })}
                     placeholder="e.g. Ramesh Kumar / CSR Head"
-                    className="w-full px-3.5 py-2.5 rounded-xl border border-gray-200 text-xs sm:text-sm outline-none focus:ring-2 focus:ring-brand-200 focus:border-brand-500"
+                    className="w-full px-3.5 py-2.5 rounded-xl border-2 border-gray-300 text-xs sm:text-sm text-gray-900 font-medium outline-none focus:ring-2 focus:ring-brand-200 focus:border-brand-600"
                   />
                 </div>
               </div>
 
               {formData.inquiryType.includes("Child") || formData.inquiryType.includes("Hostel") || formData.inquiryType.includes("Therapy") ? (
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 bg-brand-50/50 p-3 rounded-2xl border border-brand-100">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 bg-[#ecf4ec] p-3 rounded-2xl border-2 border-brand-200">
                   <div>
-                    <label htmlFor="childCondition" className="block text-xs font-semibold text-gray-700 uppercase tracking-wider mb-1">
+                    <label htmlFor="childCondition" className="block text-xs font-bold text-gray-950 uppercase tracking-wider mb-1">
                       Child's Condition / Need
                     </label>
                     <select
                       id="childCondition"
                       value={formData.childCondition}
                       onChange={(e) => setFormData({ ...formData, childCondition: e.target.value })}
-                      className="w-full px-3 py-2 rounded-lg border border-gray-200 text-xs bg-white outline-none"
+                      className="w-full px-3 py-2 rounded-lg border-2 border-gray-300 text-xs bg-white text-gray-900 font-medium outline-none"
                     >
                       {CHILDREN_WE_SUPPORT.map(c => (
                         <option key={c.id} value={c.name}>{c.name}</option>
@@ -179,7 +179,7 @@ export default function InquiryModal({ isOpen, onClose, preselectedService = "" 
                   </div>
 
                   <div>
-                    <label htmlFor="childAge" className="block text-xs font-semibold text-gray-700 uppercase tracking-wider mb-1">
+                    <label htmlFor="childAge" className="block text-xs font-bold text-gray-950 uppercase tracking-wider mb-1">
                       Child's Age (3–18 yrs)
                     </label>
                     <input
@@ -188,7 +188,7 @@ export default function InquiryModal({ isOpen, onClose, preselectedService = "" 
                       value={formData.childAge}
                       onChange={(e) => setFormData({ ...formData, childAge: e.target.value })}
                       placeholder="e.g. 7 years"
-                      className="w-full px-3 py-2 rounded-lg border border-gray-200 text-xs outline-none"
+                      className="w-full px-3 py-2 rounded-lg border-2 border-gray-300 text-xs text-gray-900 font-medium outline-none"
                     />
                   </div>
                 </div>
@@ -196,7 +196,7 @@ export default function InquiryModal({ isOpen, onClose, preselectedService = "" 
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
-                  <label htmlFor="email" className="block text-xs font-semibold text-gray-700 uppercase tracking-wider mb-1">
+                  <label htmlFor="email" className="block text-xs font-bold text-gray-950 uppercase tracking-wider mb-1">
                     Email Address *
                   </label>
                   <input
@@ -206,12 +206,12 @@ export default function InquiryModal({ isOpen, onClose, preselectedService = "" 
                     value={formData.email}
                     onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                     placeholder="contact@company.com or personal"
-                    className="w-full px-3.5 py-2.5 rounded-xl border border-gray-200 text-xs sm:text-sm outline-none focus:ring-2 focus:ring-brand-200 focus:border-brand-500"
+                    className="w-full px-3.5 py-2.5 rounded-xl border-2 border-gray-300 text-xs sm:text-sm text-gray-900 font-medium outline-none focus:ring-2 focus:ring-brand-200 focus:border-brand-600"
                   />
                 </div>
 
                 <div>
-                  <label htmlFor="phone" className="block text-xs font-semibold text-gray-700 uppercase tracking-wider mb-1">
+                  <label htmlFor="phone" className="block text-xs font-bold text-gray-950 uppercase tracking-wider mb-1">
                     Phone / Mobile *
                   </label>
                   <input
@@ -221,20 +221,20 @@ export default function InquiryModal({ isOpen, onClose, preselectedService = "" 
                     value={formData.phone}
                     onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
                     placeholder="+91 / International"
-                    className="w-full px-3.5 py-2.5 rounded-xl border border-gray-200 text-xs sm:text-sm outline-none focus:ring-2 focus:ring-brand-200 focus:border-brand-500"
+                    className="w-full px-3.5 py-2.5 rounded-xl border-2 border-gray-300 text-xs sm:text-sm text-gray-900 font-medium outline-none focus:ring-2 focus:ring-brand-200 focus:border-brand-600"
                   />
                 </div>
               </div>
 
               <div>
-                <label htmlFor="serviceInterest" className="block text-xs font-semibold text-gray-700 uppercase tracking-wider mb-1">
+                <label htmlFor="serviceInterest" className="block text-xs font-bold text-gray-950 uppercase tracking-wider mb-1">
                   Program or Purpose
                 </label>
                 <select
                   id="serviceInterest"
                   value={formData.serviceInterest}
                   onChange={(e) => setFormData({ ...formData, serviceInterest: e.target.value })}
-                  className="w-full px-3.5 py-2.5 rounded-xl border border-gray-200 text-xs sm:text-sm bg-white outline-none"
+                  className="w-full px-3.5 py-2.5 rounded-xl border-2 border-gray-300 text-xs sm:text-sm bg-white text-gray-900 font-medium outline-none"
                 >
                   {SERVICES_DATA.map(s => (
                     <option key={s.id} value={s.name}>{s.name}</option>
@@ -245,7 +245,7 @@ export default function InquiryModal({ isOpen, onClose, preselectedService = "" 
               </div>
 
               <div>
-                <label htmlFor="message" className="block text-xs font-semibold text-gray-700 uppercase tracking-wider mb-1">
+                <label htmlFor="message" className="block text-xs font-bold text-gray-950 uppercase tracking-wider mb-1">
                   Notes or Inquiries (Optional)
                 </label>
                 <textarea
@@ -254,7 +254,7 @@ export default function InquiryModal({ isOpen, onClose, preselectedService = "" 
                   value={formData.message}
                   onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                   placeholder="Share details regarding child needs, CSR requirements, or questions..."
-                  className="w-full px-3.5 py-2 rounded-xl border border-gray-200 text-xs sm:text-sm outline-none resize-none"
+                  className="w-full px-3.5 py-2 rounded-xl border-2 border-gray-300 text-xs sm:text-sm text-gray-900 font-medium outline-none resize-none"
                 ></textarea>
               </div>
 
@@ -262,14 +262,14 @@ export default function InquiryModal({ isOpen, onClose, preselectedService = "" 
                 <button
                   type="button"
                   onClick={onClose}
-                  className="px-4 py-2 text-gray-600 hover:text-gray-900 text-xs sm:text-sm font-medium"
+                  className="px-4 py-2 text-gray-800 hover:text-black text-xs sm:text-sm font-bold"
                 >
                   Cancel
                 </button>
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className="inline-flex items-center gap-2 px-6 py-2.5 bg-brand-600 hover:bg-brand-700 text-white font-semibold rounded-full text-xs sm:text-sm shadow-xs transition"
+                  className="inline-flex items-center gap-2 px-7 py-3 bg-brand-700 hover:bg-brand-800 text-white font-bold rounded-full text-xs sm:text-sm shadow-sm hover:shadow-md transition transform active:scale-95"
                 >
                   {isSubmitting ? (
                     <span>Submitting...</span>
