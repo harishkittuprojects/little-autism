@@ -23,10 +23,27 @@ export default function Navbar({ onOpenInquiry }) {
     { name: 'Home', path: '/' },
     { name: 'About Us', path: '/about' },
     { name: 'Services', path: '/services' },
+    { name: 'Requirements', path: '/#requirements' },
     { name: 'Our Campus', path: '/campus' },
     { name: 'Gallery', path: '/gallery' },
     { name: 'Contact Us', path: '/contact' },
   ];
+
+  const handleNavClick = (e, path) => {
+    setMobileMenuOpen(false);
+    if (path.startsWith('/#')) {
+      const id = path.replace('/#', '');
+      if (location.pathname === '/') {
+        e.preventDefault();
+        const elem = document.getElementById(id);
+        if (elem) {
+          const navOffset = 90;
+          const y = elem.getBoundingClientRect().top + window.pageYOffset - navOffset;
+          window.scrollTo({ top: y, behavior: 'smooth' });
+        }
+      }
+    }
+  };
 
   return (
     <div className="sticky top-3 sm:top-5 z-50 w-full px-3.5 sm:px-6 pointer-events-none transition-all duration-300">
@@ -55,22 +72,30 @@ export default function Navbar({ onOpenInquiry }) {
         </Link>
 
         {/* Desktop Navigation Links - Open Directly */}
-        <nav className="hidden md:flex items-center space-x-1 lg:space-x-5">
-          {navLinks.map((link) => (
-            <NavLink
-              key={link.name}
-              to={link.path}
-              className={({ isActive }) =>
-                `px-3.5 py-1.5 text-xs lg:text-[13px] font-semibold transition-colors duration-150 rounded-full whitespace-nowrap ${
-                  isActive
+        <nav className="hidden md:flex items-center space-x-1 lg:space-x-4">
+          {navLinks.map((link) => {
+            const isCurrentActive =
+              link.path === '/'
+                ? location.pathname === '/' && !location.hash
+                : link.path.startsWith('/#')
+                ? location.pathname === '/' && location.hash === link.path.replace('/', '')
+                : location.pathname === link.path;
+
+            return (
+              <Link
+                key={link.name}
+                to={link.path}
+                onClick={(e) => handleNavClick(e, link.path)}
+                className={`px-3 py-1.5 text-xs lg:text-[13px] font-semibold transition-colors duration-150 rounded-full whitespace-nowrap ${
+                  isCurrentActive
                     ? 'text-[#2d7a4d] font-bold bg-emerald-50/70'
                     : 'text-gray-700 hover:text-[#2d7a4d] hover:bg-gray-50'
-                }`
-              }
-            >
-              {link.name}
-            </NavLink>
-          ))}
+                }`}
+              >
+                {link.name}
+              </Link>
+            );
+          })}
         </nav>
 
         {/* Right Action Button matching Reference UI */}
@@ -104,7 +129,7 @@ export default function Navbar({ onOpenInquiry }) {
               <Link
                 key={link.name}
                 to={link.path}
-                onClick={() => setMobileMenuOpen(false)}
+                onClick={(e) => handleNavClick(e, link.path)}
                 className="w-full text-left px-3.5 py-2.5 rounded-xl text-sm font-semibold text-gray-800 hover:bg-brand-50 hover:text-[#2d7a4d] flex items-center justify-between transition"
               >
                 <span>{link.name}</span>

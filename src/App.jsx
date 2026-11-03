@@ -16,13 +16,28 @@ import ServicesPage from './pages/ServicesPage';
 import GalleryPage from './pages/GalleryPage';
 import LoginPage from './pages/LoginPage';
 
-// Helper to scroll to top whenever the route changes
+// Helper to scroll to top or target section whenever the route/hash changes
 function ScrollToTop() {
   const { pathname, hash } = useLocation();
 
   useEffect(() => {
     if (!hash) {
       window.scrollTo(0, 0);
+    } else {
+      const id = hash.replace('#', '');
+      const scrollToElement = () => {
+        const element = document.getElementById(id);
+        if (element) {
+          const navOffset = 90;
+          const y = element.getBoundingClientRect().top + window.pageYOffset - navOffset;
+          window.scrollTo({ top: y, behavior: 'smooth' });
+        }
+      };
+
+      // Attempt immediately and also after brief render delay for dynamic content
+      scrollToElement();
+      const timer = setTimeout(scrollToElement, 150);
+      return () => clearTimeout(timer);
     }
   }, [pathname, hash]);
 
