@@ -15,11 +15,11 @@ import {
 
 export default function AboutSection({ onOpenInquiry }) {
   const focusAreas = [
-    { title: "Specialized Education", desc: "Adaptive curricula & IEPs aligned with cognitive strengths", icon: BookOpen },
+    { title: "Mentally Challenged & Special Education", desc: "Adaptive curricula & IEPs tailored for intellectual and developmental needs", icon: BookOpen },
     { title: "Targeted Therapies", desc: "Speech, Occupational, and Behavioural evidence-backed therapy", icon: Heart },
     { title: "Communication Development", desc: "Verbal articulation, AAC devices, and visual exchange support", icon: MessageSquare },
     { title: "Behavioural Support", desc: "Gentle positive reinforcement and emotional regulation", icon: Sparkles },
-    { title: "Daily Living Skills", desc: "Personal grooming, meal routines, and home independence", icon: CheckCircle2 },
+    { title: "ADL Activities (Daily Living)", desc: "Brushing, bathing, eating, dressing, personal grooming, and practical life independence", icon: CheckCircle2 },
     { title: "Residential / Hostel Care", desc: "24/7 peaceful, safe, and sensory-friendly accommodations", icon: Home },
     { title: "Physical Movement", desc: "Adapted gymnastics, outdoor sensory garden walks, and fitness", icon: Activity },
     { title: "Music & Creative Activities", desc: "Rhythm therapy, xylophones, and sensory-soothing melodies", icon: Music },

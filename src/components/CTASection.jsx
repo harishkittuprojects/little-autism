@@ -28,11 +28,19 @@ export default function CTASection({ onOpenInquiry }) {
               <HeartHandshake className="w-7 h-7 text-emerald-300" />
             </div>
             <div>
+              <div className="flex flex-wrap items-center justify-center sm:justify-start gap-2 mb-2">
+                <span className="text-[10px] font-bold uppercase tracking-wider bg-emerald-400/20 text-emerald-200 border border-emerald-400/30 px-2.5 py-0.5 rounded-full">
+                  CSR Certified (Corporate Donations Accepted)
+                </span>
+                <span className="text-[10px] font-bold uppercase tracking-wider bg-emerald-400/20 text-emerald-200 border border-emerald-400/30 px-2.5 py-0.5 rounded-full">
+                  Claim Money in 80G Government Tax Exemption
+                </span>
+              </div>
               <h3 className="font-display font-bold text-xl sm:text-2xl text-white leading-snug">
-                Help Build a Brighter Future
+                Help Us Empower Mentally Challenged & Special Children
               </h3>
               <p className="text-xs sm:text-sm text-brand-100/90 mt-1.5 max-w-xl leading-relaxed font-normal">
-                Your support helps us create a nurturing campus, provide quality education and life skills, and bring lasting change to children and families.
+                Companies can contribute CSR funds directly for campus development. Individual donors receive official receipts to claim tax deduction from the government.
               </p>
             </div>
           </div>

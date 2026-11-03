@@ -4,8 +4,8 @@ import { UserCheck, Users, Sprout } from 'lucide-react';
 export default function ThreePillarsBar() {
   const pillars = [
     {
-      title: "Individualized Learning",
-      subtitle: "Each child. Their pace. Their potential.",
+      title: "Mentally Challenged & Autism Care",
+      subtitle: "Nurturing children with intellectual & developmental needs.",
       icon: (
         <div className="w-12 h-12 rounded-full border-2 border-brand-500 text-brand-800 flex items-center justify-center shrink-0 bg-brand-50 shadow-2xs">
           <svg viewBox="0 0 24 24" className="w-6 h-6 text-brand-800" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -16,8 +16,8 @@ export default function ThreePillarsBar() {
       )
     },
     {
-      title: "Therapy & Life Skills",
-      subtitle: "Build skills for everyday life.",
+      title: "ADL Activities (Daily Living)",
+      subtitle: "Brushing, eating, dressing & life independence.",
       icon: (
         <div className="w-12 h-12 rounded-full border-2 border-brand-500 text-brand-800 flex items-center justify-center shrink-0 bg-brand-50 shadow-2xs">
           <svg viewBox="0 0 24 24" className="w-7 h-7 text-brand-800" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -30,8 +30,8 @@ export default function ThreePillarsBar() {
       )
     },
     {
-      title: "Family Collaboration",
-      subtitle: "Stronger together for lasting progress.",
+      title: "CSR Certified & 80G Tax Exemption",
+      subtitle: "CSR donations accepted; claim tax rebate from government.",
       icon: (
         <div className="w-12 h-12 rounded-full border-2 border-brand-500 text-brand-800 flex items-center justify-center shrink-0 bg-brand-50 shadow-2xs">
           <svg viewBox="0 0 24 24" className="w-7 h-7 text-brand-800" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">

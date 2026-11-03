@@ -94,10 +94,19 @@ export default function RegistrationsAndCSR({ onOpenInquiry }) {
               A child’s disability should never limit their opportunity to learn, grow, and discover their abilities. Together, we can build a sanctuary where every child receives care, education, and an opportunity to shine.
             </p>
 
-            <div className="p-4 rounded-2xl bg-white border border-brand-200/80 text-xs text-gray-700 space-y-1.5 shadow-2xs">
-              <p className="font-semibold text-brand-900">Direct CSR & Philanthropy Desk:</p>
-              <p className="text-gray-600">Location: Jinnaram, Telangana, India</p>
-              <p className="text-gray-600 font-medium">Helpline: +1 (800) 555-PLANT / +91 (Admissions & CSR)</p>
+            <div className="p-4 rounded-2xl bg-white border border-brand-200/80 text-xs text-gray-700 space-y-2 shadow-2xs">
+              <div className="flex items-center gap-2 font-bold text-brand-900">
+                <Building2 className="w-4 h-4 text-brand-700 shrink-0" />
+                <span>CSR Certified & Government Tax Exemption</span>
+              </div>
+              <p className="text-[11px] text-gray-600 leading-relaxed">
+                • <strong>CSR Certification:</strong> Companies can donate and partner with us through CSR funds.<br />
+                • <strong>Tax Rebate:</strong> Donation money can be claimed for tax deduction from the government under Section 80G.
+              </p>
+              <div className="pt-1 text-[11px] text-gray-600 border-t border-gray-100">
+                <p>Location: Jinnaram, Sangareddy Dist, Telangana, India</p>
+                <p className="font-semibold text-brand-800 mt-0.5">Admissions & CSR Helpline: +91 98765 43210</p>
+              </div>
             </div>
           </div>
 
