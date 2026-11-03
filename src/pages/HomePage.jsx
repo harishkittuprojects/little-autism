@@ -4,6 +4,7 @@ import ThreePillarsBar from '../components/ThreePillarsBar';
 import CampusProgressCard from '../components/CampusProgressCard';
 import DiscoverAbilitiesSection from '../components/DiscoverAbilitiesSection';
 import AboutSection from '../components/AboutSection';
+import CampusRequirementsSection from '../components/CampusRequirementsSection';
 import DreamCampusSection from '../components/DreamCampusSection';
 import GallerySection from '../components/GallerySection';
 import CTASection from '../components/CTASection';
@@ -26,7 +27,10 @@ export default function HomePage({ onOpenInquiry }) {
       {/* 5. About Us & Facility Pillars Section */}
       <AboutSection onOpenInquiry={onOpenInquiry} />
 
-      {/* 6. Our Dream Campus Section */}
+      {/* 6. Campus Requirements (What the Campus Needs) */}
+      <CampusRequirementsSection onOpenInquiry={onOpenInquiry} />
+
+      {/* 7. Our Dream Campus Section */}
       <DreamCampusSection onOpenInquiry={onOpenInquiry} />
 
       {/* 7. Interactive Campus & Academy Gallery */}

@@ -69,6 +69,11 @@ export default function Footer({ onOpenInquiry }) {
                 </Link>
               </li>
               <li>
+                <a href="/#requirements" className="hover:text-white hover:underline transition">
+                  Campus Needs & Requirements
+                </a>
+              </li>
+              <li>
                 <button
                   onClick={() => onOpenInquiry && onOpenInquiry("Campus Donation / CSR Support")}
                   className="hover:text-white hover:underline transition text-left"

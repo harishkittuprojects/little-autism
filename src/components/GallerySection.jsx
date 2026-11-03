@@ -8,6 +8,62 @@ export default function GallerySection({ onOpenInquiry }) {
   const galleryItems = [
     {
       id: 1,
+      title: "Campus Bhoomi Puja & Foundation Ceremony",
+      category: "Campus",
+      location: "Jinnaram Campus Grounds",
+      image: "/images/image.png",
+      desc: "Auspicious Bhoomi Puja ceremony performed on 22 August 2026 marking the ground-breaking of our permanent campus in Jinnaram, Telangana."
+    },
+    {
+      id: 2,
+      title: "Foundation Stone & Brick Laying",
+      category: "Campus",
+      location: "Jinnaram Campus Grounds",
+      image: "/images/bhoomi-puja-brick-laying.jpg",
+      desc: "Laying the first sacred foundation brick (Shila Sthapana) for Little Plant Academy, blessed by trustees, elders, and well-wishers."
+    },
+    {
+      id: 3,
+      title: "Community Bhoomi Puja Yagna",
+      category: "Community",
+      location: "Jinnaram Campus Grounds",
+      image: "/images/bhoomi-puja-wide-ceremony.jpg",
+      desc: "Wide gathering of families, teachers, and well-wishers participating under the canopy in the auspicious Bhoomi Puja yagna."
+    },
+    {
+      id: 4,
+      title: "Sacred Foundation Havan & Blessings",
+      category: "Campus",
+      location: "Jinnaram Campus Grounds",
+      image: "/images/bhoomi-puja-rituals.jpg",
+      desc: "Community members, trustees, and educators uniting in sacred traditional rituals to bless the development of Little Plant Academy."
+    },
+    {
+      id: 5,
+      title: "Sacred Fire Yagna & Devotion",
+      category: "Campus",
+      location: "Jinnaram Campus Grounds",
+      image: "/images/bhoomi-puja-havan-closeup.jpg",
+      desc: "Heartfelt prayers and sacred oblations offered into the holy fire for the protection and flourishing of every special child."
+    },
+    {
+      id: 6,
+      title: "Poornahuti & Collective Blessings",
+      category: "Community",
+      location: "Jinnaram Campus Grounds",
+      image: "/images/bhoomi-puja-poornahuti.jpg",
+      desc: "Trustees, educators, and the head priest performing the ceremonial Poornahuti to conclude the foundation rituals."
+    },
+    {
+      id: 7,
+      title: "Earth Blessing & Sacred Offerings",
+      category: "Campus",
+      location: "Jinnaram Campus Grounds",
+      image: "/images/bhoomi-puja-prayers.jpg",
+      desc: "Offering sacred prayers, flowers, and holy blessings into the foundation trench of the upcoming Little Plant residential sanctuary."
+    },
+    {
+      id: 8,
       title: "Our Dream Campus Architecture",
       category: "Campus",
       location: "Jinnaram, Telangana",
@@ -15,7 +71,7 @@ export default function GallerySection({ onOpenInquiry }) {
       desc: "Architectural blueprint and landscaped green courtyards built specially for neurodivergent living."
     },
     {
-      id: 2,
+      id: 9,
       title: "Outdoor Sensory Healing Garden",
       category: "Campus",
       location: "Sensory Courtyard",
@@ -23,7 +79,7 @@ export default function GallerySection({ onOpenInquiry }) {
       desc: "Tactile flora, aromatic plants, water features, and gentle curved walkways designed to soothe sensory overload."
     },
     {
-      id: 3,
+      id: 10,
       title: "Pediatric Sensory Therapy Gym",
       category: "Therapy",
       location: "Clinical Therapy Wing",
@@ -31,7 +87,7 @@ export default function GallerySection({ onOpenInquiry }) {
       desc: "Suspended vestibular swings, climbing blocks, tactile ball pits, and soft-padded safety mats."
     },
     {
-      id: 4,
+      id: 11,
       title: "Music & Expressive Arts Studio",
       category: "Activities",
       location: "Creative Arts Center",
@@ -39,7 +95,7 @@ export default function GallerySection({ onOpenInquiry }) {
       desc: "Rhythm therapy and sound stimulation sessions helping non-verbal children unlock self-expression."
     },
     {
-      id: 5,
+      id: 12,
       title: "Residential Boarding Suites",
       category: "Residential",
       location: "Hostel Quarters",
@@ -47,7 +103,7 @@ export default function GallerySection({ onOpenInquiry }) {
       desc: "Quiet, acoustic-dampened bedroom suites supervised 24/7 by trained caregivers."
     },
     {
-      id: 6,
+      id: 13,
       title: "One-on-One Cognitive Therapy",
       category: "Therapy",
       location: "Special Education Wing",
@@ -55,7 +111,7 @@ export default function GallerySection({ onOpenInquiry }) {
       desc: "Individualized learning plans (IEP) guided by certified transdisciplinary special educators."
     },
     {
-      id: 7,
+      id: 14,
       title: "Dedicated Caregivers & Staff",
       category: "Community",
       location: "Academy Grounds",
@@ -63,7 +119,7 @@ export default function GallerySection({ onOpenInquiry }) {
       desc: "Compassionate therapists, medical nurses, speech pathologists, and community volunteers."
     },
     {
-      id: 8,
+      id: 15,
       title: "Nutritious Living & Dining Care",
       category: "Residential",
       location: "Nutritional Center",

@@ -1,6 +1,5 @@
 import React from 'react';
-import { REGISTRATIONS_APPROVALS } from '../data/servicesData';
-import { ShieldCheck, FileCheck, HeartHandshake, Building2, Download, ArrowRight, Phone, CheckCircle2 } from 'lucide-react';
+import { ShieldCheck, HeartHandshake, Building2, ArrowRight, CheckCircle2 } from 'lucide-react';
 
 export default function RegistrationsAndCSR({ onOpenInquiry }) {
   return (
@@ -99,81 +98,6 @@ export default function RegistrationsAndCSR({ onOpenInquiry }) {
               <p className="font-semibold text-brand-900">Direct CSR & Philanthropy Desk:</p>
               <p className="text-gray-600">Location: Jinnaram, Telangana, India</p>
               <p className="text-gray-600 font-medium">Helpline: +1 (800) 555-PLANT / +91 (Admissions & CSR)</p>
-            </div>
-          </div>
-
-        </div>
-
-        {/* Legal Registrations & Tax Approvals Section (High Trust) */}
-        <div className="bg-white rounded-3xl p-7 sm:p-10 border border-brand-200/90 shadow-soft space-y-6" data-aos="fade-up">
-          
-          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-brand-100 pb-5">
-            <div>
-              <span className="text-xs font-bold uppercase tracking-wider text-brand-700 bg-brand-50 px-3 py-1 rounded-full border border-brand-200">
-                Statutory Compliance & Legal Approvals
-              </span>
-              <h3 className="font-display font-bold text-xl sm:text-2xl text-gray-900 mt-2">
-                Our Registrations and Approvals
-              </h3>
-            </div>
-
-            <div className="text-xs text-gray-500 max-w-sm">
-              Relevant certificates and documentation can be shared with prospective donors and CSR partners for due diligence and verification.
-            </div>
-          </div>
-
-          {/* Cards for 80G, 12A/12AB, Form 10BD, CSR, Telangana RPwD */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-            {REGISTRATIONS_APPROVALS.map((reg, idx) => (
-              <div
-                key={idx}
-                className="p-4 rounded-2xl bg-[#f8faf7] border border-brand-200/80 hover:border-brand-400 hover:bg-white transition-all duration-200 space-y-2 flex flex-col justify-between"
-              >
-                <div>
-                  <div className="flex items-center justify-between mb-1.5">
-                    <span className="font-mono text-xs font-bold text-brand-800 bg-brand-100/70 px-2 py-0.5 rounded-md border border-brand-200">
-                      {reg.code}
-                    </span>
-                    <span className="text-[10px] font-semibold text-gray-500">
-                      {reg.badge}
-                    </span>
-                  </div>
-                  <h4 className="font-display font-bold text-sm text-gray-900">
-                    {reg.title}
-                  </h4>
-                  <p className="text-xs text-gray-600 leading-relaxed mt-1">
-                    {reg.desc}
-                  </p>
-                </div>
-
-                <div className="pt-2 flex items-center gap-1.5 text-[11px] font-semibold text-brand-700">
-                  <ShieldCheck className="w-3.5 h-3.5 text-brand-600" />
-                  <span>Verified & Documented</span>
-                </div>
-              </div>
-            ))}
-
-            {/* Inquire for verification documents card */}
-            <div className="p-4 rounded-2xl bg-[#edf5ec] border border-brand-300 flex flex-col justify-between text-center sm:text-left">
-              <div>
-                <span className="font-mono text-xs font-bold text-brand-800 bg-white px-2 py-0.5 rounded-md border border-brand-200 inline-block mb-1.5">
-                  Due Diligence
-                </span>
-                <h4 className="font-display font-bold text-sm text-gray-900">
-                  Request Compliance Dossier
-                </h4>
-                <p className="text-xs text-gray-600 mt-1">
-                  Obtain audited statements, 80G copies, 12A certificates, and building permission files for your CSR committee.
-                </p>
-              </div>
-
-              <button
-                type="button"
-                onClick={() => onOpenInquiry && onOpenInquiry("CSR Due Diligence Documentation")}
-                className="mt-3 w-full py-2 px-3 bg-brand-600 hover:bg-brand-700 text-white font-semibold rounded-xl text-xs transition text-center"
-              >
-                Request Documents
-              </button>
             </div>
           </div>
 

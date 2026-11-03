@@ -64,7 +64,7 @@ export default function CampusPage({ onOpenInquiry }) {
             <span className="text-brand-300 hidden sm:inline">•</span>
             <span className="flex items-center gap-1.5">
               <HeartHandshake className="w-4 h-4 text-brand-800" />
-              80G & CSR-1 Certified
+              Residential Academy & Care
             </span>
           </div>
         </div>
