@@ -180,12 +180,12 @@ export default function HeroSection({ onOpenInquiry }) {
   };
 
   return (
-    <section className="relative bg-[#f8faf8] pt-2 sm:pt-4 pb-6 sm:pb-10 select-none">
-      <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
+    <section className="relative bg-[#f8faf8] pt-0 sm:pt-4 pb-4 sm:pb-10 select-none">
+      <div className="max-w-7xl mx-auto px-0 sm:px-6 lg:px-8">
         
-        {/* Main Rectangular Hero Card Container */}
+        {/* Main Rectangular Hero Container (Edge-to-edge pure rectangle on mobile, framed on desktop) */}
         <div
-          className="relative overflow-hidden bg-[#143823] rounded-2xl sm:rounded-3xl border border-emerald-950/60 shadow-2xl pt-8 sm:pt-14 pb-8 sm:pb-12"
+          className="relative overflow-hidden bg-[#143823] rounded-none sm:rounded-3xl border-y sm:border border-emerald-950/60 shadow-none sm:shadow-2xl pt-6 sm:pt-14 pb-8 sm:pb-12"
           onMouseEnter={() => setIsPaused(true)}
           onMouseLeave={() => setIsPaused(false)}
           onTouchStart={handleTouchStart}
@@ -232,7 +232,7 @@ export default function HeroSection({ onOpenInquiry }) {
                       <div className="text-center max-w-3xl mx-auto space-y-3 sm:space-y-4">
                         
                         {/* Rectangular Tag Badge */}
-                        <div className="inline-flex items-center gap-1.5 sm:gap-2 px-3 py-1 sm:px-3.5 sm:py-1 rounded-lg bg-emerald-950/70 border border-emerald-500/30 text-[11px] sm:text-xs font-semibold text-emerald-200 backdrop-blur-sm max-w-full">
+                        <div className="inline-flex items-center gap-1.5 sm:gap-2 px-3 py-1 sm:px-3.5 sm:py-1 rounded-md sm:rounded-lg bg-emerald-950/70 border border-emerald-500/30 text-[11px] sm:text-xs font-semibold text-emerald-200 backdrop-blur-sm max-w-full">
                           <TagIcon className="w-3.5 h-3.5 text-emerald-400 shrink-0" />
                           <span className="truncate">{slide.tagText}</span>
                         </div>
@@ -251,7 +251,7 @@ export default function HeroSection({ onOpenInquiry }) {
                           <button
                             type="button"
                             onClick={() => onOpenInquiry && onOpenInquiry(slide.inquiryContext)}
-                            className="flex-1 sm:flex-initial inline-flex items-center justify-center gap-2 px-4 py-2.5 sm:px-7 sm:py-3 bg-[#2d7a4d] hover:bg-[#348e58] text-white text-xs sm:text-sm font-semibold rounded-xl shadow-md hover:shadow-lg transition-all duration-200 transform hover:scale-102 active:scale-95 cursor-pointer whitespace-nowrap"
+                            className="flex-1 sm:flex-initial inline-flex items-center justify-center gap-2 px-4 py-2.5 sm:px-7 sm:py-3 bg-[#2d7a4d] hover:bg-[#348e58] text-white text-xs sm:text-sm font-semibold rounded-lg sm:rounded-xl shadow-md hover:shadow-lg transition-all duration-200 transform hover:scale-102 active:scale-95 cursor-pointer whitespace-nowrap"
                           >
                             <span className="w-2 h-2 rounded-full bg-emerald-300 animate-pulse shrink-0"></span>
                             <span>{slide.primaryBtnText}</span>
@@ -259,7 +259,7 @@ export default function HeroSection({ onOpenInquiry }) {
 
                           <Link
                             to={slide.secondaryBtnLink}
-                            className="flex-1 sm:flex-initial inline-flex items-center justify-center gap-1.5 px-4 py-2.5 sm:px-6 sm:py-3 bg-white/10 hover:bg-white/20 text-white text-xs sm:text-sm font-semibold rounded-xl border border-white/20 transition-all duration-200 whitespace-nowrap"
+                            className="flex-1 sm:flex-initial inline-flex items-center justify-center gap-1.5 px-4 py-2.5 sm:px-6 sm:py-3 bg-white/10 hover:bg-white/20 text-white text-xs sm:text-sm font-semibold rounded-lg sm:rounded-xl border border-white/20 transition-all duration-200 whitespace-nowrap"
                           >
                             <span>{slide.secondaryBtnText}</span>
                             <ArrowRight className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-emerald-300 shrink-0" />
@@ -275,7 +275,7 @@ export default function HeroSection({ onOpenInquiry }) {
                           {/* Left Card - Rectangular */}
                           <Link
                             to={slide.leftCard.link}
-                            className="md:col-span-4 relative rounded-xl sm:rounded-2xl overflow-hidden shadow-lg h-[180px] xs:h-[200px] sm:h-[270px] md:h-[320px] border border-white/15 group bg-[#0e2718] block"
+                            className="md:col-span-4 relative rounded-lg sm:rounded-2xl overflow-hidden shadow-lg h-[180px] xs:h-[200px] sm:h-[270px] md:h-[320px] border border-white/15 group bg-[#0e2718] block"
                           >
                             <img
                               src={slide.leftCard.image}
@@ -308,7 +308,7 @@ export default function HeroSection({ onOpenInquiry }) {
                           <div className="md:col-span-4 grid grid-cols-2 md:grid-cols-1 gap-3 sm:gap-4">
                             
                             {/* Top White Stat Card - Rectangular */}
-                            <div className="bg-white rounded-xl sm:rounded-2xl p-3.5 sm:p-5 lg:p-6 shadow-lg flex flex-col justify-center border border-white/50">
+                            <div className="bg-white rounded-lg sm:rounded-2xl p-3.5 sm:p-5 lg:p-6 shadow-lg flex flex-col justify-center border border-white/50">
                               <div className="font-display font-extrabold text-2xl sm:text-3xl lg:text-4xl text-[#2d7a4d] tracking-tight">
                                 {slide.middleStats.top.stat}
                               </div>
@@ -323,7 +323,7 @@ export default function HeroSection({ onOpenInquiry }) {
                             {/* Bottom Emerald Green Stat Card - Rectangular */}
                             <Link
                               to={slide.middleStats.bottom.link}
-                              className="bg-[#2d7a4d] hover:bg-[#256c42] transition-colors rounded-xl sm:rounded-2xl p-3.5 sm:p-5 lg:p-6 shadow-lg text-white flex flex-col justify-center border border-emerald-500/30 group"
+                              className="bg-[#2d7a4d] hover:bg-[#256c42] transition-colors rounded-lg sm:rounded-2xl p-3.5 sm:p-5 lg:p-6 shadow-lg text-white flex flex-col justify-center border border-emerald-500/30 group"
                             >
                               <div className="flex items-center justify-between">
                                 <div className="font-display font-extrabold text-2xl sm:text-3xl lg:text-4xl text-white tracking-tight">
@@ -353,7 +353,7 @@ export default function HeroSection({ onOpenInquiry }) {
                           {/* Right Card - Rectangular */}
                           <Link
                             to={slide.rightCard.link}
-                            className="md:col-span-4 relative rounded-xl sm:rounded-2xl overflow-hidden shadow-lg h-[180px] xs:h-[200px] sm:h-[270px] md:h-[320px] border border-white/15 group bg-[#0e2718] block"
+                            className="md:col-span-4 relative rounded-lg sm:rounded-2xl overflow-hidden shadow-lg h-[180px] xs:h-[200px] sm:h-[270px] md:h-[320px] border border-white/15 group bg-[#0e2718] block"
                           >
                             <img
                               src={slide.rightCard.image}

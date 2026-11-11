@@ -79,19 +79,19 @@ export default function Navbar({ onOpenInquiry }) {
 
   return (
     <>
-      <div className="sticky top-3 sm:top-5 z-50 w-full px-3 sm:px-6 pointer-events-none transition-all duration-300">
+      <div className="sticky top-2 sm:top-5 z-50 w-full px-2.5 sm:px-6 pointer-events-none transition-all duration-300">
         <header
-          className={`max-w-5xl mx-auto bg-white/95 backdrop-blur-md rounded-full shadow-lg border border-white/60 px-4 sm:px-6 py-2 sm:py-2.5 flex items-center justify-between pointer-events-auto transition-all duration-200 ${
+          className={`max-w-5xl mx-auto bg-white/95 backdrop-blur-md rounded-xl sm:rounded-full shadow-lg border border-white/60 px-3.5 sm:px-6 py-2 sm:py-2.5 flex items-center justify-between pointer-events-auto transition-all duration-200 ${
             isScrolled ? 'shadow-xl ring-1 ring-black/5' : 'shadow-md'
           }`}
         >
-          {/* Logo on Left matching reference Hopper style */}
+          {/* Logo on Left */}
           <Link
             to="/"
-            className="focus:outline-none rounded-full flex items-center gap-2 group shrink-0"
+            className="focus:outline-none rounded-lg sm:rounded-full flex items-center gap-2 group shrink-0"
             aria-label="Little Plant Autism Residential Home"
           >
-            <div className="w-8 h-8 rounded-full bg-emerald-50 border border-emerald-200 flex items-center justify-center p-0.5 group-hover:scale-105 transition-transform">
+            <div className="w-8 h-8 rounded-lg sm:rounded-full bg-emerald-50 border border-emerald-200 flex items-center justify-center p-0.5 group-hover:scale-105 transition-transform">
               <img
                 src="/images/logo.png"
                 alt="Little Plant Logo"
@@ -131,7 +131,7 @@ export default function Navbar({ onOpenInquiry }) {
             {/* Donate Now Button */}
             <button
               onClick={() => onOpenInquiry && onOpenInquiry("General Support & Inquiries")}
-              className="inline-flex items-center gap-2 px-3.5 sm:px-5 py-2 bg-[#2d7a4d] hover:bg-[#24663e] text-white text-xs sm:text-[13px] font-semibold rounded-full shadow-xs hover:shadow-md transition-all duration-200 transform active:scale-95 whitespace-nowrap cursor-pointer"
+              className="inline-flex items-center gap-2 px-3 sm:px-5 py-2 bg-[#2d7a4d] hover:bg-[#24663e] text-white text-xs sm:text-[13px] font-semibold rounded-lg sm:rounded-full shadow-xs hover:shadow-md transition-all duration-200 transform active:scale-95 whitespace-nowrap cursor-pointer"
             >
               <span className="w-1.5 h-1.5 rounded-full bg-emerald-300"></span>
               <span>Donate Now</span>
@@ -140,7 +140,7 @@ export default function Navbar({ onOpenInquiry }) {
             {/* Mobile Hamburger Button */}
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="md:hidden p-1.5 rounded-full text-gray-800 hover:text-[#2d7a4d] hover:bg-gray-100 focus:outline-none cursor-pointer"
+              className="md:hidden p-1.5 rounded-lg sm:rounded-full text-gray-800 hover:text-[#2d7a4d] hover:bg-gray-100 focus:outline-none cursor-pointer"
               aria-expanded={mobileMenuOpen}
               aria-label="Toggle navigation menu"
             >
