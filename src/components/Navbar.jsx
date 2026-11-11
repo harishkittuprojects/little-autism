@@ -42,6 +42,15 @@ export default function Navbar({ onOpenInquiry }) {
     { name: 'Contact Us', path: '/contact', icon: PhoneCall, desc: 'Reach Out & Visit Us' },
   ];
 
+  // Exactly 5 key navigation buttons for the mobile bottom dock bar
+  const bottomFiveLinks = [
+    { name: 'Home', path: '/', icon: Home },
+    { name: 'Requirements', path: '/#requirements', icon: ClipboardList, highlight: true },
+    { name: 'Campus', path: '/campus', icon: Building2 },
+    { name: 'Gallery', path: '/gallery', icon: Camera },
+    { name: 'Contact', path: '/contact', icon: PhoneCall },
+  ];
+
   const checkIsActive = (linkPath) => {
     if (linkPath === '/') {
       return location.pathname === '/' && !location.hash;
@@ -237,12 +246,12 @@ export default function Navbar({ onOpenInquiry }) {
         )}
       </div>
 
-      {/* Mobile Bottom Quick-Access Bar (Docked at bottom of screen, NOT at top) */}
+      {/* Mobile Bottom Quick-Access Bar (Exactly 5 Navigation Buttons) */}
       {!mobileMenuOpen && (
-        <div className="md:hidden fixed bottom-3 inset-x-3 z-40 max-w-md mx-auto pointer-events-auto transition-all duration-300">
+        <div className="md:hidden fixed bottom-3 inset-x-2.5 z-40 max-w-lg mx-auto pointer-events-auto transition-all duration-300">
           <div className="bg-white/95 backdrop-blur-md rounded-2xl border border-gray-200/90 shadow-[0_8px_30px_rgba(0,0,0,0.18)] p-1.5">
-            <div className="flex items-center gap-1.5 overflow-x-auto no-scrollbar py-0.5 px-0.5">
-              {navLinks.map((link) => {
+            <div className="flex items-center justify-between sm:justify-center gap-1 sm:gap-1.5 overflow-x-auto no-scrollbar py-0.5 px-0.5">
+              {bottomFiveLinks.map((link) => {
                 const Icon = link.icon;
                 const isActive = checkIsActive(link.path);
 
@@ -251,7 +260,7 @@ export default function Navbar({ onOpenInquiry }) {
                     key={link.name}
                     to={link.path}
                     onClick={(e) => handleNavClick(e, link.path)}
-                    className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-semibold whitespace-nowrap border shadow-xs transition-all active:scale-95 cursor-pointer ${
+                    className={`inline-flex items-center gap-1 sm:gap-1.5 px-2.5 sm:px-3 py-1.5 rounded-xl text-xs font-semibold whitespace-nowrap border shadow-xs transition-all active:scale-95 cursor-pointer shrink-0 ${
                       isActive
                         ? 'bg-[#143823] text-white border-emerald-950 shadow-sm font-bold'
                         : 'bg-white text-gray-800 border-gray-200/90 hover:bg-emerald-50 hover:text-[#2d7a4d]'
