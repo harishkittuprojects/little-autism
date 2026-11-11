@@ -9,7 +9,7 @@ export default function Footer({ onOpenInquiry }) {
   };
 
   return (
-    <footer className="bg-brand-950 border-t-4 border-brand-600 text-white pt-14 pb-8">
+    <footer className="bg-brand-950 border-t-4 border-brand-600 text-white pt-14 pb-24 sm:pb-8">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Main 3-Column Footer Grid matching reference UI */}
