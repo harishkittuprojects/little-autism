@@ -42,10 +42,10 @@ export default function Navbar({ onOpenInquiry }) {
     { name: 'Contact Us', path: '/contact', icon: PhoneCall, desc: 'Reach Out & Visit Us' },
   ];
 
-  // Exactly 5 key navigation buttons for the mobile bottom dock bar
+  // Exactly 5 key navigation items for the mobile bottom app bar (Matching reference)
   const bottomFiveLinks = [
     { name: 'Home', path: '/', icon: Home },
-    { name: 'Requirements', path: '/#requirements', icon: ClipboardList, highlight: true },
+    { name: 'Requirements', path: '/#requirements', icon: ClipboardList, badge: '16' },
     { name: 'Campus', path: '/campus', icon: Building2 },
     { name: 'Gallery', path: '/gallery', icon: Camera },
     { name: 'Contact', path: '/contact', icon: PhoneCall },
@@ -246,35 +246,50 @@ export default function Navbar({ onOpenInquiry }) {
         )}
       </div>
 
-      {/* Mobile Bottom Quick-Access Bar (Exactly 5 Navigation Buttons) */}
+      {/* Mobile Bottom App Navigation Bar (Matching user's reference screenshot) */}
       {!mobileMenuOpen && (
-        <div className="md:hidden fixed bottom-3 inset-x-2.5 z-40 max-w-lg mx-auto pointer-events-auto transition-all duration-300">
-          <div className="bg-white/95 backdrop-blur-md rounded-2xl border border-gray-200/90 shadow-[0_8px_30px_rgba(0,0,0,0.18)] p-1.5">
-            <div className="flex items-center justify-between sm:justify-center gap-1 sm:gap-1.5 overflow-x-auto no-scrollbar py-0.5 px-0.5">
-              {bottomFiveLinks.map((link) => {
-                const Icon = link.icon;
-                const isActive = checkIsActive(link.path);
+        <div className="md:hidden fixed bottom-0 inset-x-0 z-50 bg-white/95 backdrop-blur-md border-t border-gray-200/90 shadow-[0_-4px_20px_rgba(0,0,0,0.08)] py-1.5 pb-2 pointer-events-auto">
+          <div className="max-w-md mx-auto grid grid-cols-5 items-center px-1">
+            {bottomFiveLinks.map((link) => {
+              const Icon = link.icon;
+              const isActive = checkIsActive(link.path);
 
-                return (
-                  <Link
-                    key={link.name}
-                    to={link.path}
-                    onClick={(e) => handleNavClick(e, link.path)}
-                    className={`inline-flex items-center gap-1 sm:gap-1.5 px-2.5 sm:px-3 py-1.5 rounded-xl text-xs font-semibold whitespace-nowrap border shadow-xs transition-all active:scale-95 cursor-pointer shrink-0 ${
-                      isActive
-                        ? 'bg-[#143823] text-white border-emerald-950 shadow-sm font-bold'
-                        : 'bg-white text-gray-800 border-gray-200/90 hover:bg-emerald-50 hover:text-[#2d7a4d]'
+              return (
+                <Link
+                  key={link.name}
+                  to={link.path}
+                  onClick={(e) => handleNavClick(e, link.path)}
+                  className={`flex flex-col items-center justify-center py-1 px-0.5 transition-colors cursor-pointer group active:scale-95 ${
+                    isActive ? 'text-[#2d7a4d]' : 'text-gray-500 hover:text-gray-800'
+                  }`}
+                >
+                  <div className="relative">
+                    <Icon
+                      className={`w-5 h-5 transition-transform duration-150 ${
+                        isActive
+                          ? 'scale-110 text-[#2d7a4d] stroke-[2.3]'
+                          : 'text-gray-500 group-hover:text-gray-800 stroke-[1.8]'
+                      }`}
+                    />
+                    {link.badge && (
+                      <span className="absolute -top-1 -right-2 px-1 min-w-[15px] h-[15px] bg-red-500 text-white text-[9px] font-extrabold rounded-full flex items-center justify-center shadow-xs ring-1 ring-white">
+                        {link.badge}
+                      </span>
+                    )}
+                  </div>
+                  <span
+                    className={`text-[10px] leading-tight mt-1 truncate max-w-full tracking-tight ${
+                      isActive ? 'font-bold text-[#2d7a4d]' : 'font-medium text-gray-600'
                     }`}
                   >
-                    <Icon className={`w-3.5 h-3.5 shrink-0 ${isActive ? 'text-emerald-300' : 'text-[#2d7a4d]'}`} />
-                    <span>{link.name}</span>
-                    {link.highlight && (
-                      <span className={`w-1.5 h-1.5 rounded-full ${isActive ? 'bg-amber-300' : 'bg-amber-500'}`} />
-                    )}
-                  </Link>
-                );
-              })}
-            </div>
+                    {link.name}
+                  </span>
+                  {isActive && (
+                    <span className="w-1 h-1 rounded-full bg-[#2d7a4d] mt-0.5"></span>
+                  )}
+                </Link>
+              );
+            })}
           </div>
         </div>
       )}
