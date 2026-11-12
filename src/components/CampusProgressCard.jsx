@@ -1,7 +1,7 @@
 import React from 'react';
 import { Home, MapPin, Calendar, Sprout, CheckCircle2, ShieldCheck, Sparkles, Building2, HeartHandshake } from 'lucide-react';
 
-export default function CampusProgressCard() {
+export default function CampusProgressCard({ onOpenInquiry }) {
   return (
     <div className="max-w-7xl mx-auto px-3.5 sm:px-6 lg:px-8 my-6 sm:my-10" data-aos="fade-up">
       <div className="bg-[#e7f2e6] rounded-3xl p-6 sm:p-8 border-2 border-brand-300 shadow-md space-y-6">
@@ -51,13 +51,26 @@ export default function CampusProgressCard() {
               />
             </div>
 
-            <div className="flex flex-wrap items-center justify-between text-xs text-gray-800 font-semibold pt-1">
+            <div className="flex flex-wrap items-center justify-between gap-2 text-xs text-gray-800 font-semibold pt-1">
               <span className="text-gray-700">Campaign Goal: <strong>₹1.25 Crore</strong></span>
               <span className="flex items-center gap-1 text-brand-900">
                 <Calendar className="w-3.5 h-3.5 text-brand-800" />
                 <span>Completion Target: 31 May 2027</span>
               </span>
             </div>
+
+            {onOpenInquiry && (
+              <div className="pt-1">
+                <button
+                  type="button"
+                  onClick={() => onOpenInquiry("Permanent Campus Construction & Donations")}
+                  className="w-full py-2.5 px-4 bg-[#2d7a4d] hover:bg-[#23643e] text-white text-xs sm:text-sm font-bold rounded-xl shadow-sm hover:shadow-md flex items-center justify-center gap-2 transition active:scale-95 cursor-pointer"
+                >
+                  <span className="w-2 h-2 rounded-full bg-emerald-300 animate-pulse"></span>
+                  <span>Donate Now for Our Campus</span>
+                </button>
+              </div>
+            )}
           </div>
 
         </div>

@@ -56,6 +56,19 @@ export default function DreamCampusSection({ onOpenInquiry }) {
               })}
             </div>
 
+            {onOpenInquiry && (
+              <div className="pt-2">
+                <button
+                  type="button"
+                  onClick={() => onOpenInquiry("Our Dream Campus Donations")}
+                  className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-[#2d7a4d] hover:bg-[#23643e] text-white text-sm font-bold rounded-xl shadow-md hover:shadow-lg transition-all transform hover:scale-[1.02] active:scale-95 cursor-pointer"
+                >
+                  <span className="w-2 h-2 rounded-full bg-emerald-300 animate-pulse"></span>
+                  <span>Donate Now for Our Campus</span>
+                </button>
+              </div>
+            )}
+
           </div>
 
         </div>

@@ -67,12 +67,23 @@ export default function CampusPage({ onOpenInquiry }) {
               Residential Academy & Care
             </span>
           </div>
+
+          <div className="mt-7 flex items-center justify-center">
+            <button
+              type="button"
+              onClick={() => onOpenInquiry && onOpenInquiry("Permanent Campus Construction & Donations")}
+              className="inline-flex items-center gap-2 px-7 py-3 bg-[#2d7a4d] hover:bg-[#23643e] text-white text-sm font-bold rounded-xl shadow-md hover:shadow-lg transition-all transform hover:scale-[1.02] active:scale-95 cursor-pointer"
+            >
+              <span className="w-2 h-2 rounded-full bg-emerald-300 animate-pulse"></span>
+              <span>Donate Now for Our Campus</span>
+            </button>
+          </div>
         </div>
       </section>
 
       {/* Campus Construction Progress Card */}
       <div className="py-4">
-        <CampusProgressCard />
+        <CampusProgressCard onOpenInquiry={onOpenInquiry} />
       </div>
 
       {/* Dream Campus Architecture & Courtyard */}

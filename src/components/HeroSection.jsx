@@ -321,32 +321,44 @@ export default function HeroSection({ onOpenInquiry }) {
                             </div>
 
                             {/* Bottom Emerald Green Stat Card - Rectangular */}
-                            <Link
-                              to={slide.middleStats.bottom.link}
-                              className="bg-[#2d7a4d] hover:bg-[#256c42] transition-colors rounded-lg sm:rounded-2xl p-3.5 sm:p-5 lg:p-6 shadow-lg text-white flex flex-col justify-center border border-emerald-500/30 group"
-                            >
-                              <div className="flex items-center justify-between">
-                                <div className="font-display font-extrabold text-2xl sm:text-3xl lg:text-4xl text-white tracking-tight">
-                                  {slide.middleStats.bottom.stat}
+                            <div className="bg-[#2d7a4d] hover:bg-[#256c42] transition-colors rounded-lg sm:rounded-2xl p-3 sm:p-4 lg:p-5 shadow-lg text-white flex flex-col justify-between border border-emerald-500/30">
+                              <div>
+                                <div className="flex items-center justify-between">
+                                  <div className="font-display font-extrabold text-xl sm:text-3xl text-white tracking-tight">
+                                    {slide.middleStats.bottom.stat}
+                                  </div>
+                                  <span className="text-[10px] sm:text-[11px] font-bold bg-white/20 px-2 py-0.5 rounded-md text-emerald-100">
+                                    {slide.middleStats.bottom.badge}
+                                  </span>
                                 </div>
-                                <span className="text-[10px] sm:text-[11px] font-bold bg-white/20 px-2 py-0.5 rounded-md text-emerald-100">
-                                  {slide.middleStats.bottom.badge}
-                                </span>
+
+                                <Link
+                                  to={slide.middleStats.bottom.link}
+                                  className="text-xs sm:text-sm font-semibold text-emerald-100 mt-1 leading-tight flex items-center justify-between hover:text-white group"
+                                >
+                                  <span className="truncate">{slide.middleStats.bottom.title}</span>
+                                  <ArrowRight className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-emerald-300 group-hover:translate-x-1 transition-transform shrink-0 ml-1" />
+                                </Link>
+
+                                {/* Progress bar */}
+                                <div className="w-full h-1.5 rounded-full bg-emerald-900/60 mt-2 overflow-hidden">
+                                  <div
+                                    className="h-full bg-emerald-300 rounded-full transition-all duration-700"
+                                    style={{ width: slide.middleStats.bottom.progress }}
+                                  />
+                                </div>
                               </div>
-                              
-                              <p className="text-xs sm:text-sm font-semibold text-emerald-100 mt-1 leading-tight flex items-center justify-between">
-                                <span className="truncate">{slide.middleStats.bottom.title}</span>
-                                <ArrowRight className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-emerald-300 group-hover:translate-x-1 transition-transform shrink-0 ml-1" />
-                              </p>
-                              
-                              {/* Progress bar */}
-                              <div className="w-full h-1.5 rounded-full bg-emerald-900/60 mt-2 overflow-hidden">
-                                <div
-                                  className="h-full bg-emerald-300 rounded-full transition-all duration-700"
-                                  style={{ width: slide.middleStats.bottom.progress }}
-                                />
-                              </div>
-                            </Link>
+
+                              {/* Direct Donate Button inside Our Campus card */}
+                              <button
+                                type="button"
+                                onClick={() => onOpenInquiry && onOpenInquiry(slide.inquiryContext)}
+                                className="mt-2.5 w-full py-1.5 px-3 rounded-lg bg-white hover:bg-emerald-50 text-[#143823] text-[11px] sm:text-xs font-bold shadow-xs flex items-center justify-center gap-1.5 transition active:scale-95 cursor-pointer"
+                              >
+                                <span className="w-1.5 h-1.5 rounded-full bg-[#2d7a4d] animate-pulse"></span>
+                                <span>Donate Now</span>
+                              </button>
+                            </div>
 
                           </div>
 

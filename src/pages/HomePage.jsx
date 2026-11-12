@@ -19,7 +19,7 @@ export default function HomePage({ onOpenInquiry }) {
       <ThreePillarsBar />
 
       {/* 3. Jinnaram Campus Construction Progress Card */}
-      <CampusProgressCard />
+      <CampusProgressCard onOpenInquiry={onOpenInquiry} />
 
       {/* 4. Discover Abilities & Nurture Talents Section */}
       <DiscoverAbilitiesSection onOpenInquiry={onOpenInquiry} />
