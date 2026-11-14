@@ -8,7 +8,9 @@ import {
   Sparkles,
   Heart,
   Layers,
-  Sparkle
+  Sparkle,
+  Vote,
+  CheckCircle2
 } from 'lucide-react';
 import Meristem3DCanvas from './Meristem3DCanvas';
 
@@ -16,6 +18,86 @@ export default function HeroSection({ onOpenInquiry }) {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [touchStartX, setTouchStartX] = useState(null);
   const [touchStartY, setTouchStartY] = useState(null);
+
+  // Live Campus & Requirements Priority Poll
+  const [pollVotes, setPollVotes] = useState(() => {
+    const saved = localStorage.getItem('littleplant_poll_votes');
+    if (saved) {
+      try {
+        return JSON.parse(saved);
+      } catch (e) {
+        // fallback
+      }
+    }
+    return {
+      campusBeds: 248,
+      fansLights: 182,
+      schoolMaterial: 215,
+      waterFilters: 279
+    };
+  });
+
+  const [votedOption, setVotedOption] = useState(() => {
+    return localStorage.getItem('littleplant_poll_user_vote') || null;
+  });
+
+  const handleVote = (optionKey, optionTitle) => {
+    if (votedOption) return;
+    const updatedVotes = {
+      ...pollVotes,
+      [optionKey]: (pollVotes[optionKey] || 0) + 1
+    };
+    setPollVotes(updatedVotes);
+    setVotedOption(optionKey);
+    localStorage.setItem('littleplant_poll_votes', JSON.stringify(updatedVotes));
+    localStorage.setItem('littleplant_poll_user_vote', optionKey);
+  };
+
+  const totalVotes = Object.values(pollVotes).reduce((a, b) => a + b, 0);
+  const getPercentage = (count) => Math.round(((count || 0) / (totalVotes || 1)) * 100);
+
+  const pollItems = [
+    {
+      key: 'campusBeds',
+      title: 'Permanent Campus Residential Home (100 Beds)',
+      tag: 'Campus Infrastructure',
+      target: '100 Beds Total',
+      donorStatus: 'Searching for 32 Donors',
+      icon: Building2,
+      badgeColor: 'bg-emerald-500/20 text-emerald-300 border-emerald-500/40',
+      inquiryContext: 'Campus Poll: Permanent 100-Bed Residential Home Donation'
+    },
+    {
+      key: 'fansLights',
+      title: '35 Ceiling Fans & 35 LED Lights for Classrooms',
+      tag: 'Campus Utilities',
+      target: '70 Units Required',
+      donorStatus: 'Searching for 14 Donors',
+      icon: Sparkles,
+      badgeColor: 'bg-amber-500/20 text-amber-300 border-amber-500/40',
+      inquiryContext: 'Campus Poll: Fans & Lights Requirement Sponsorship'
+    },
+    {
+      key: 'schoolMaterial',
+      title: '500 Special Stationery Sets & Sensory Therapy Kits',
+      tag: 'Special Education Needs',
+      target: '500 Sets Required',
+      donorStatus: 'Searching for 45 Donors',
+      icon: Layers,
+      badgeColor: 'bg-blue-500/20 text-blue-300 border-blue-500/40',
+      inquiryContext: 'Campus Poll: 500 Stationery & Sensory Kits Sponsorship'
+    },
+    {
+      key: 'waterFilters',
+      title: '2 Commercial RO Drinking Water Purification Plants',
+      tag: 'Campus Health & Safety',
+      target: '2 Units Required',
+      donorStatus: 'Searching for 2 Donors',
+      icon: Sprout,
+      badgeColor: 'bg-teal-500/20 text-teal-300 border-teal-500/40',
+      inquiryContext: 'Campus Poll: Commercial RO Water Filters Sponsorship'
+    }
+  ];
 
   const slides = [
     {
@@ -205,7 +287,7 @@ export default function HeroSection({ onOpenInquiry }) {
           <div className="absolute inset-0 bg-gradient-to-b from-[#070d09]/75 via-transparent to-[#070d09]/80 pointer-events-none z-1" />
 
           {/* Photo Showcase Slides - Auto-Scrolling */}
-          <div className="relative z-10 w-full pt-10 sm:pt-14 pb-8 sm:pb-10 animate-in fade-in duration-500">
+          <div className="relative z-10 w-full pt-20 sm:pt-24 lg:pt-28 pb-10 sm:pb-14 animate-in fade-in duration-500">
               {/* Slides Track */}
               <div className="relative w-full overflow-hidden">
                 <div
@@ -396,6 +478,166 @@ export default function HeroSection({ onOpenInquiry }) {
                     }`}
                   />
                 ))}
+              </div>
+
+              {/* Interactive Campus & Requirements Priority Poll • Searching for Donors */}
+              <div className="max-w-5xl mx-auto mt-10 sm:mt-14 px-4 sm:px-6 lg:px-8">
+                <div className="bg-[#0b1710]/90 backdrop-blur-xl border border-emerald-500/35 rounded-2xl sm:rounded-3xl p-5 sm:p-8 shadow-2xl space-y-6">
+                  
+                  {/* Poll Header */}
+                  <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4 border-b border-white/10 pb-5 sm:pb-6">
+                    <div className="space-y-1.5">
+                      <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-950/80 border border-emerald-500/40 text-[11px] sm:text-xs font-bold text-emerald-300">
+                        <span className="w-2 h-2 rounded-full bg-rose-500 animate-ping"></span>
+                        <span className="w-2 h-2 rounded-full bg-rose-500 -ml-4"></span>
+                        <span>LIVE COMMUNITY POLL • URGENT DONOR SEARCH</span>
+                      </div>
+                      <h2 className="font-display font-bold text-xl sm:text-2xl lg:text-3xl text-white tracking-tight">
+                        Campus & Requirements Priority Poll
+                      </h2>
+                      <p className="text-xs sm:text-sm text-emerald-100/75 max-w-2xl">
+                        Vote for the campus facility or material requirement that should be completed next. Every option is actively searching for compassionate donors & sponsors.
+                      </p>
+                    </div>
+
+                    <div className="shrink-0 flex items-center gap-3 bg-black/40 border border-white/10 rounded-xl px-4 py-2.5 self-start md:self-auto">
+                      <div className="text-right">
+                        <div className="text-[10px] uppercase font-bold text-emerald-400/80 tracking-wider">Total Votes Cast</div>
+                        <div className="font-display font-extrabold text-xl text-white">{totalVotes.toLocaleString()}</div>
+                      </div>
+                      <Vote className="w-6 h-6 text-emerald-400" />
+                    </div>
+                  </div>
+
+                  {/* Voted feedback banner */}
+                  {votedOption && (
+                    <div className="p-3.5 rounded-xl bg-emerald-950/70 border border-emerald-500/40 flex items-center justify-between text-xs sm:text-sm text-emerald-200 animate-in fade-in">
+                      <div className="flex items-center gap-2">
+                        <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0" />
+                        <span>Thank you! Your vote has been recorded. We are actively searching for donors to sponsor this requirement.</span>
+                      </div>
+                      <span className="text-[11px] font-semibold text-emerald-300/80 hidden sm:inline">80G Tax Exemption Available</span>
+                    </div>
+                  )}
+
+                  {/* 4 Interactive Poll Items Grid */}
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-3.5 sm:gap-4">
+                    {pollItems.map((item) => {
+                      const count = pollVotes[item.key] || 0;
+                      const pct = getPercentage(count);
+                      const isVoted = votedOption === item.key;
+                      const ItemIcon = item.icon;
+
+                      return (
+                        <div
+                          key={item.key}
+                          className={`relative rounded-xl sm:rounded-2xl border p-4 sm:p-5 transition-all duration-200 flex flex-col justify-between group overflow-hidden ${
+                            isVoted
+                              ? 'bg-emerald-950/70 border-emerald-400/80 ring-2 ring-emerald-500/30'
+                              : 'bg-black/40 hover:bg-black/60 border-white/15 hover:border-emerald-500/40'
+                          }`}
+                        >
+                          {/* Progress bar background fill */}
+                          <div
+                            className="absolute inset-y-0 left-0 bg-emerald-500/10 transition-all duration-700 ease-out pointer-events-none"
+                            style={{ width: `${pct}%` }}
+                          />
+
+                          <div className="relative z-10 space-y-3">
+                            <div className="flex items-start justify-between gap-3">
+                              <div className="flex items-center gap-2.5">
+                                <div className="w-9 h-9 rounded-lg bg-emerald-900/50 border border-emerald-500/30 flex items-center justify-center shrink-0 text-emerald-300">
+                                  <ItemIcon className="w-5 h-5" />
+                                </div>
+                                <div>
+                                  <span className={`inline-block px-2 py-0.5 rounded text-[10px] font-bold border uppercase tracking-wider ${item.badgeColor}`}>
+                                    {item.tag}
+                                  </span>
+                                  <h3 className="font-display font-bold text-sm sm:text-base text-white mt-1 leading-snug">
+                                    {item.title}
+                                  </h3>
+                                </div>
+                              </div>
+                            </div>
+
+                            {/* Donor Search Status */}
+                            <div className="flex items-center justify-between text-xs pt-1">
+                              <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-amber-500/15 border border-amber-500/30 text-amber-200 font-semibold text-[11px]">
+                                <span className="w-1.5 h-1.5 rounded-full bg-amber-400 animate-pulse"></span>
+                                <span>{item.donorStatus}</span>
+                              </span>
+                              <span className="text-emerald-200 font-bold text-sm">
+                                {pct}% <span className="text-[11px] text-emerald-300/60 font-normal">({count} votes)</span>
+                              </span>
+                            </div>
+
+                            {/* Percentage Bar */}
+                            <div className="w-full h-2 rounded-full bg-black/60 border border-white/10 overflow-hidden">
+                              <div
+                                className="h-full bg-gradient-to-r from-emerald-500 to-teal-300 rounded-full transition-all duration-700"
+                                style={{ width: `${pct}%` }}
+                              />
+                            </div>
+                          </div>
+
+                          {/* Action Buttons Row */}
+                          <div className="relative z-10 pt-3 mt-2 border-t border-white/10 flex items-center gap-2">
+                            <button
+                              type="button"
+                              onClick={() => handleVote(item.key, item.title)}
+                              disabled={!!votedOption}
+                              className={`flex-1 py-2 px-3 rounded-lg text-xs font-bold transition-all flex items-center justify-center gap-1.5 cursor-pointer ${
+                                isVoted
+                                  ? 'bg-emerald-500 text-gray-950 shadow-sm font-extrabold'
+                                  : votedOption
+                                  ? 'bg-white/5 text-white/40 cursor-not-allowed border border-white/5'
+                                  : 'bg-white/10 hover:bg-white/20 text-white border border-white/20 hover:border-emerald-400/50 active:scale-95'
+                              }`}
+                            >
+                              {isVoted ? (
+                                <>
+                                  <CheckCircle2 className="w-3.5 h-3.5" />
+                                  <span>Voted</span>
+                                </>
+                              ) : (
+                                <>
+                                  <Vote className="w-3.5 h-3.5 text-emerald-300" />
+                                  <span>{votedOption ? 'Vote Recorded' : 'Vote This'}</span>
+                                </>
+                              )}
+                            </button>
+
+                            <button
+                              type="button"
+                              onClick={() => onOpenInquiry && onOpenInquiry(item.inquiryContext)}
+                              className="flex-1 py-2 px-3 rounded-lg bg-[#2d7a4d] hover:bg-[#358f59] text-white text-xs font-bold transition-all shadow-md hover:shadow-emerald-900/40 flex items-center justify-center gap-1.5 active:scale-95 cursor-pointer whitespace-nowrap"
+                            >
+                              <span className="w-1.5 h-1.5 rounded-full bg-emerald-300 animate-pulse"></span>
+                              <span>Sponsor / Donate</span>
+                            </button>
+                          </div>
+                        </div>
+                      );
+                    })}
+                  </div>
+
+                  {/* Poll Footer Call-To-Action */}
+                  <div className="pt-2 flex flex-col sm:flex-row items-center justify-between gap-3 text-center sm:text-left text-xs text-emerald-200/80 border-t border-white/10">
+                    <div className="flex items-center gap-2">
+                      <span className="w-2 h-2 rounded-full bg-emerald-400"></span>
+                      <span>Searching for Corporate CSR Partners & Individual Donors • 80G Tax Exemption</span>
+                    </div>
+
+                    <a
+                      href="#requirements"
+                      className="inline-flex items-center gap-1.5 text-emerald-300 hover:text-white font-semibold underline underline-offset-4 decoration-emerald-500/50 hover:decoration-emerald-300 transition-colors"
+                    >
+                      <span>Explore all 16 campus requirements</span>
+                      <ArrowRight className="w-3.5 h-3.5" />
+                    </a>
+                  </div>
+
+                </div>
               </div>
 
             </div>
