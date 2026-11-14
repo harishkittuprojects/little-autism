@@ -239,25 +239,26 @@ export default function CampusRequirementsSection({ onOpenInquiry }) {
               key={item.id}
               className="bg-white rounded-3xl border-2 border-gray-200/90 shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden flex flex-col group hover:-translate-y-1"
             >
-              {/* Image Container with Exact Poster Visual */}
-              <div className="relative h-48 sm:h-52 bg-gradient-to-b from-[#fffef5] to-[#f8faf7] p-3 flex items-center justify-center overflow-hidden border-b border-gray-100">
+              {/* Image Container with Real Photo Visual */}
+              <div className="relative h-48 sm:h-52 bg-gray-100 overflow-hidden border-b border-gray-100">
                 <img
                   src={item.image}
                   alt={item.name}
-                  className="w-full h-full object-contain group-hover:scale-106 transition-transform duration-500"
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                   loading="lazy"
                 />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent pointer-events-none" />
                 
                 {/* Quantity Pill Badge on Top Right */}
-                <div className="absolute top-3 right-3">
-                  <span className="px-3 py-1 rounded-full bg-amber-500 text-white font-extrabold text-xs shadow-md tracking-wide">
+                <div className="absolute top-3 right-3 z-10">
+                  <span className="px-3 py-1 rounded-full bg-[#2d7a4d] text-white font-extrabold text-xs shadow-md tracking-wide">
                     {item.qty}
                   </span>
                 </div>
 
                 {/* Category Pill Tag on Top Left */}
-                <div className="absolute top-3 left-3">
-                  <span className="px-2.5 py-0.5 rounded-full bg-white/90 backdrop-blur-xs text-[10px] font-bold text-gray-700 border border-gray-200 shadow-2xs">
+                <div className="absolute top-3 left-3 z-10">
+                  <span className="px-2.5 py-0.5 rounded-full bg-black/60 backdrop-blur-md text-[10px] font-bold text-white border border-white/20 shadow-xs">
                     {item.category.split('&')[0].trim()}
                   </span>
                 </div>
