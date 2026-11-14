@@ -15,9 +15,7 @@ import {
 import Meristem3DCanvas from './Meristem3DCanvas';
 
 export default function HeroSection({ onOpenInquiry }) {
-  const [heroMode, setHeroMode] = useState('meristem'); // 'meristem' | 'showcase'
   const [currentSlide, setCurrentSlide] = useState(0);
-  const [isPaused, setIsPaused] = useState(false);
   const [touchStartX, setTouchStartX] = useState(null);
   const [touchStartY, setTouchStartY] = useState(null);
 
@@ -153,14 +151,13 @@ export default function HeroSection({ onOpenInquiry }) {
     }
   ];
 
-  // Auto-slide effect every 5 seconds (only when in showcase mode)
+  // Auto-scroll slides every 4.5 seconds
   useEffect(() => {
-    if (isPaused || heroMode !== 'showcase') return;
     const timer = setInterval(() => {
       setCurrentSlide((prev) => (prev + 1) % slides.length);
-    }, 5000);
+    }, 4500);
     return () => clearInterval(timer);
-  }, [isPaused, slides.length, heroMode]);
+  }, [currentSlide, slides.length]);
 
   const nextSlide = () => {
     setCurrentSlide((prev) => (prev + 1) % slides.length);
@@ -198,8 +195,6 @@ export default function HeroSection({ onOpenInquiry }) {
         {/* Main Rectangular Hero Container */}
         <div
           className="relative overflow-hidden bg-[#070d09] rounded-none sm:rounded-3xl border-y sm:border border-emerald-950/60 shadow-2xl min-h-[580px] sm:min-h-[640px] lg:min-h-[680px] flex flex-col justify-center"
-          onMouseEnter={() => setIsPaused(true)}
-          onMouseLeave={() => setIsPaused(false)}
           onTouchStart={handleTouchStart}
           onTouchEnd={handleTouchEnd}
         >
@@ -209,96 +204,10 @@ export default function HeroSection({ onOpenInquiry }) {
           </div>
 
           {/* Vignette Gradient Overlay for Text Readability */}
-          <div className="absolute inset-0 bg-gradient-to-b from-[#070d09]/80 via-transparent to-[#070d09]/90 pointer-events-none z-1" />
+          <div className="absolute inset-0 bg-gradient-to-b from-[#070d09]/75 via-transparent to-[#070d09]/80 pointer-events-none z-1" />
 
-
-          {heroMode === 'meristem' ? (
-            /* ======================================================== */
-            /* 1. MERISTEM 3D HERO (Directly matching reference image) */
-            /* ======================================================== */
-            <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center pt-16 sm:pt-20 pb-12 sm:pb-16 space-y-6 sm:space-y-8 animate-in fade-in duration-500">
-              
-              {/* Top Badge matching "• From inside" */}
-              <div className="inline-flex items-center gap-2 px-3.5 py-1 sm:px-4 sm:py-1.5 rounded-full bg-emerald-950/70 border border-emerald-500/30 text-[11px] sm:text-xs font-semibold text-emerald-200 backdrop-blur-md">
-                <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
-                <span>Root to Reach • Permanent Campus Sanctuary</span>
-              </div>
-
-              {/* Main Headline: "Built to be moved through" typography */}
-              <div className="space-y-3 sm:space-y-4 max-w-3xl mx-auto">
-                <h1 className="font-display font-bold text-3xl xs:text-4xl sm:text-6xl lg:text-[70px] text-white tracking-tight leading-[1.08] drop-shadow-md">
-                  Built to be <br />
-                  <span className="bg-gradient-to-r from-emerald-200 via-emerald-100 to-white bg-clip-text text-transparent">
-                    Nurtured Through
-                  </span>
-                </h1>
-
-                <p className="text-xs sm:text-sm lg:text-base text-emerald-100/85 font-normal leading-relaxed max-w-xl mx-auto">
-                  A living sanctuary where special children with autism grow vein by vein, step by step towards lifelong dignity, therapy, and independence.
-                </p>
-              </div>
-
-              {/* Glowing Action Buttons */}
-              <div className="pt-2 flex flex-wrap items-center justify-center gap-2.5 sm:gap-4 max-w-sm sm:max-w-none mx-auto">
-                <button
-                  type="button"
-                  onClick={() => onOpenInquiry && onOpenInquiry("Meristem Campus Donation")}
-                  className="flex-1 sm:flex-initial inline-flex items-center justify-center gap-2 px-5 py-3 sm:px-8 sm:py-3.5 bg-[#2d7a4d] hover:bg-[#358f59] text-white text-xs sm:text-sm font-bold rounded-xl shadow-lg hover:shadow-emerald-900/50 transition-all transform hover:scale-[1.02] active:scale-95 cursor-pointer whitespace-nowrap"
-                >
-                  <span className="w-2 h-2 rounded-full bg-emerald-300 animate-pulse"></span>
-                  <span>Donate Now • 80G Tax Benefit</span>
-                </button>
-
-                <Link
-                  to="/campus"
-                  className="flex-1 sm:flex-initial inline-flex items-center justify-center gap-2 px-5 py-3 sm:px-7 sm:py-3.5 bg-white/10 hover:bg-white/20 text-white text-xs sm:text-sm font-semibold rounded-xl border border-white/20 backdrop-blur-md transition-all hover:border-emerald-400/50 whitespace-nowrap"
-                >
-                  <span>Explore 24/7 Campus</span>
-                  <ArrowRight className="w-4 h-4 text-emerald-300" />
-                </Link>
-              </div>
-
-              {/* 3-Column Minimalist Stats Row (Matching reference screenshot exactly) */}
-              <div className="pt-8 sm:pt-12 grid grid-cols-3 gap-2 sm:gap-6 border-t border-white/15 max-w-2xl mx-auto text-center">
-                <div className="space-y-1">
-                  <div className="font-display font-extrabold text-2xl sm:text-4xl text-white tracking-tight">
-                    100+
-                  </div>
-                  <div className="text-[10px] sm:text-xs font-bold uppercase tracking-wider text-emerald-300/80">
-                    Beds Sanctuary
-                  </div>
-                </div>
-
-                <div className="space-y-1 border-x border-white/15 px-2 sm:px-4">
-                  <div className="font-display font-extrabold text-2xl sm:text-4xl text-emerald-300 tracking-tight">
-                    68%
-                  </div>
-                  <div className="text-[10px] sm:text-xs font-bold uppercase tracking-wider text-emerald-300/80">
-                    ₹85L Raised
-                  </div>
-                </div>
-
-                <div className="space-y-1">
-                  <div className="font-display font-extrabold text-2xl sm:text-4xl text-white tracking-tight">
-                    60fps
-                  </div>
-                  <div className="text-[10px] sm:text-xs font-bold uppercase tracking-wider text-emerald-300/80">
-                    Held Throughout
-                  </div>
-                </div>
-              </div>
-
-              {/* Interactive 3D Cursor Hint */}
-              <div className="pt-2 text-[11px] text-emerald-200/60 font-medium">
-                ✨ Move cursor or touch to navigate 3D space • Tap to pulse glowing energy
-              </div>
-
-            </div>
-          ) : (
-            /* ======================================================== */
-            /* 2. PHOTO SHOWCASE SLIDES MODE                            */
-            /* ======================================================== */
-            <div className="relative z-10 w-full pt-14 pb-8 animate-in fade-in duration-500">
+          {/* Photo Showcase Slides - Auto-Scrolling */}
+          <div className="relative z-10 w-full pt-10 sm:pt-14 pb-8 sm:pb-10 animate-in fade-in duration-500">
               
               {/* Manual Slide Navigation Arrows (Desktop) */}
               <button
@@ -510,7 +419,6 @@ export default function HeroSection({ onOpenInquiry }) {
               </div>
 
             </div>
-          )}
 
         </div>
 
