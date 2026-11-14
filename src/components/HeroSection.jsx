@@ -211,35 +211,6 @@ export default function HeroSection({ onOpenInquiry }) {
           {/* Vignette Gradient Overlay for Text Readability */}
           <div className="absolute inset-0 bg-gradient-to-b from-[#070d09]/80 via-transparent to-[#070d09]/90 pointer-events-none z-1" />
 
-          {/* Top Right Mode Toggle: 3D Meristem vs Photo Slides */}
-          <div className="absolute top-3 right-3 sm:top-5 sm:right-6 z-30 pointer-events-auto">
-            <div className="inline-flex items-center gap-1 bg-black/60 backdrop-blur-md border border-white/20 rounded-xl p-1 shadow-lg">
-              <button
-                type="button"
-                onClick={() => setHeroMode('meristem')}
-                className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold transition-all cursor-pointer ${
-                  heroMode === 'meristem'
-                    ? 'bg-emerald-500 text-gray-950 font-bold shadow-sm'
-                    : 'text-white/80 hover:text-white'
-                }`}
-              >
-                <Sparkles className="w-3.5 h-3.5" />
-                <span>3D Meristem</span>
-              </button>
-              <button
-                type="button"
-                onClick={() => setHeroMode('showcase')}
-                className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold transition-all cursor-pointer ${
-                  heroMode === 'showcase'
-                    ? 'bg-emerald-500 text-gray-950 font-bold shadow-sm'
-                    : 'text-white/80 hover:text-white'
-                }`}
-              >
-                <Layers className="w-3.5 h-3.5" />
-                <span>Photo Slides</span>
-              </button>
-            </div>
-          </div>
 
           {heroMode === 'meristem' ? (
             /* ======================================================== */
