@@ -4,8 +4,6 @@ import {
   Building2,
   ArrowRight,
   MapPin,
-  ChevronLeft,
-  ChevronRight,
   Sprout,
   Sparkles,
   Heart,
@@ -208,24 +206,6 @@ export default function HeroSection({ onOpenInquiry }) {
 
           {/* Photo Showcase Slides - Auto-Scrolling */}
           <div className="relative z-10 w-full pt-10 sm:pt-14 pb-8 sm:pb-10 animate-in fade-in duration-500">
-              
-              {/* Manual Slide Navigation Arrows (Desktop) */}
-              <button
-                onClick={prevSlide}
-                aria-label="Previous Slide"
-                className="hidden lg:flex absolute left-4 xl:left-6 top-1/2 -translate-y-1/2 z-30 w-10 h-10 rounded-xl bg-black/40 hover:bg-black/70 border border-white/20 text-white backdrop-blur-md items-center justify-center transition-all duration-200 hover:scale-105 active:scale-95 shadow-lg cursor-pointer"
-              >
-                <ChevronLeft className="w-5 h-5" />
-              </button>
-
-              <button
-                onClick={nextSlide}
-                aria-label="Next Slide"
-                className="hidden lg:flex absolute right-4 xl:right-6 top-1/2 -translate-y-1/2 z-30 w-10 h-10 rounded-xl bg-black/40 hover:bg-black/70 border border-white/20 text-white backdrop-blur-md items-center justify-center transition-all duration-200 hover:scale-105 active:scale-95 shadow-lg cursor-pointer"
-              >
-                <ChevronRight className="w-5 h-5" />
-              </button>
-
               {/* Slides Track */}
               <div className="relative w-full overflow-hidden">
                 <div
