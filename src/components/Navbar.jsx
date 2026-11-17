@@ -14,8 +14,11 @@ import {
   Heart,
   ChevronRight
 } from 'lucide-react';
+import { useLanguage } from '../context/LanguageContext';
+import LanguageToggle from './LanguageToggle';
 
 export default function Navbar({ onOpenInquiry }) {
+  const { t, isTelugu } = useLanguage();
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const location = useLocation();
@@ -33,22 +36,22 @@ export default function Navbar({ onOpenInquiry }) {
   }, [location.pathname]);
 
   const navLinks = [
-    { name: 'Home', path: '/', icon: Home, desc: 'Overview & Campus' },
-    { name: 'About Us', path: '/about', icon: Info, desc: 'Mission, Care & Team' },
-    { name: 'Services', path: '/services', icon: Sparkles, desc: 'ADL & Autism Therapies' },
-    { name: 'Requirements', path: '/#requirements', icon: ClipboardList, desc: 'Campus Material Needs', highlight: true },
-    { name: 'Our Campus', path: '/campus', icon: Building2, desc: '4-Acre Residential Home' },
-    { name: 'Gallery', path: '/gallery', icon: Camera, desc: 'Bhoomi Puja & Photos' },
-    { name: 'Contact Us', path: '/contact', icon: PhoneCall, desc: 'Reach Out & Visit Us' },
+    { name: t('nav.home'), path: '/', icon: Home, desc: 'Overview & Campus' },
+    { name: t('nav.about'), path: '/about', icon: Info, desc: 'Mission, Care & Team' },
+    { name: t('nav.services'), path: '/services', icon: Sparkles, desc: 'ADL & Autism Therapies' },
+    { name: t('nav.requirements'), path: '/#requirements', icon: ClipboardList, desc: 'Campus Material Needs', highlight: true },
+    { name: t('nav.campus'), path: '/campus', icon: Building2, desc: '4-Acre Residential Home' },
+    { name: t('nav.gallery'), path: '/gallery', icon: Camera, desc: 'Bhoomi Puja & Photos' },
+    { name: t('nav.contact'), path: '/contact', icon: PhoneCall, desc: 'Reach Out & Visit Us' },
   ];
 
   // Exactly 5 key navigation items for the mobile bottom app bar (Matching reference)
   const bottomFiveLinks = [
-    { name: 'Home', path: '/', icon: Home },
-    { name: 'Requirements', path: '/#requirements', icon: ClipboardList, badge: '16' },
-    { name: 'Campus', path: '/campus', icon: Building2 },
-    { name: 'Gallery', path: '/gallery', icon: Camera },
-    { name: 'Contact', path: '/contact', icon: PhoneCall },
+    { name: t('nav.home'), path: '/', icon: Home },
+    { name: t('nav.requirements'), path: '/#requirements', icon: ClipboardList, badge: '16' },
+    { name: t('nav.campus'), path: '/campus', icon: Building2 },
+    { name: t('nav.gallery'), path: '/gallery', icon: Camera },
+    { name: t('nav.contact'), path: '/contact', icon: PhoneCall },
   ];
 
   const checkIsActive = (linkPath) => {
@@ -126,15 +129,18 @@ export default function Navbar({ onOpenInquiry }) {
             })}
           </nav>
 
-          {/* Right Action Button */}
-          <div className="flex items-center space-x-2 shrink-0">
+          {/* Right Action Buttons: Language Switcher + Donate Now */}
+          <div className="flex items-center space-x-1.5 sm:space-x-2 shrink-0">
+            {/* Language Switcher Pill */}
+            <LanguageToggle variant="navbar" />
+
             {/* Donate Now Button */}
             <button
               onClick={() => onOpenInquiry && onOpenInquiry("General Support & Inquiries")}
-              className="inline-flex items-center gap-2 px-3 sm:px-5 py-2 bg-[#2d7a4d] hover:bg-[#24663e] text-white text-xs sm:text-[13px] font-semibold rounded-lg sm:rounded-full shadow-xs hover:shadow-md transition-all duration-200 transform active:scale-95 whitespace-nowrap cursor-pointer"
+              className="inline-flex items-center gap-1.5 sm:gap-2 px-3 sm:px-4 lg:px-5 py-2 bg-[#2d7a4d] hover:bg-[#24663e] text-white text-xs sm:text-[13px] font-semibold rounded-lg sm:rounded-full shadow-xs hover:shadow-md transition-all duration-200 transform active:scale-95 whitespace-nowrap cursor-pointer"
             >
               <span className="w-1.5 h-1.5 rounded-full bg-emerald-300"></span>
-              <span>Donate Now</span>
+              <span>{t('nav.donateNow')}</span>
             </button>
 
             {/* Mobile Hamburger Button */}
@@ -152,14 +158,21 @@ export default function Navbar({ onOpenInquiry }) {
         {/* Mobile Drawer Menu - Styled as Distinct Interactive Buttons */}
         {mobileMenuOpen && (
           <div className="md:hidden max-w-5xl mx-auto mt-2 rounded-2xl border border-white/60 bg-white/95 backdrop-blur-md px-4 pt-3.5 pb-5 shadow-2xl animate-in slide-in-from-top-2 duration-150 pointer-events-auto">
+            {/* Mobile Drawer Language Switcher Bar */}
+            <div className="mb-3">
+              <LanguageToggle variant="drawer" />
+            </div>
+
             {/* Drawer Top Header */}
             <div className="flex items-center justify-between pb-3 mb-3 border-b border-gray-150">
               <div className="flex items-center gap-2">
                 <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
-                <span className="text-xs font-bold uppercase tracking-wider text-gray-600">Quick Navigation Buttons</span>
+                <span className="text-xs font-bold uppercase tracking-wider text-gray-600">
+                  {t('nav.quickNav')}
+                </span>
               </div>
               <span className="text-[11px] font-semibold text-emerald-800 bg-emerald-50 px-2.5 py-0.5 rounded-lg border border-emerald-200">
-                Direct Tap
+                {t('nav.directTap')}
               </span>
             </div>
 

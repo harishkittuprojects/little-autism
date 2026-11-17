@@ -12,9 +12,11 @@ import {
   Vote,
   CheckCircle2
 } from 'lucide-react';
+import { useLanguage } from '../context/LanguageContext';
 import Meristem3DCanvas from './Meristem3DCanvas';
 
 export default function HeroSection({ onOpenInquiry }) {
+  const { t, isTelugu } = useLanguage();
   const [currentSlide, setCurrentSlide] = useState(0);
   const [touchStartX, setTouchStartX] = useState(null);
   const [touchStartY, setTouchStartY] = useState(null);
@@ -59,48 +61,48 @@ export default function HeroSection({ onOpenInquiry }) {
   const pollItems = [
     {
       key: 'campusBeds',
-      shortName: '100 Campus Beds',
-      shortDonor: 'Needs 32 Donors',
-      title: 'Permanent Campus Residential Home (100 Beds)',
-      tag: 'Campus Infrastructure',
-      target: '100 Beds Total',
-      donorStatus: 'Searching for 32 Donors',
+      shortName: t('hero.poll.campusBeds'),
+      shortDonor: t('hero.poll.campusBedsDonors'),
+      title: t('hero.poll.campusBedsDesc'),
+      tag: isTelugu ? 'క్యాంపస్ మౌలిక వసతులు' : 'Campus Infrastructure',
+      target: isTelugu ? 'మొత్తం 100 బెడ్లు' : '100 Beds Total',
+      donorStatus: t('hero.poll.campusBedsDonors'),
       icon: Building2,
       badgeColor: 'bg-emerald-500/20 text-emerald-300 border-emerald-500/40',
       inquiryContext: 'Campus Poll: Permanent 100-Bed Residential Home Donation'
     },
     {
       key: 'fansLights',
-      shortName: 'Fans & Lights (70)',
-      shortDonor: 'Needs 14 Donors',
-      title: '35 Ceiling Fans & 35 LED Lights for Classrooms',
-      tag: 'Campus Utilities',
-      target: '70 Units Required',
-      donorStatus: 'Searching for 14 Donors',
+      shortName: t('hero.poll.fansLights'),
+      shortDonor: t('hero.poll.fansLightsDonors'),
+      title: t('hero.poll.fansLightsDesc'),
+      tag: isTelugu ? 'క్యాంపస్ యుటిలిటీస్' : 'Campus Utilities',
+      target: isTelugu ? '70 యూనిట్లు అవసరం' : '70 Units Required',
+      donorStatus: t('hero.poll.fansLightsDonors'),
       icon: Sparkles,
       badgeColor: 'bg-amber-500/20 text-amber-300 border-amber-500/40',
       inquiryContext: 'Campus Poll: Fans & Lights Requirement Sponsorship'
     },
     {
       key: 'schoolMaterial',
-      shortName: 'Sensory Kits (500)',
-      shortDonor: 'Needs 45 Donors',
-      title: '500 Special Stationery Sets & Sensory Therapy Kits',
-      tag: 'Special Education Needs',
-      target: '500 Sets Required',
-      donorStatus: 'Searching for 45 Donors',
+      shortName: t('hero.poll.sensoryKits'),
+      shortDonor: t('hero.poll.sensoryKitsDonors'),
+      title: t('hero.poll.sensoryKitsDesc'),
+      tag: isTelugu ? 'ప్రత్యేక విద్యా అవసరాలు' : 'Special Education Needs',
+      target: isTelugu ? '500 సెట్లు అవసరం' : '500 Sets Required',
+      donorStatus: t('hero.poll.sensoryKitsDonors'),
       icon: Layers,
       badgeColor: 'bg-blue-500/20 text-blue-300 border-blue-500/40',
       inquiryContext: 'Campus Poll: 500 Stationery & Sensory Kits Sponsorship'
     },
     {
       key: 'waterFilters',
-      shortName: 'RO Water Plants (2)',
-      shortDonor: 'Needs 2 Donors',
-      title: '2 Commercial RO Drinking Water Purification Plants',
-      tag: 'Campus Health & Safety',
-      target: '2 Units Required',
-      donorStatus: 'Searching for 2 Donors',
+      shortName: t('hero.poll.waterPlants'),
+      shortDonor: t('hero.poll.waterPlantsDonors'),
+      title: t('hero.poll.waterPlantsDesc'),
+      tag: isTelugu ? 'క్యాంపస్ ఆరోగ్యం & రక్షణ' : 'Campus Health & Safety',
+      target: isTelugu ? '2 యూనిట్లు అవసరం' : '2 Units Required',
+      donorStatus: t('hero.poll.waterPlantsDonors'),
       icon: Sprout,
       badgeColor: 'bg-teal-500/20 text-teal-300 border-teal-500/40',
       inquiryContext: 'Campus Poll: Commercial RO Water Filters Sponsorship'
@@ -111,129 +113,129 @@ export default function HeroSection({ onOpenInquiry }) {
     {
       id: 1,
       tagIcon: Building2,
-      tagText: "Permanent Campus Project — Jinnaram, Telangana",
-      titleLine1: "Driven by Purpose,",
-      titleLine2: "Powered by People",
-      subtitle: "We are a non-profit organization dedicated to empowering special children with autism through education, therapy, healthcare, and our upcoming 24/7 permanent residential campus in Jinnaram.",
-      primaryBtnText: "Donate Now",
+      tagText: t('hero.slide1.tag'),
+      titleLine1: t('hero.slide1.title1'),
+      titleLine2: t('hero.slide1.title2'),
+      subtitle: t('hero.slide1.subtitle'),
+      primaryBtnText: t('common.donateNow'),
       inquiryContext: "Permanent Campus Support & Donations",
-      secondaryBtnText: "Explore Our Campus",
+      secondaryBtnText: t('common.exploreCampus'),
       secondaryBtnLink: "/campus",
       
       leftCard: {
         image: "/images/dream-campus.jpg",
-        alt: "Our Dream Campus - Landscaped green courtyard with modern residential home",
+        alt: t('hero.slide1.dreamCampus'),
         tag: "Jinnaram Campus",
-        title: "Our Dream Campus",
-        desc: "Sensory courtyards & therapeutic classrooms",
+        title: t('hero.slide1.dreamCampus'),
+        desc: t('hero.slide1.dreamCampusDesc'),
         link: "/campus"
       },
       middleStats: {
         top: {
           stat: "12,500+",
-          title: "Lives Transformed",
-          desc: "Education, therapy & autism care"
+          title: t('hero.slide1.livesTransformed'),
+          desc: t('hero.slide1.livesTransformedDesc')
         },
         bottom: {
-          stat: "68% Built",
+          stat: isTelugu ? "68% పూర్తి" : "68% Built",
           badge: "2027",
-          title: "Our Campus Progress",
+          title: t('hero.slide1.campusProgress'),
           progress: "68%",
           link: "/campus"
         }
       },
       rightCard: {
         image: "/images/hostel-room.jpg",
-        alt: "24/7 Residential Care Home - Peaceful, safe bedroom suites",
+        alt: t('hero.slide1.residentialHome'),
         tag: "24/7 Living",
-        title: "Residential Care Home",
-        desc: "Safe suites with round-the-clock support",
+        title: t('hero.slide1.residentialHome'),
+        desc: t('hero.slide1.residentialHomeDesc'),
         link: "/campus"
       }
     },
     {
       id: 2,
       tagIcon: Sparkles,
-      tagText: "Sensory & Developmental Therapy Suites",
-      titleLine1: "Discovering Potential,",
-      titleLine2: "Nurturing Abilities",
-      subtitle: "Every child on the spectrum carries unique brilliance. Through personalized speech therapy, sensory integration, and creative arts, we help them unlock true independence.",
-      primaryBtnText: "Donate Now",
+      tagText: t('hero.slide2.tag'),
+      titleLine1: t('hero.slide2.title1'),
+      titleLine2: t('hero.slide2.title2'),
+      subtitle: t('hero.slide2.subtitle'),
+      primaryBtnText: t('common.donateNow'),
       inquiryContext: "Sensory Therapy & Special Education",
-      secondaryBtnText: "Our Services & Care",
+      secondaryBtnText: t('common.ourServices'),
       secondaryBtnLink: "/services",
       
       leftCard: {
         image: "/images/activities-music.jpg",
-        alt: "Sensory music and learning session with special children",
+        alt: t('hero.slide2.musicArt'),
         tag: "Sensory Room",
-        title: "Music & Art Therapy",
-        desc: "Stimulating expression and emotional growth",
+        title: t('hero.slide2.musicArt'),
+        desc: t('hero.slide2.musicArtDesc'),
         link: "/services"
       },
       middleStats: {
         top: {
           stat: "98%",
-          title: "Milestone Success",
-          desc: "Child-specific developmental goals"
+          title: t('hero.slide2.milestoneSuccess'),
+          desc: t('hero.slide2.milestoneDesc')
         },
         bottom: {
           stat: "24/7",
           badge: "Care",
-          title: "Clinical Care Team",
+          title: t('hero.slide2.careTeam'),
           progress: "100%",
           link: "/services"
         }
       },
       rightCard: {
         image: "/images/hero-care.jpg",
-        alt: "Therapist guiding a child through cognitive exercises",
+        alt: t('hero.slide2.cognitiveTraining'),
         tag: "Special Education",
-        title: "Cognitive Training",
-        desc: "Transdisciplinary child-centered care",
+        title: t('hero.slide2.cognitiveTraining'),
+        desc: t('hero.slide2.cognitiveDesc'),
         link: "/services"
       }
     },
     {
       id: 3,
       tagIcon: Heart,
-      tagText: "Loving Caregiver Community & Home Setting",
-      titleLine1: "A Sanctuary for Hope,",
-      titleLine2: "Care & Independence",
-      subtitle: "Creating an inclusive home where every child is respected, nurtured, and provided lifelong residential care, medical supervision, and compassionate companionship.",
-      primaryBtnText: "Donate Now",
+      tagText: t('hero.slide3.tag'),
+      titleLine1: t('hero.slide3.title1'),
+      titleLine2: t('hero.slide3.title2'),
+      subtitle: t('hero.slide3.subtitle'),
+      primaryBtnText: t('common.donateNow'),
       inquiryContext: "Residential Admissions & Support",
-      secondaryBtnText: "Explore Our Campus",
+      secondaryBtnText: t('common.exploreCampus'),
       secondaryBtnLink: "/campus",
       
       leftCard: {
         image: "/images/team_volunteers.jpg",
-        alt: "Community volunteers and caregivers team",
+        alt: t('hero.slide3.caregivers'),
         tag: "Care Community",
-        title: "Dedicated Caregivers",
-        desc: "Compassionate transdisciplinary staff",
+        title: t('hero.slide3.caregivers'),
+        desc: t('hero.slide3.caregiversDesc'),
         link: "/about"
       },
       middleStats: {
         top: {
           stat: "100+ Beds",
-          title: "Campus Sanctuary",
-          desc: "World-class residential boarding"
+          title: t('hero.slide3.campusSanctuary'),
+          desc: t('hero.slide3.campusSanctuaryDesc')
         },
         bottom: {
           stat: "100%",
           badge: "Inclusive",
-          title: "Autism-Specific Design",
+          title: t('hero.slide3.autismDesign'),
           progress: "100%",
           link: "/campus"
         }
       },
       rightCard: {
         image: "/images/volunteer_care.jpg",
-        alt: "Compassionate volunteer holding fresh food care package",
+        alt: t('hero.slide3.lifelongCare'),
         tag: "Community Care",
-        title: "Lifelong Companionship",
-        desc: "Dignified residential living for special youth",
+        title: t('hero.slide3.lifelongCare'),
+        desc: t('hero.slide3.lifelongCareDesc'),
         link: "/about"
       }
     }
@@ -497,10 +499,10 @@ export default function HeroSection({ onOpenInquiry }) {
                     <div className="flex items-center gap-2">
                       <span className="w-2 h-2 rounded-full bg-rose-500 animate-pulse"></span>
                       <span className="text-xs sm:text-sm font-bold text-white tracking-tight">
-                        Live Priority Poll: What should we build next?
+                        {t('common.livePoll')}
                       </span>
                       <span className="text-[10px] sm:text-[11px] font-semibold text-amber-300 bg-amber-500/15 border border-amber-500/30 px-2 py-0.5 rounded-full">
-                        Searching for Donors
+                        {t('common.searchingForDonors')}
                       </span>
                     </div>
 
@@ -509,7 +511,7 @@ export default function HeroSection({ onOpenInquiry }) {
                       onClick={() => onOpenInquiry && onOpenInquiry("Campus & Requirements Priority Sponsorship")}
                       className="text-[11px] sm:text-xs font-bold text-emerald-300 hover:text-white flex items-center gap-1 transition-colors cursor-pointer"
                     >
-                      <span>Sponsor / Donate</span>
+                      <span>{t('common.sponsorDonate')}</span>
                       <ArrowRight className="w-3.5 h-3.5" />
                     </button>
                   </div>
@@ -562,8 +564,14 @@ export default function HeroSection({ onOpenInquiry }) {
 
                   {/* Micro Footer Note */}
                   <div className="flex items-center justify-between text-[10px] text-emerald-200/60 mt-2 px-0.5">
-                    <span>{votedOption ? "✓ Vote recorded • Thank you!" : "Click any option above to cast your vote"}</span>
-                    <span>Total {totalVotes.toLocaleString()} votes cast</span>
+                    <span>
+                      {votedOption 
+                        ? (isTelugu ? "✓ మీ ఓటు నమోదైంది • ధన్యవాదాలు!" : "✓ Vote recorded • Thank you!") 
+                        : t('common.clickToVote')}
+                    </span>
+                    <span>
+                      {isTelugu ? "మొత్తం" : "Total"} {totalVotes.toLocaleString()} {t('common.votesCast')}
+                    </span>
                   </div>
 
                 </div>

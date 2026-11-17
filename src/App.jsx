@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-route
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 
+import { LanguageProvider } from './context/LanguageContext';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import InquiryModal from './components/InquiryModal';
@@ -73,38 +74,40 @@ export default function App() {
   };
 
   return (
-    <Router>
-      <ScrollToTop />
-      <div className="min-h-screen flex flex-col bg-[#f8faf8] text-gray-950 selection:bg-brand-200 selection:text-brand-950">
-        {/* Sticky Navbar */}
-        <Navbar onOpenInquiry={handleOpenInquiry} />
+    <LanguageProvider>
+      <Router>
+        <ScrollToTop />
+        <div className="min-h-screen flex flex-col bg-[#f8faf8] text-gray-950 selection:bg-brand-200 selection:text-brand-950">
+          {/* Sticky Navbar */}
+          <Navbar onOpenInquiry={handleOpenInquiry} />
 
-        {/* Main Content Area */}
-        <main className="flex-grow">
-          <Routes>
-            <Route path="/" element={<HomePage onOpenInquiry={handleOpenInquiry} />} />
-            <Route path="/about" element={<AboutPage onOpenInquiry={handleOpenInquiry} />} />
-            <Route path="/services" element={<ServicesPage onOpenInquiry={handleOpenInquiry} />} />
-            <Route path="/campus" element={<CampusPage onOpenInquiry={handleOpenInquiry} />} />
-            <Route path="/gallery" element={<GalleryPage onOpenInquiry={handleOpenInquiry} />} />
-            <Route path="/contact" element={<ContactPage onOpenInquiry={handleOpenInquiry} />} />
-            <Route path="/categories" element={<CategoriesPage onOpenInquiry={handleOpenInquiry} />} />
-            <Route path="/login" element={<LoginPage />} />
-            {/* Catch-all fallback */}
-            <Route path="*" element={<HomePage onOpenInquiry={handleOpenInquiry} />} />
-          </Routes>
-        </main>
+          {/* Main Content Area */}
+          <main className="flex-grow">
+            <Routes>
+              <Route path="/" element={<HomePage onOpenInquiry={handleOpenInquiry} />} />
+              <Route path="/about" element={<AboutPage onOpenInquiry={handleOpenInquiry} />} />
+              <Route path="/services" element={<ServicesPage onOpenInquiry={handleOpenInquiry} />} />
+              <Route path="/campus" element={<CampusPage onOpenInquiry={handleOpenInquiry} />} />
+              <Route path="/gallery" element={<GalleryPage onOpenInquiry={handleOpenInquiry} />} />
+              <Route path="/contact" element={<ContactPage onOpenInquiry={handleOpenInquiry} />} />
+              <Route path="/categories" element={<CategoriesPage onOpenInquiry={handleOpenInquiry} />} />
+              <Route path="/login" element={<LoginPage />} />
+              {/* Catch-all fallback */}
+              <Route path="*" element={<HomePage onOpenInquiry={handleOpenInquiry} />} />
+            </Routes>
+          </main>
 
-        {/* Footer */}
-        <Footer onOpenInquiry={handleOpenInquiry} />
+          {/* Footer */}
+          <Footer onOpenInquiry={handleOpenInquiry} />
 
-        {/* Global Interactive Inquiry / Campus Tour Modal */}
-        <InquiryModal
-          isOpen={isInquiryOpen}
-          onClose={handleCloseInquiry}
-          preselectedService={preselectedService}
-        />
-      </div>
-    </Router>
+          {/* Global Interactive Inquiry / Campus Tour Modal */}
+          <InquiryModal
+            isOpen={isInquiryOpen}
+            onClose={handleCloseInquiry}
+            preselectedService={preselectedService}
+          />
+        </div>
+      </Router>
+    </LanguageProvider>
   );
 }

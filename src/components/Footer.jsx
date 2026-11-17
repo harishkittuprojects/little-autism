@@ -2,8 +2,12 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { MapPin, Phone, Mail, Heart, Sprout } from 'lucide-react';
 import BrandLogo from './BrandLogo';
+import { useLanguage } from '../context/LanguageContext';
+import LanguageToggle from './LanguageToggle';
 
 export default function Footer({ onOpenInquiry }) {
+  const { t, isTelugu } = useLanguage();
+
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
@@ -117,13 +121,20 @@ export default function Footer({ onOpenInquiry }) {
 
         </div>
 
-        {/* Bottom Tagline with Leaf Icons matching reference UI */}
-        <div className="pt-6 flex items-center justify-center text-xs text-brand-200 font-semibold text-center">
+        {/* Bottom Tagline & Language Switcher */}
+        <div className="pt-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-brand-200 font-semibold text-center sm:text-left">
           <div className="flex items-center justify-center gap-2">
             <Sprout className="w-4 h-4 text-emerald-400" />
-            <span>Together for Inclusion • Education • Care • Independence</span>
+            <span>
+              {isTelugu 
+                ? 'సమ్మిళితత్వం • విద్య • సంరక్షణ • స్వావలంబన కోసం సంఘీభావం'
+                : 'Together for Inclusion • Education • Care • Independence'}
+            </span>
             <Sprout className="w-4 h-4 text-emerald-400" />
           </div>
+
+          {/* Footer Language Switcher */}
+          <LanguageToggle variant="footer" />
         </div>
 
       </div>
