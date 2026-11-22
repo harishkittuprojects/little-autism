@@ -1,11 +1,13 @@
 import React from 'react';
-import { UserCheck, Users, Sprout } from 'lucide-react';
+import { useLanguage } from '../context/LanguageContext';
 
 export default function ThreePillarsBar() {
+  const { t } = useLanguage();
+
   const pillars = [
     {
-      title: "Mentally Challenged & Autism Care",
-      subtitle: "Nurturing children with intellectual & developmental needs.",
+      title: t('threePillars.p1Title', "Mentally Challenged & Autism Care"),
+      subtitle: t('threePillars.p1Subtitle', "Nurturing children with intellectual & developmental needs."),
       icon: (
         <div className="w-12 h-12 rounded-full border-2 border-brand-500 text-brand-800 flex items-center justify-center shrink-0 bg-brand-50 shadow-2xs">
           <svg viewBox="0 0 24 24" className="w-6 h-6 text-brand-800" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -16,8 +18,8 @@ export default function ThreePillarsBar() {
       )
     },
     {
-      title: "ADL Activities (Daily Living)",
-      subtitle: "Brushing, eating, dressing & life independence.",
+      title: t('threePillars.p2Title', "ADL Activities (Daily Living)"),
+      subtitle: t('threePillars.p2Subtitle', "Brushing, eating, dressing & life independence."),
       icon: (
         <div className="w-12 h-12 rounded-full border-2 border-brand-500 text-brand-800 flex items-center justify-center shrink-0 bg-brand-50 shadow-2xs">
           <svg viewBox="0 0 24 24" className="w-7 h-7 text-brand-800" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -30,8 +32,8 @@ export default function ThreePillarsBar() {
       )
     },
     {
-      title: "CSR Certified & 80G Tax Exemption",
-      subtitle: "CSR donations accepted; claim tax rebate from government.",
+      title: t('threePillars.p3Title', "CSR Certified & 80G Tax Exemption"),
+      subtitle: t('threePillars.p3Subtitle', "CSR donations accepted; claim tax rebate from government."),
       icon: (
         <div className="w-12 h-12 rounded-full border-2 border-brand-500 text-brand-800 flex items-center justify-center shrink-0 bg-brand-50 shadow-2xs">
           <svg viewBox="0 0 24 24" className="w-7 h-7 text-brand-800" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">

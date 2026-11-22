@@ -1,13 +1,15 @@
 import React from 'react';
-import { BookOpen, Heart, Users, Home, ArrowRight, ShieldCheck } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import { BookOpen, Heart, Users, Home } from 'lucide-react';
+import { useLanguage } from '../context/LanguageContext';
 
 export default function DreamCampusSection({ onOpenInquiry }) {
+  const { t } = useLanguage();
+
   const campusFeatures = [
-    { title: "Learning Spaces", icon: BookOpen },
-    { title: "Therapy Rooms", icon: Heart },
-    { title: "Activity Areas", icon: Users },
-    { title: "Residential Facilities", icon: Home },
+    { title: t('dreamCampus.feat1', "Learning Spaces"), icon: BookOpen },
+    { title: t('dreamCampus.feat2', "Therapy Rooms"), icon: Heart },
+    { title: t('dreamCampus.feat3', "Activity Areas"), icon: Users },
+    { title: t('dreamCampus.feat4', "Residential Facilities"), icon: Home },
   ];
 
   return (
@@ -32,14 +34,14 @@ export default function DreamCampusSection({ onOpenInquiry }) {
           <div className="lg:col-span-6 space-y-6" data-aos="fade-left">
             
             <h2 className="font-display font-bold text-2xl sm:text-3xl lg:text-4xl text-brand-900 tracking-tight">
-              Our Dream Campus
+              {t('dreamCampus.title', 'Our Dream Campus')}
             </h2>
 
             <p className="text-sm sm:text-base text-gray-700 font-medium leading-relaxed">
-              We are building a safe, inclusive and nurturing campus with modern learning spaces, therapy rooms, activity areas and residential facilities — designed to support every child's unique journey towards independence.
+              {t('dreamCampus.desc', "We are building a safe, inclusive and nurturing campus with modern learning spaces, therapy rooms, activity areas and residential facilities — designed to support every child's unique journey towards independence.")}
             </p>
 
-            {/* 4 Feature Micro-Indicators matching reference UI */}
+            {/* 4 Feature Micro-Indicators */}
             <div className="grid grid-cols-4 gap-2 sm:gap-4 pt-3">
               {campusFeatures.map((feat, idx) => {
                 const Icon = feat.icon;
@@ -64,7 +66,7 @@ export default function DreamCampusSection({ onOpenInquiry }) {
                   className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-[#2d7a4d] hover:bg-[#23643e] text-white text-sm font-bold rounded-xl shadow-md hover:shadow-lg transition-all transform hover:scale-[1.02] active:scale-95 cursor-pointer"
                 >
                   <span className="w-2 h-2 rounded-full bg-emerald-300 animate-pulse"></span>
-                  <span>Donate Now for Our Campus</span>
+                  <span>{t('dreamCampus.donateBtn', 'Donate Now for Our Campus')}</span>
                 </button>
               </div>
             )}

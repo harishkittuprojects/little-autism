@@ -1,7 +1,10 @@
 import React from 'react';
 import { Home, MapPin, Calendar, Sprout, CheckCircle2, ShieldCheck, Sparkles, Building2, HeartHandshake } from 'lucide-react';
+import { useLanguage } from '../context/LanguageContext';
 
 export default function CampusProgressCard({ onOpenInquiry }) {
+  const { t, isTelugu } = useLanguage();
+
   return (
     <div className="max-w-7xl mx-auto px-3.5 sm:px-6 lg:px-8 my-6 sm:my-10" data-aos="fade-up">
       <div className="bg-[#e7f2e6] rounded-3xl p-6 sm:p-8 border-2 border-brand-300 shadow-md space-y-6">
@@ -19,14 +22,14 @@ export default function CampusProgressCard({ onOpenInquiry }) {
             </div>
             <div>
               <span className="text-[11px] font-bold uppercase tracking-wider text-brand-900 bg-white/80 px-2.5 py-0.5 rounded-full border border-brand-300">
-                Permanent Campus Project
+                {t('campusProgress.badge', 'Permanent Campus Project')}
               </span>
               <h3 className="font-display font-bold text-lg sm:text-2xl text-gray-950 leading-snug mt-1">
-                Sanctuary for Mentally Challenged & Special Children
+                {t('campusProgress.title', 'Sanctuary for Mentally Challenged & Special Children')}
               </h3>
               <p className="text-xs sm:text-sm text-gray-800 flex items-center gap-1.5 mt-1 font-semibold">
                 <MapPin className="w-4 h-4 text-brand-800 shrink-0" />
-                <span>Jinnaram, Sangareddy Dist, Telangana</span>
+                <span>{t('campusProgress.location', 'Jinnaram, Sangareddy Dist, Telangana')}</span>
               </p>
             </div>
           </div>
@@ -36,10 +39,10 @@ export default function CampusProgressCard({ onOpenInquiry }) {
             <div className="flex flex-wrap items-center justify-between gap-2 text-xs sm:text-sm font-bold text-gray-950">
               <span className="flex items-center gap-1.5 text-brand-900">
                 <Sprout className="w-4 h-4 text-brand-800" />
-                <span>Campus Construction & Funds Raised</span>
+                <span>{t('campusProgress.meterTitle', 'Campus Construction & Funds Raised')}</span>
               </span>
               <span className="text-brand-900 font-extrabold text-xs bg-brand-200/90 px-2.5 py-1 rounded-lg">
-                ₹85 Lakhs Raised (68%)
+                {t('campusProgress.raisedAmount', '₹85 Lakhs Raised (68%)')}
               </span>
             </div>
 
@@ -52,10 +55,10 @@ export default function CampusProgressCard({ onOpenInquiry }) {
             </div>
 
             <div className="flex flex-wrap items-center justify-between gap-2 text-xs text-gray-800 font-semibold pt-1">
-              <span className="text-gray-700">Campaign Goal: <strong>₹1.25 Crore</strong></span>
+              <span className="text-gray-700">{t('campusProgress.campaignGoal', 'Campaign Goal: ₹1.25 Crore')}</span>
               <span className="flex items-center gap-1 text-brand-900">
                 <Calendar className="w-3.5 h-3.5 text-brand-800" />
-                <span>Completion Target: 31 May 2027</span>
+                <span>{t('campusProgress.completionTarget', 'Completion Target: 31 May 2027')}</span>
               </span>
             </div>
 
@@ -67,7 +70,7 @@ export default function CampusProgressCard({ onOpenInquiry }) {
                   className="w-full py-2.5 px-4 bg-[#2d7a4d] hover:bg-[#23643e] text-white text-xs sm:text-sm font-bold rounded-xl shadow-sm hover:shadow-md flex items-center justify-center gap-2 transition active:scale-95 cursor-pointer"
                 >
                   <span className="w-2 h-2 rounded-full bg-emerald-300 animate-pulse"></span>
-                  <span>Donate Now for Our Campus</span>
+                  <span>{t('campusProgress.donateBtn', 'Donate Now for Our Campus')}</span>
                 </button>
               </div>
             )}
@@ -84,11 +87,13 @@ export default function CampusProgressCard({ onOpenInquiry }) {
               <div className="w-6 h-6 rounded-lg bg-emerald-100 flex items-center justify-center shrink-0">
                 <Sparkles className="w-3.5 h-3.5 text-emerald-700" />
               </div>
-              <span>Mentally Challenged</span>
+              <span>{t('campusProgress.impact1Badge', 'Mentally Challenged')}</span>
             </div>
-            <h4 className="font-bold text-xs sm:text-sm text-gray-950">Specialized Child Care</h4>
+            <h4 className="font-bold text-xs sm:text-sm text-gray-950">
+              {t('campusProgress.impact1Title', 'Specialized Child Care')}
+            </h4>
             <p className="text-[11px] text-gray-700 leading-relaxed">
-              Loving care, special education & individualized therapies for mentally challenged, autistic & neurodivergent children (Ages 3–18).
+              {t('campusProgress.impact1Desc', 'Loving care, special education & individualized therapies for mentally challenged, autistic & neurodivergent children (Ages 3–18).')}
             </p>
           </div>
 
@@ -98,11 +103,13 @@ export default function CampusProgressCard({ onOpenInquiry }) {
               <div className="w-6 h-6 rounded-lg bg-amber-100 flex items-center justify-center shrink-0">
                 <CheckCircle2 className="w-3.5 h-3.5 text-amber-700" />
               </div>
-              <span>ADL Activities</span>
+              <span>{t('campusProgress.impact2Badge', 'ADL Activities')}</span>
             </div>
-            <h4 className="font-bold text-xs sm:text-sm text-gray-950">Daily Living Independence</h4>
+            <h4 className="font-bold text-xs sm:text-sm text-gray-950">
+              {t('campusProgress.impact2Title', 'Daily Living Independence')}
+            </h4>
             <p className="text-[11px] text-gray-700 leading-relaxed">
-              Structured daily routines in personal hygiene, brushing, bathing, dining habits, dressing, and lifelong practical independence.
+              {t('campusProgress.impact2Desc', 'Structured daily routines in personal hygiene, brushing, bathing, dining habits, dressing, and lifelong practical independence.')}
             </p>
           </div>
 
@@ -112,11 +119,13 @@ export default function CampusProgressCard({ onOpenInquiry }) {
               <div className="w-6 h-6 rounded-lg bg-blue-100 flex items-center justify-center shrink-0">
                 <Building2 className="w-3.5 h-3.5 text-blue-700" />
               </div>
-              <span>CSR Certified</span>
+              <span>{t('campusProgress.impact3Badge', 'CSR Certified')}</span>
             </div>
-            <h4 className="font-bold text-xs sm:text-sm text-gray-950">CSR Donations Cheyavachu</h4>
+            <h4 className="font-bold text-xs sm:text-sm text-gray-950">
+              {t('campusProgress.impact3Title', 'CSR Donations Eligible')}
+            </h4>
             <p className="text-[11px] text-gray-700 leading-relaxed">
-              Companies & corporate institutions can contribute their mandatory CSR funds directly for school and campus development.
+              {t('campusProgress.impact3Desc', 'Companies & corporate institutions can contribute their mandatory CSR funds directly for school and campus development.')}
             </p>
           </div>
 
@@ -126,11 +135,13 @@ export default function CampusProgressCard({ onOpenInquiry }) {
               <div className="w-6 h-6 rounded-lg bg-purple-100 flex items-center justify-center shrink-0">
                 <ShieldCheck className="w-3.5 h-3.5 text-purple-700" />
               </div>
-              <span>Government Tax Claim</span>
+              <span>{t('campusProgress.impact4Badge', 'Government Tax Claim')}</span>
             </div>
-            <h4 className="font-bold text-xs sm:text-sm text-gray-950">Claim Money in Tax Rebate</h4>
+            <h4 className="font-bold text-xs sm:text-sm text-gray-950">
+              {t('campusProgress.impact4Title', 'Claim Money in Tax Rebate')}
+            </h4>
             <p className="text-[11px] text-gray-700 leading-relaxed">
-              All donation money can be claimed for 50% tax exemption from the government under Section 80G when filing income tax returns.
+              {t('campusProgress.impact4Desc', 'All donation money can be claimed for 50% tax exemption from the government under Section 80G when filing income tax returns.')}
             </p>
           </div>
 

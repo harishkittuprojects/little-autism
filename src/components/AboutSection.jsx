@@ -12,17 +12,52 @@ import {
   Activity,
   ArrowRight
 } from 'lucide-react';
+import { useLanguage } from '../context/LanguageContext';
 
 export default function AboutSection({ onOpenInquiry }) {
+  const { t, isTelugu } = useLanguage();
+
   const focusAreas = [
-    { title: "Mentally Challenged & Special Education", desc: "Adaptive curricula & IEPs tailored for intellectual and developmental needs", icon: BookOpen },
-    { title: "Targeted Therapies", desc: "Speech, Occupational, and Behavioural evidence-backed therapy", icon: Heart },
-    { title: "Communication Development", desc: "Verbal articulation, AAC devices, and visual exchange support", icon: MessageSquare },
-    { title: "Behavioural Support", desc: "Gentle positive reinforcement and emotional regulation", icon: Sparkles },
-    { title: "ADL Activities (Daily Living)", desc: "Brushing, bathing, eating, dressing, personal grooming, and practical life independence", icon: CheckCircle2 },
-    { title: "Residential / Hostel Care", desc: "24/7 peaceful, safe, and sensory-friendly accommodations", icon: Home },
-    { title: "Physical Movement", desc: "Adapted gymnastics, outdoor sensory garden walks, and fitness", icon: Activity },
-    { title: "Music & Creative Activities", desc: "Rhythm therapy, xylophones, and sensory-soothing melodies", icon: Music },
+    {
+      title: isTelugu ? "ప్రత్యేక విద్య & IEP" : "Mentally Challenged & Special Education",
+      desc: isTelugu ? "మేధో మరియు అభివృద్ధి అవసరాలకు అనుకూలమైన విద్యా ప్రణాళికలు" : "Adaptive curricula & IEPs tailored for intellectual and developmental needs",
+      icon: BookOpen
+    },
+    {
+      title: isTelugu ? "లక్ష్య ఆధారిత థెరపీలు" : "Targeted Therapies",
+      desc: isTelugu ? "స్పీచ్, ఆక్యుపేషనల్ మరియు బిహేవియర్ శాస్త్రీయ చికిత్సలు" : "Speech, Occupational, and Behavioural evidence-backed therapy",
+      icon: Heart
+    },
+    {
+      title: isTelugu ? "సంభాషణ & కమ్యూనికేషన్ వికాసం" : "Communication Development",
+      desc: isTelugu ? "స్పష్టమైన మాటలు, AAC పరికరాలు మరియు దృశ్య సంభాషణ మార్గాలు" : "Verbal articulation, AAC devices, and visual exchange support",
+      icon: MessageSquare
+    },
+    {
+      title: isTelugu ? "సానుకూల ప్రవర్తనా మద్దతు" : "Behavioural Support",
+      desc: isTelugu ? "ప్రేమపూర్వక మార్గదర్శకత్వం మరియు భావోద్వేగ నియంత్రణ" : "Gentle positive reinforcement and emotional regulation",
+      icon: Sparkles
+    },
+    {
+      title: isTelugu ? "దైనందిన జీవన నైపుణ్యాలు (ADL)" : "ADL Activities (Daily Living)",
+      desc: isTelugu ? "బ్రషింగ్, స్నానం, భోజనం, దుస్తులు మరియు స్వావలంబన" : "Brushing, bathing, eating, dressing, personal grooming, and practical life independence",
+      icon: CheckCircle2
+    },
+    {
+      title: isTelugu ? "24/7 నివాస / హాస్టల్ సంరక్షణ" : "Residential / Hostel Care",
+      desc: isTelugu ? "24/7 ప్రశాంతమైన, సురక్షితమైన మరియు సెన్సరీ-అనుకూల వసతి" : "24/7 peaceful, safe, and sensory-friendly accommodations",
+      icon: Home
+    },
+    {
+      title: isTelugu ? "శారీరక వ్యాయామాలు & క్రీడలు" : "Physical Movement",
+      desc: isTelugu ? "అనుకూల వ్యాయామాలు, సెన్సరీ తోటలో నడకలు మరియు ఫిట్‌నెస్" : "Adapted gymnastics, outdoor sensory garden walks, and fitness",
+      icon: Activity
+    },
+    {
+      title: isTelugu ? "సంగీతం & సృజనాత్మక కళలు" : "Music & Creative Activities",
+      desc: isTelugu ? "లయ థెరపీ, సంగీత వాయిద్యాలు మరియు మానసిక ఉల్లాసం" : "Rhythm therapy, xylophones, and sensory-soothing melodies",
+      icon: Music
+    },
   ];
 
   return (
@@ -42,14 +77,14 @@ export default function AboutSection({ onOpenInquiry }) {
                   <Sprout className="w-7 h-7" />
                 </div>
                 <h3 className="font-display font-bold text-xl text-gray-950 leading-snug">
-                  Why "Little Plant"?
+                  {t('aboutSection.whyTitle', 'Why "Little Plant"?')}
                 </h3>
                 <p className="text-sm text-gray-700 font-medium leading-relaxed">
-                  We believe every child is like a tender little plant. Each sprout requires its own sunlight, nourishing soil, and patient tending to flourish. With individualized care and gentle guidance, every child blossoms at their own natural pace.
+                  {t('aboutSection.whyDesc', 'We believe every child is like a tender little plant. Each sprout requires its own sunlight, nourishing soil, and patient tending to flourish. With individualized care and gentle guidance, every child blossoms at their own natural pace.')}
                 </p>
                 <div className="pt-2 flex items-center gap-3 border-t border-brand-200 text-xs font-bold text-brand-900">
                   <span className="w-2.5 h-2.5 rounded-full bg-brand-600" />
-                  <span>Respecting every child's neurodiversity and pace</span>
+                  <span>{t('aboutSection.whyFoot', "Respecting every child's neurodiversity and pace")}</span>
                 </div>
               </div>
 
@@ -57,11 +92,11 @@ export default function AboutSection({ onOpenInquiry }) {
               <div className="grid grid-cols-2 gap-4">
                 <div className="bg-white rounded-2xl p-4 border-2 border-brand-200 text-center shadow-2xs">
                   <p className="text-2xl font-bold font-display text-brand-700">8</p>
-                  <p className="text-xs font-bold text-gray-800 mt-0.5">Integrated Programs</p>
+                  <p className="text-xs font-bold text-gray-800 mt-0.5">{t('aboutSection.statPrograms', 'Integrated Programs')}</p>
                 </div>
                 <div className="bg-white rounded-2xl p-4 border-2 border-brand-200 text-center shadow-2xs">
                   <p className="text-2xl font-bold font-display text-brand-700">24/7</p>
-                  <p className="text-xs font-bold text-gray-800 mt-0.5">Compassionate Care</p>
+                  <p className="text-xs font-bold text-gray-800 mt-0.5">{t('aboutSection.statCare', 'Compassionate Care')}</p>
                 </div>
               </div>
 
@@ -73,25 +108,25 @@ export default function AboutSection({ onOpenInquiry }) {
             
             <div className="space-y-2">
               <span className="text-xs font-extrabold uppercase tracking-wider text-brand-900 bg-brand-100 px-3.5 py-1.5 rounded-full border border-brand-300">
-                About Our Home & School
+                {t('aboutSection.badge', 'About Our Home & School')}
               </span>
               <h2 className="font-display font-bold text-2xl sm:text-3xl lg:text-4xl text-gray-950 leading-tight">
-                A Welcoming Sanctuary for Learning, Therapy & Life Skills
+                {t('aboutSection.title', 'A Welcoming Sanctuary for Learning, Therapy & Life Skills')}
               </h2>
             </div>
 
             <p className="text-base text-gray-800 leading-relaxed font-normal">
-              <strong>Little Plant Autism Residential Home</strong> was created to offer families a dependable, transparent, and loving environment for children and youth on the autism spectrum. We combine round-the-clock residential warmth with certified clinical therapies and specialized education under one harmonious roof.
+              {t('aboutSection.p1', 'Little Plant Autism Residential Home was created to offer families a dependable, transparent, and loving environment for children and youth on the autism spectrum. We combine round-the-clock residential warmth with certified clinical therapies and specialized education under one harmonious roof.')}
             </p>
 
             <p className="text-sm sm:text-base text-gray-700 font-medium leading-relaxed">
-              Rather than a rigid institutional setting, our campus feels like a joyful, peaceful home. Here, children develop the vital tools to communicate, practice everyday self-care, engage in musical and physical play, and build cherished social bonds.
+              {t('aboutSection.p2', 'Rather than a rigid institutional setting, our campus feels like a joyful, peaceful home. Here, children develop the vital tools to communicate, practice everyday self-care, engage in musical and physical play, and build cherished social bonds.')}
             </p>
 
             {/* 8 Focus Pillars Grid */}
             <div className="pt-2">
               <h4 className="text-xs font-bold text-gray-900 uppercase tracking-wider mb-3">
-                Key Pillars of Our Comprehensive Support:
+                {t('aboutSection.pillarsTitle', 'Key Pillars of Our Comprehensive Support:')}
               </h4>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                 {focusAreas.map((area, idx) => {
@@ -120,15 +155,15 @@ export default function AboutSection({ onOpenInquiry }) {
                 to="/categories"
                 className="inline-flex items-center gap-2 px-6 py-3 bg-brand-700 hover:bg-brand-800 text-white font-bold rounded-xl text-sm shadow-sm transition"
               >
-                <span>View Our Categories</span>
+                <span>{isTelugu ? 'మా విభాగాలు చూడండి' : 'View Our Categories'}</span>
                 <ArrowRight className="w-4 h-4" />
               </Link>
               <button
                 type="button"
-                onClick={() => onOpenInquiry()}
-                className="inline-flex items-center gap-2 px-6 py-3 bg-white hover:bg-brand-50 text-brand-950 font-bold rounded-xl text-sm border-2 border-brand-700 shadow-2xs transition"
+                onClick={() => onOpenInquiry && onOpenInquiry()}
+                className="inline-flex items-center gap-2 px-6 py-3 bg-white hover:bg-brand-50 text-brand-950 font-bold rounded-xl text-sm border-2 border-brand-700 shadow-2xs transition cursor-pointer"
               >
-                <span>Speak with an Admissions Guide</span>
+                <span>{isTelugu ? 'అడ్మిషన్ల సంప్రదింపు' : 'Speak with an Admissions Guide'}</span>
               </button>
             </div>
 

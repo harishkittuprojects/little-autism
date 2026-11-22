@@ -1,9 +1,12 @@
 import React from 'react';
 import { HIDDEN_TALENTS } from '../data/servicesData';
-import { Sparkles, Heart, Sprout, ArrowRight, Music, Activity, Palette, Sun, Award, Quote } from 'lucide-react';
+import { Sparkles, Quote } from 'lucide-react';
 import IconHelper from './IconHelper';
+import { useLanguage } from '../context/LanguageContext';
 
 export default function VisionAndMotto({ onOpenInquiry }) {
+  const { isTelugu } = useLanguage();
+
   return (
     <section className="py-16 lg:py-24 bg-white relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16">
@@ -23,15 +26,17 @@ export default function VisionAndMotto({ onOpenInquiry }) {
             
             <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white border border-brand-200 text-xs font-bold text-brand-800 shadow-2xs">
               <Sparkles className="w-4 h-4 text-brand-600" />
-              <span>Our Vision — Beyond Disabilities, Discovering Abilities</span>
+              <span>{isTelugu ? 'మా దార్శనికత — లోపాన్ని కాదు, సామర్థ్యాన్ని చూడండి' : 'Our Vision — Beyond Disabilities, Discovering Abilities'}</span>
             </div>
 
             <h2 className="font-display font-bold text-2xl sm:text-3xl lg:text-4xl text-gray-900 leading-tight">
-              A Disability Does Not Define a Child’s Future
+              {isTelugu ? 'వైకల్యం బిడ్డ భవిష్యత్తును నిర్ణయించలేదు' : 'A Disability Does Not Define a Child’s Future'}
             </h2>
 
             <p className="text-sm sm:text-base text-gray-600 leading-relaxed max-w-3xl mx-auto">
-              At <strong>Little Plant Autism Educational Academy</strong>, we believe that every child is unique and has their own strengths, hidden talents, abilities, and potential. Our mission is to discover each child’s individual talents, nurture their abilities, improve essential life skills, and help them reach their fullest potential.
+              {isTelugu
+                ? 'లిటిల్ ప్లాంట్ ఆటిజం ఎడ్యుకేషనల్ అకాడమీలో, ప్రతి బిడ్డ ప్రత్యేకమైన వారని, వారిలో దాగి ఉన్న శక్తులు మరియు ప్రతిభ ఉంటుందని మేము విశ్వసిస్తున్నాము. వారి సామర్థ్యాలను గుర్తించి, తీర్చిదిద్ది, సంపూర్ణ ఎదుగుదలకు తోడ్పడటమే మా లక్ష్యం.'
+                : 'At Little Plant Autism Educational Academy, we believe that every child is unique and has their own strengths, hidden talents, abilities, and potential. Our mission is to discover each child’s individual talents, nurture their abilities, improve essential life skills, and help them reach their fullest potential.'}
             </p>
 
             {/* The Official Academy Motto Card */}
@@ -39,16 +44,20 @@ export default function VisionAndMotto({ onOpenInquiry }) {
               <Quote className="w-8 h-8 text-brand-300 absolute top-4 left-4 -scale-x-100 opacity-60" />
               <div className="space-y-3 relative z-10">
                 <p className="font-display font-extrabold text-base sm:text-xl md:text-2xl text-brand-800 tracking-tight leading-snug">
-                  “Don't Focus Only on the Disability. Discover the Ability. Nurture the Talent. Empower the Child.”
+                  {isTelugu
+                    ? '“వైకల్యంపై మాత్రమే దృష్టి పెట్టకండి. సామర్థ్యాన్ని గుర్తించండి. ప్రతిభను తీర్చిదిద్దండి. బిడ్డకు సాధికారత కల్పించండి.”'
+                    : '“Don’t Focus Only on the Disability. Discover the Ability. Nurture the Talent. Empower the Child.”'}
                 </p>
                 <p className="text-xs sm:text-sm font-bold text-brand-600 uppercase tracking-widest">
-                  — Every Child Deserves a Chance to Shine!
+                  {isTelugu ? '— ప్రతి బిడ్డకూ ప్రకాశించే హక్కు ఉంది!' : '— Every Child Deserves a Chance to Shine!'}
                 </p>
               </div>
             </div>
 
             <p className="text-xs sm:text-sm text-gray-500 max-w-2xl mx-auto">
-              We strive to create an inclusive, caring, and supportive environment where every child is valued, every ability is encouraged, and every achievement matters.
+              {isTelugu
+                ? 'ప్రతి బిడ్డ విలువైనదిగా భావించబడే, ప్రతి సామర్థ్యం ప్రోత్సహించబడే ఆత్మీయ మరియు సహాయక వాతావరణాన్ని మేము సృష్టిస్తున్నాము.'
+                : 'We strive to create an inclusive, caring, and supportive environment where every child is valued, every ability is encouraged, and every achievement matters.'}
             </p>
 
           </div>
@@ -59,35 +68,42 @@ export default function VisionAndMotto({ onOpenInquiry }) {
           
           <div className="text-center max-w-3xl mx-auto">
             <span className="text-xs font-bold uppercase tracking-wider text-brand-700 bg-brand-50 px-3.5 py-1.5 rounded-full border border-brand-200">
-              Unlocking Potential
+              {isTelugu ? 'సామర్థ్యాల వెలికితీత' : 'Unlocking Potential'}
             </span>
             <h3 className="font-display font-bold text-2xl sm:text-3xl text-gray-900 mt-3">
-              Discovering Hidden Talents
+              {isTelugu ? 'దాగి ఉన్న ప్రతిభను గుర్తించడం' : 'Discovering Hidden Talents'}
             </h3>
             <p className="text-xs sm:text-sm text-gray-600 mt-2 leading-relaxed">
-              Every child has something special to offer. Our approach is to observe each child, understand their interests, identify their strengths, and create opportunities for them to learn, explore, participate, and grow.
+              {isTelugu
+                ? 'ప్రతి బిడ్డలోనూ ఒక ప్రత్యేక ప్రతిభ ఉంటుంది. ప్రతి బిడ్డను నిశితంగా గమనించి, వారి ఆసక్తులను అర్థం చేసుకుని, నేర్చుకోవడానికి మరియు ఎదగడానికి అవకాశాలను కల్పిస్తాము.'
+                : 'Every child has something special to offer. Our approach is to observe each child, understand their interests, identify their strengths, and create opportunities for them to learn, explore, participate, and grow.'}
             </p>
           </div>
 
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
-            {HIDDEN_TALENTS.map((talent, idx) => (
-              <div
-                key={idx}
-                className="bg-[#f7faf6] hover:bg-white rounded-2xl p-4 text-center border border-brand-200/70 hover:border-brand-400 hover:shadow-soft transition-all duration-300 hover:-translate-y-1 space-y-2 flex flex-col justify-between"
-              >
-                <div>
-                  <div className="w-11 h-11 rounded-xl bg-white border border-brand-200 text-brand-700 flex items-center justify-center mx-auto shadow-2xs mb-2">
-                    <IconHelper name={talent.icon} className="w-5 h-5 text-brand-600" />
+            {HIDDEN_TALENTS.map((talent, idx) => {
+              const name = isTelugu && talent.name_te ? talent.name_te : talent.name;
+              const desc = isTelugu && talent.desc_te ? talent.desc_te : talent.desc;
+
+              return (
+                <div
+                  key={idx}
+                  className="bg-[#f7faf6] hover:bg-white rounded-2xl p-4 text-center border border-brand-200/70 hover:border-brand-400 hover:shadow-soft transition-all duration-300 hover:-translate-y-1 space-y-2 flex flex-col justify-between"
+                >
+                  <div>
+                    <div className="w-11 h-11 rounded-xl bg-white border border-brand-200 text-brand-700 flex items-center justify-center mx-auto shadow-2xs mb-2">
+                      <IconHelper name={talent.icon} className="w-5 h-5 text-brand-600" />
+                    </div>
+                    <h4 className="font-display font-bold text-xs sm:text-sm text-gray-900 leading-tight">
+                      {name}
+                    </h4>
                   </div>
-                  <h4 className="font-display font-bold text-xs sm:text-sm text-gray-900 leading-tight">
-                    {talent.name}
-                  </h4>
+                  <p className="text-[11px] text-gray-500 leading-tight">
+                    {desc}
+                  </p>
                 </div>
-                <p className="text-[11px] text-gray-500 leading-tight">
-                  {talent.desc}
-                </p>
-              </div>
-            ))}
+              );
+            })}
           </div>
 
         </div>
@@ -98,16 +114,20 @@ export default function VisionAndMotto({ onOpenInquiry }) {
             
             <div className="lg:col-span-8 space-y-4">
               <span className="text-xs font-bold uppercase tracking-wider text-brand-800 bg-white px-3 py-1 rounded-full border border-brand-200 inline-block">
-                Partners in Every Milestone
+                {isTelugu ? 'ప్రతి మైలురాయిలో తోడుగా' : 'Partners in Every Milestone'}
               </span>
               <h3 className="font-display font-bold text-xl sm:text-2xl text-gray-900 leading-snug">
-                Our Commitment to Parents & Families
+                {isTelugu ? 'తల్లిదండ్రులు & కుటుంబాలకు మా హామీ' : 'Our Commitment to Parents & Families'}
               </h3>
               <p className="text-xs sm:text-sm text-gray-700 leading-relaxed">
-                We work towards improving each child’s functional skills, communication, learning abilities, social participation, positive behaviour, physical development, and independence through individualized developmental goals and family collaboration.
+                {isTelugu
+                  ? 'వ్యక్తిగత వికాస లక్ష్యాలు మరియు కుటుంబ సమన్వయం ద్వారా ప్రతి బిడ్డ కమ్యూనికేషన్, అభ్యాసం, సామాజిక భాగస్వామ్యం, సానుకూల ప్రవర్తన మరియు స్వావలంబనను మెరుగుపరచడానికి మేము కృషి చేస్తాము.'
+                  : 'We work towards improving each child’s functional skills, communication, learning abilities, social participation, positive behaviour, physical development, and independence through individualized developmental goals and family collaboration.'}
               </p>
               <p className="text-xs sm:text-sm text-brand-900 font-medium">
-                We aim to help parents recognize not only the challenges their children face but also the abilities, achievements, and possibilities that make each child special.
+                {isTelugu
+                  ? 'పిల్లలు ఎదుర్కొంటున్న సవాళ్లను మాత్రమే కాకుండా, వారిలోని అద్భుతమైన సామర్థ్యాలను మరియు విజయాలను గుర్తించడంలో మేము తల్లిదండ్రులకు తోడుగా ఉంటాము.'
+                  : 'We aim to help parents recognize not only the challenges their children face but also the abilities, achievements, and possibilities that make each child special.'}
               </p>
             </div>
 
@@ -115,16 +135,16 @@ export default function VisionAndMotto({ onOpenInquiry }) {
               <button
                 type="button"
                 onClick={() => onOpenInquiry && onOpenInquiry("Parent Consultation")}
-                className="w-full py-3 px-5 bg-brand-600 hover:bg-brand-700 text-white font-semibold rounded-full text-xs sm:text-sm shadow-xs transition text-center"
+                className="w-full py-3 px-5 bg-brand-600 hover:bg-brand-700 text-white font-semibold rounded-full text-xs sm:text-sm shadow-xs transition text-center cursor-pointer"
               >
-                Schedule Family Consultation
+                {isTelugu ? 'కుటుంబ సంప్రదింపులను షెడ్యూల్ చేయండి' : 'Schedule Family Consultation'}
               </button>
               <button
                 type="button"
                 onClick={() => onOpenInquiry && onOpenInquiry("Campus Visit")}
-                className="w-full py-3 px-5 bg-white hover:bg-brand-50 text-brand-800 font-semibold rounded-full border border-brand-300 text-xs sm:text-sm transition text-center"
+                className="w-full py-3 px-5 bg-white hover:bg-brand-50 text-brand-800 font-semibold rounded-full border border-brand-300 text-xs sm:text-sm transition text-center cursor-pointer"
               >
-                Book Campus Visit
+                {isTelugu ? 'క్యాంపస్ సందర్శనను బుక్ చేయండి' : 'Book Campus Visit'}
               </button>
             </div>
 

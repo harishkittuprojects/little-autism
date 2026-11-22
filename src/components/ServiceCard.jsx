@@ -2,8 +2,16 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowRight, Check } from 'lucide-react';
 import IconHelper from './IconHelper';
+import { useLanguage } from '../context/LanguageContext';
 
 export default function ServiceCard({ service, onSelectService, dataAos = "fade-up", dataAosDelay = "0" }) {
+  const { isTelugu } = useLanguage();
+
+  const name = isTelugu && service.name_te ? service.name_te : service.name;
+  const categoryGroup = isTelugu && service.categoryGroup_te ? service.categoryGroup_te : service.categoryGroup;
+  const shortDescription = isTelugu && service.shortDescription_te ? service.shortDescription_te : service.shortDescription;
+  const benefits = (isTelugu && service.benefits_te) ? service.benefits_te : service.benefits;
+
   return (
     <div
       data-aos={dataAos}
@@ -20,24 +28,24 @@ export default function ServiceCard({ service, onSelectService, dataAos = "fade-
             <IconHelper name={service.iconName} className="w-6 h-6 transition-transform group-hover:rotate-3" />
           </div>
           <span className="text-[11px] font-bold text-brand-900 bg-brand-100 px-3 py-1 rounded-full border border-brand-300">
-            {service.categoryGroup}
+            {categoryGroup}
           </span>
         </div>
 
         {/* Title */}
         <h3 className="font-display font-bold text-lg text-gray-950 group-hover:text-brand-900 transition-colors mb-2">
-          {service.name}
+          {name}
         </h3>
 
         {/* Short Description */}
         <p className="text-xs sm:text-sm text-gray-700 font-medium leading-relaxed mb-4">
-          {service.shortDescription}
+          {shortDescription}
         </p>
 
         {/* Benefits preview snippet */}
-        {service.benefits && (
+        {benefits && (
           <ul className="space-y-1.5 mb-6 pt-3 border-t border-brand-100">
-            {service.benefits.slice(0, 2).map((benefit, i) => (
+            {benefits.slice(0, 2).map((benefit, i) => (
               <li key={i} className="text-xs text-gray-800 font-medium flex items-start gap-2">
                 <Check className="w-4 h-4 text-brand-700 shrink-0 mt-0.5" />
                 <span className="line-clamp-1">{benefit}</span>
@@ -53,17 +61,17 @@ export default function ServiceCard({ service, onSelectService, dataAos = "fade-
           to={`/services#${service.id}`}
           className="inline-flex items-center gap-1.5 text-xs sm:text-sm font-bold text-brand-800 hover:text-brand-950 transition group/btn"
         >
-          <span>Learn More</span>
+          <span>{isTelugu ? 'మరింత సమాచారం' : 'Learn More'}</span>
           <ArrowRight className="w-4 h-4 group-hover/btn:translate-x-1 transition-transform" />
         </Link>
 
         {onSelectService && (
           <button
             type="button"
-            onClick={() => onSelectService(service.name)}
-            className="text-xs font-bold text-brand-800 hover:text-brand-950 hover:underline bg-brand-50 px-2.5 py-1 rounded-lg border border-brand-200 transition"
+            onClick={() => onSelectService(name)}
+            className="text-xs font-bold text-brand-800 hover:text-brand-950 hover:underline bg-brand-50 px-2.5 py-1 rounded-lg border border-brand-200 transition cursor-pointer"
           >
-            Inquire
+            {isTelugu ? 'సంప్రదించండి' : 'Inquire'}
           </button>
         )}
       </div>

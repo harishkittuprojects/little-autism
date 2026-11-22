@@ -5,8 +5,11 @@ import ChildrenWeSupport from '../components/ChildrenWeSupport';
 import WhyChooseUs from '../components/WhyChooseUs';
 import CTASection from '../components/CTASection';
 import { Sprout, ShieldCheck, HeartHandshake, Sparkles } from 'lucide-react';
+import { useLanguage } from '../context/LanguageContext';
 
 export default function AboutPage({ onOpenInquiry }) {
+  const { t } = useLanguage();
+
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
@@ -18,31 +21,31 @@ export default function AboutPage({ onOpenInquiry }) {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center" data-aos="fade-up">
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white border-2 border-brand-300 text-xs font-bold text-brand-900 shadow-2xs mb-4">
             <Sprout className="w-4 h-4 text-brand-700" />
-            <span>Little Plant Autism Educational Academy</span>
+            <span>{t('aboutPage.badge', 'Little Plant Autism Educational Academy')}</span>
           </div>
 
           <h1 className="font-display font-bold text-3xl sm:text-4xl lg:text-5xl text-gray-950 tracking-tight">
-            About Our Academy & Residential Home
+            {t('aboutPage.title', 'About Our Academy & Residential Home')}
           </h1>
 
           <p className="mt-4 text-base sm:text-lg text-gray-700 font-medium max-w-2xl mx-auto leading-relaxed">
-            We are dedicated to discovering abilities, nurturing hidden talents, and providing 24/7 compassionate residential care for special children and youth.
+            {t('aboutPage.desc', 'We are dedicated to discovering abilities, nurturing hidden talents, and providing 24/7 compassionate residential care for special children and youth.')}
           </p>
 
           <div className="mt-6 flex flex-wrap items-center justify-center gap-4 text-xs text-gray-800 font-semibold">
             <span className="flex items-center gap-1.5">
               <ShieldCheck className="w-4 h-4 text-brand-800" />
-              Specialized Transdisciplinary Team
+              {t('aboutPage.meta1', 'Specialized Transdisciplinary Team')}
             </span>
             <span className="text-brand-300 hidden sm:inline">•</span>
             <span className="flex items-center gap-1.5">
               <HeartHandshake className="w-4 h-4 text-brand-800" />
-              Inclusive 24/7 Home Setting
+              {t('aboutPage.meta2', 'Inclusive 24/7 Home Setting')}
             </span>
             <span className="text-brand-300 hidden sm:inline">•</span>
             <span className="flex items-center gap-1.5">
               <Sparkles className="w-4 h-4 text-brand-800" />
-              Child-Centered Potential
+              {t('aboutPage.meta3', 'Child-Centered Potential')}
             </span>
           </div>
         </div>

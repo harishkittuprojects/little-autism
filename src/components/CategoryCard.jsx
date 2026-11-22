@@ -1,9 +1,17 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowRight, Sparkles, CheckCircle2 } from 'lucide-react';
+import { ArrowRight, CheckCircle2 } from 'lucide-react';
 import IconHelper from './IconHelper';
+import { useLanguage } from '../context/LanguageContext';
 
 export default function CategoryCard({ category, onOpenInquiry, dataAos = "fade-up", dataAosDelay = "0" }) {
+  const { isTelugu } = useLanguage();
+
+  const name = isTelugu && category.name_te ? category.name_te : category.name;
+  const badge = isTelugu && category.badge_te ? category.badge_te : category.badge;
+  const shortDescription = isTelugu && category.shortDescription_te ? category.shortDescription_te : category.shortDescription;
+  const benefits = (isTelugu && category.benefits_te) ? category.benefits_te : category.benefits;
+
   return (
     <div
       data-aos={dataAos}
@@ -16,27 +24,27 @@ export default function CategoryCard({ category, onOpenInquiry, dataAos = "fade-
           <IconHelper name={category.iconName} className="w-7 h-7 group-hover:scale-110 transition-transform" />
         </div>
         <span className="text-xs font-bold text-brand-900 bg-brand-100 px-3 py-1 rounded-full border border-brand-300">
-          Program {category.number}
+          {isTelugu ? `ప్రోగ్రామ్ ${category.number}` : `Program ${category.number}`}
         </span>
       </div>
 
       <div>
         {/* Category Badge & Title */}
         <p className="text-xs font-extrabold text-brand-800 uppercase tracking-wider mb-1.5">
-          {category.badge}
+          {badge}
         </p>
         <h3 className="font-display font-bold text-xl sm:text-2xl text-gray-950 group-hover:text-brand-900 transition-colors mb-3">
-          {category.name}
+          {name}
         </h3>
 
         {/* Short Description */}
         <p className="text-sm text-gray-700 font-medium leading-relaxed mb-6">
-          {category.shortDescription}
+          {shortDescription}
         </p>
 
         {/* Features bullet points */}
         <div className="bg-[#ecf4ec] rounded-2xl p-4 border border-brand-200 mb-6 space-y-2">
-          {category.benefits.slice(0, 3).map((benefit, i) => (
+          {benefits.slice(0, 3).map((benefit, i) => (
             <div key={i} className="flex items-start gap-2 text-xs text-gray-800 font-medium">
               <CheckCircle2 className="w-4 h-4 text-brand-700 shrink-0 mt-0.5" />
               <span className="line-clamp-1">{benefit}</span>
@@ -51,17 +59,17 @@ export default function CategoryCard({ category, onOpenInquiry, dataAos = "fade-
           to={`/services#${category.id}`}
           className="inline-flex items-center gap-2 text-sm font-bold text-brand-800 hover:text-brand-950 transition group/link"
         >
-          <span>View Service Details</span>
+          <span>{isTelugu ? 'వివరాలు చూడండి' : 'View Service Details'}</span>
           <ArrowRight className="w-4 h-4 group-hover/link:translate-x-1 transition-transform" />
         </Link>
 
         {onOpenInquiry && (
           <button
             type="button"
-            onClick={() => onOpenInquiry(category.name)}
-            className="text-xs font-bold px-3.5 py-1.5 rounded-xl bg-brand-100 text-brand-900 hover:bg-brand-700 hover:text-white border border-brand-300 transition shadow-2xs"
+            onClick={() => onOpenInquiry(name)}
+            className="text-xs font-bold px-3.5 py-1.5 rounded-xl bg-brand-100 text-brand-900 hover:bg-brand-700 hover:text-white border border-brand-300 transition shadow-2xs cursor-pointer"
           >
-            Inquire
+            {isTelugu ? 'సంప్రదించండి' : 'Inquire'}
           </button>
         )}
       </div>

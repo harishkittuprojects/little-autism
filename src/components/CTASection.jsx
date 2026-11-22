@@ -1,7 +1,10 @@
 import React from 'react';
-import { Sprout, ArrowRight, HeartHandshake } from 'lucide-react';
+import { Sprout, HeartHandshake } from 'lucide-react';
+import { useLanguage } from '../context/LanguageContext';
 
 export default function CTASection({ onOpenInquiry }) {
+  const { t } = useLanguage();
+
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 my-12" data-aos="fade-up">
       <div className="relative bg-gradient-to-br from-brand-900 via-brand-800 to-brand-950 rounded-3xl p-7 sm:p-9 border border-brand-700 shadow-xl overflow-hidden text-white">
@@ -30,17 +33,17 @@ export default function CTASection({ onOpenInquiry }) {
             <div>
               <div className="flex flex-wrap items-center justify-center sm:justify-start gap-2 mb-2">
                 <span className="text-[10px] font-bold uppercase tracking-wider bg-emerald-400/20 text-emerald-200 border border-emerald-400/30 px-2.5 py-0.5 rounded-full">
-                  CSR Certified (Corporate Donations Accepted)
+                  {t('ctaSection.csrBadge', 'CSR Certified (Corporate Donations Accepted)')}
                 </span>
                 <span className="text-[10px] font-bold uppercase tracking-wider bg-emerald-400/20 text-emerald-200 border border-emerald-400/30 px-2.5 py-0.5 rounded-full">
-                  Claim Money in 80G Government Tax Exemption
+                  {t('ctaSection.taxBadge', 'Claim Money in 80G Government Tax Exemption')}
                 </span>
               </div>
               <h3 className="font-display font-bold text-xl sm:text-2xl text-white leading-snug">
-                Help Us Empower Mentally Challenged & Special Children
+                {t('ctaSection.title', 'Help Us Empower Mentally Challenged & Special Children')}
               </h3>
               <p className="text-xs sm:text-sm text-brand-100/90 mt-1.5 max-w-xl leading-relaxed font-normal">
-                Companies can contribute CSR funds directly for campus development. Individual donors receive official receipts to claim tax deduction from the government.
+                {t('ctaSection.desc', 'Companies can contribute CSR funds directly for campus development. Individual donors receive official receipts to claim tax deduction from the government.')}
               </p>
             </div>
           </div>
@@ -50,10 +53,10 @@ export default function CTASection({ onOpenInquiry }) {
             <button
               type="button"
               onClick={() => onOpenInquiry && onOpenInquiry("Campus Support & Admissions")}
-              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-7 py-3.5 bg-white hover:bg-brand-50 text-brand-950 font-extrabold rounded-full shadow-md hover:shadow-lg transition-all duration-200 text-xs sm:text-sm transform active:scale-95"
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-7 py-3.5 bg-white hover:bg-brand-50 text-brand-950 font-extrabold rounded-full shadow-md hover:shadow-lg transition-all duration-200 text-xs sm:text-sm transform active:scale-95 cursor-pointer"
             >
               <Sprout className="w-4 h-4 text-brand-700" />
-              <span>Donate to the Campus</span>
+              <span>{t('ctaSection.donateBtn', 'Donate to the Campus')}</span>
             </button>
           </div>
 

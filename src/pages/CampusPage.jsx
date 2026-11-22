@@ -4,31 +4,34 @@ import DreamCampusSection from '../components/DreamCampusSection';
 import RegistrationsAndCSR from '../components/RegistrationsAndCSR';
 import CTASection from '../components/CTASection';
 import { Building2, MapPin, Calendar, ShieldCheck, HeartHandshake, Trees, Sparkles, Home } from 'lucide-react';
+import { useLanguage } from '../context/LanguageContext';
 
 export default function CampusPage({ onOpenInquiry }) {
+  const { t, isTelugu } = useLanguage();
+
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
 
   const campusHighlights = [
     {
-      title: "Sensory-Calming Architecture",
-      desc: "Designed with gentle natural lighting, acoustic dampening, and safe soft-cornered rooms.",
+      title: t('campusPage.f1Title', "Sensory-Calming Architecture"),
+      desc: t('campusPage.f1Desc', "Designed with gentle natural lighting, acoustic dampening, and safe soft-cornered rooms."),
       icon: Sparkles
     },
     {
-      title: "Outdoor Sensory Courtyard",
-      desc: "Expansive green walkways, touch gardens, and outdoor activity spaces for peaceful recreation.",
+      title: t('campusPage.f2Title', "Outdoor Sensory Courtyard"),
+      desc: t('campusPage.f2Desc', "Expansive green walkways, touch gardens, and outdoor activity spaces for peaceful recreation."),
       icon: Trees
     },
     {
-      title: "24/7 Residential Care Home",
-      desc: "Warm, supportive boarding suites supervised round-the-clock by trained caregivers.",
+      title: t('campusPage.f3Title', "24/7 Residential Care Home"),
+      desc: t('campusPage.f3Desc', "Warm, supportive boarding suites supervised round-the-clock by trained caregivers."),
       icon: Home
     },
     {
-      title: "Integrated Clinical Therapy Suites",
-      desc: "Equipped with AAC tools, swing frames, sensory mats, and speech articulation stations.",
+      title: t('campusPage.f4Title', "Integrated Clinical Therapy Suites"),
+      desc: t('campusPage.f4Desc', "Equipped with AAC tools, swing frames, sensory mats, and speech articulation stations."),
       icon: ShieldCheck
     }
   ];
@@ -40,31 +43,31 @@ export default function CampusPage({ onOpenInquiry }) {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center" data-aos="fade-up">
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white border-2 border-brand-300 text-xs font-bold text-brand-900 shadow-2xs mb-4">
             <Building2 className="w-4 h-4 text-brand-700" />
-            <span>Permanent Campus Project</span>
+            <span>{t('campusPage.badge', 'Permanent Campus Project')}</span>
           </div>
 
           <h1 className="font-display font-bold text-3xl sm:text-4xl lg:text-5xl text-gray-950 tracking-tight">
-            Our Dream Campus — Jinnaram
+            {t('campusPage.title', 'Our Dream Campus — Jinnaram')}
           </h1>
 
           <p className="mt-4 text-base sm:text-lg text-gray-700 font-medium max-w-2xl mx-auto leading-relaxed">
-            Building a safe, world-class residential sanctuary with personalized learning spaces, therapy suites, and life-skills environments.
+            {t('campusPage.desc', 'Building a safe, world-class residential sanctuary with personalized learning spaces, therapy suites, and life-skills environments.')}
           </p>
 
           <div className="mt-6 flex flex-wrap items-center justify-center gap-4 text-xs text-gray-800 font-semibold">
             <span className="flex items-center gap-1.5">
               <MapPin className="w-4 h-4 text-brand-800" />
-              Jinnaram, Sangareddy Dist, Telangana
+              {t('campusPage.meta1', 'Jinnaram, Sangareddy Dist, Telangana')}
             </span>
             <span className="text-brand-300 hidden sm:inline">•</span>
             <span className="flex items-center gap-1.5">
               <Calendar className="w-4 h-4 text-brand-800" />
-              Completion Target: 31 May 2027
+              {t('campusPage.meta2', 'Completion Target: 31 May 2027')}
             </span>
             <span className="text-brand-300 hidden sm:inline">•</span>
             <span className="flex items-center gap-1.5">
               <HeartHandshake className="w-4 h-4 text-brand-800" />
-              Residential Academy & Care
+              {t('campusPage.meta3', 'Residential Academy & Care')}
             </span>
           </div>
 
@@ -75,7 +78,7 @@ export default function CampusPage({ onOpenInquiry }) {
               className="inline-flex items-center gap-2 px-7 py-3 bg-[#2d7a4d] hover:bg-[#23643e] text-white text-sm font-bold rounded-xl shadow-md hover:shadow-lg transition-all transform hover:scale-[1.02] active:scale-95 cursor-pointer"
             >
               <span className="w-2 h-2 rounded-full bg-emerald-300 animate-pulse"></span>
-              <span>Donate Now for Our Campus</span>
+              <span>{t('common.donateCampus', 'Donate Now for Our Campus')}</span>
             </button>
           </div>
         </div>
@@ -94,7 +97,7 @@ export default function CampusPage({ onOpenInquiry }) {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-2xl mx-auto mb-10">
             <h2 className="font-display font-bold text-2xl sm:text-3xl text-gray-950">
-              Campus Facilities Designed for Neurodivergent Needs
+              {t('campusPage.facilitiesTitle', 'Campus Facilities Designed for Neurodivergent Needs')}
             </h2>
             <div className="w-12 h-1 bg-brand-700 rounded-full mx-auto mt-3" />
           </div>
